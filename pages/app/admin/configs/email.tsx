@@ -95,7 +95,7 @@ const Text = () => {
               <Label className='mt-3'>
                 <span>Email utilizado como remetente:</span>
                 <Input
-                  className='mt-1 rounded'
+                  css='mt-1 rounded'
                   id='emailSettings'
                   disabled={form.isSubmitting}
                   valid={!form.errors.emailSettings}
@@ -117,7 +117,7 @@ const Text = () => {
               <Label className='mt-3'>
                 <span>Nome utilizado para envio dos E-mails:</span>
                 <Input
-                  className='mt-1 rounded'
+                  css='mt-1 rounded'
                   id='nameEmail'
                   disabled={form.isSubmitting}
                   valid={!form.errors.nameEmail}
@@ -139,7 +139,7 @@ const Text = () => {
               <Label className='mt-3'>
                 <span>Endereço de Acesso ao Sistema:</span>
                 <Input
-                  className='mt-1'
+                  css='mt-1'
                   id='configUrl'
                   disabled={form.isSubmitting}
                   valid={!form.errors.configUrl}

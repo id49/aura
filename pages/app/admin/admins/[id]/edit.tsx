@@ -104,7 +104,7 @@ const Edit = () => {
             <Label>
               <span>Nome:</span>
               <Input
-                className='mt-1 rounded'
+                css='mt-1 rounded'
                 id='name'
                 disabled={form.isSubmitting}
                 valid={!form.errors.name}
@@ -125,7 +125,7 @@ const Edit = () => {
             <Label className='mt-3'>
               <span>Email:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='email'
                 disabled={form.isSubmitting}
                 valid={!form.errors.email}
@@ -147,7 +147,7 @@ const Edit = () => {
             <Label className='mt-3'>
               <span>Ativo:</span>
               <Select
-                className='mt-1'
+                css='mt-1'
                 value={form.values.active}
                 onChange={handleSelect}
                 onBlur={handleSelect}

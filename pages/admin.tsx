@@ -98,7 +98,7 @@ const Login = () => {
                     <Label>
                       <span>Email</span>
                       <Input
-                        className='mt-1 border border-opacity-50'
+                        css='mt-1 border border-opacity-50'
                         type='email'
                         id='email'
                         valid={!form.errors.email}
@@ -116,7 +116,7 @@ const Login = () => {
                     <Label className='mt-4'>
                       <span>Senha</span>
                       <Input
-                        className='mt-1 border border-opacity-50'
+                        css='mt-1 border border-opacity-50'
                         type='password'
                         id='password'
                         valid={!form.errors.password}
