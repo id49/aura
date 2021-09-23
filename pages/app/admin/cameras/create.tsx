@@ -71,7 +71,7 @@ const Create = () => {
             <Label>
               <span>Nome:</span>
               <Input
-                className='mt-1 rounded'
+                css='mt-1 rounded'
                 id='name'
                 disabled={form.isSubmitting}
                 valid={!form.errors.name}
@@ -92,7 +92,7 @@ const Create = () => {
             <Label className='mt-3'>
               <span>Nome amigável:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='friendlyName'
                 disabled={form.isSubmitting}
                 valid={!form.errors.friendlyName}
@@ -114,7 +114,7 @@ const Create = () => {
             <Label className='mt-3'>
               <span>URL RTSP:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='url'
                 disabled={form.isSubmitting}
                 valid={!form.errors.url}

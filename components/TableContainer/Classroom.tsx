@@ -104,7 +104,7 @@ const LayersClassroomSelector = ({ id, closeModal, extraId, revalidate }) => {
         <Label className='mt-3'>
           <span>Turma na Layers:</span>
           <Select
-            className='mt-1 border'
+            css='mt-1 border'
             value={form.values.layersId}
             name='layersId'
             onChange={form.handleChange}

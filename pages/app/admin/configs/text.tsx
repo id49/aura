@@ -116,7 +116,7 @@ const Text = () => {
           <form onSubmit={form.handleSubmit}>
             <div className='px-4 py-3 mb-8 bg-gray-100 rounded-lg shadow-md dark:bg-gray-800'>
               <Select
-                className='mt-1'
+                css='mt-1'
                 name='configText'
                 value={form.values.configText}
                 onChange={form.handleChange}
@@ -131,7 +131,7 @@ const Text = () => {
                   <Label className='mt-3'>
                     <span>Título:</span>
                     <Input
-                      className='mt-1 rounded'
+                      css='mt-1 rounded'
                       id='textTitle'
                       disabled={form.isSubmitting}
                       valid={!form.errors.textTitle}
@@ -149,7 +149,7 @@ const Text = () => {
                   <Label className='mt-3'>
                     <span>Descrição:</span>
                     <Textarea
-                      className='mt-1'
+                      css='mt-1'
                       rows={3}
                       id='textDescription'
                       disabled={form.isSubmitting}

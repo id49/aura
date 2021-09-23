@@ -84,7 +84,7 @@ const Edit = () => {
             <Label>
               <span>Nome:</span>
               <Input
-                className='mt-1 rounded'
+                css='mt-1 rounded'
                 id='name'
                 disabled={form.isSubmitting}
                 valid={!form.errors.name}
@@ -105,7 +105,7 @@ const Edit = () => {
             <Label className='mt-3'>
               <span>Descrição:</span>
               <Textarea
-                className='mt-1'
+                css='mt-1'
                 rows={3}
                 id='description'
                 disabled={form.isSubmitting}

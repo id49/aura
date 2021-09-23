@@ -89,7 +89,7 @@ const Edit = () => {
             <Label>
               Nome:
               <Input
-                className='mt-1 rounded'
+                css='mt-1 rounded'
                 id='name'
                 disabled={form.isSubmitting}
                 valid={!form.errors.name}
@@ -113,7 +113,7 @@ const Edit = () => {
             <Label className='mt-3'>
               Nome amigável:
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='friendlyName'
                 disabled={form.isSubmitting}
                 valid={!form.errors.friendlyName}
@@ -138,7 +138,7 @@ const Edit = () => {
             <Label className='mt-3'>
               URL RTSP:
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='url'
                 disabled={form.isSubmitting}
                 valid={!form.errors.url}

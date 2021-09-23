@@ -84,7 +84,7 @@ const Create = () => {
             <Label>
               <span>Nome:</span>
               <Input
-                className='mt-1 rounded'
+                css='mt-1 rounded'
                 id='name'
                 disabled={form.isSubmitting}
                 valid={!form.errors.name}
@@ -101,7 +101,7 @@ const Create = () => {
             <Label className='mt-3'>
               <span>Email:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='email'
                 disabled={form.isSubmitting}
                 valid={!form.errors.email}
@@ -118,7 +118,7 @@ const Create = () => {
             <Label className='mt-3'>
               <span>Senha:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='password'
                 type='password'
                 disabled={form.isSubmitting}
@@ -136,7 +136,7 @@ const Create = () => {
             <Label className='mt-3'>
               <span>Confirmação de Senha:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='confirm'
                 type='password'
                 disabled={form.isSubmitting}

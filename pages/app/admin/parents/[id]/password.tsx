@@ -87,7 +87,7 @@ const Create = () => {
             <Label className='mt-3'>
               <span>Senha:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='password'
                 type='password'
                 disabled={form.isSubmitting}
@@ -105,7 +105,7 @@ const Create = () => {
             <Label className='mt-3'>
               <span>Confirmação de Senha:</span>
               <Input
-                className='mt-1'
+                css='mt-1'
                 id='confirm'
                 type='password'
                 disabled={form.isSubmitting}
