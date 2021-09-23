@@ -2,12 +2,10 @@ import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import dynamic from 'next/dynamic'
 import { AccountContext } from '../../../context/AccountContext'
-import { useAuth } from '../../../context/AuthContext'
 
 import Title from '../../../elements/Title'
 import Head from '../../../elements/Head'
 
-import { usePresence } from '../../../lib/firebase'
 import { useQuery } from '../../../lib/graphql'
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
@@ -67,8 +65,6 @@ const Camera = ({ schedule, camera }) => {
 const ParentsIndex = () => {
   const router = useRouter()
   const account = useContext(AccountContext)
-  const { user } = useAuth()
-  usePresence(account.id, user.id)
 
   return (
     <>

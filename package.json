@@ -14,7 +14,6 @@
   "dependencies": {
     "@learn49/aura-ui": "^0.6.0",
     "date-fns": "^2.17.0",
-    "firebase": "^8.2.7",
     "formik": "^2.2.6",
     "jwt-decode": "^3.1.2",
     "next": "^10.0.5",
