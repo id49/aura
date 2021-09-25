@@ -34,8 +34,7 @@ export const AccountProvider = ({ children, account = {} }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // setSubDomain(window.location.hostname?.split('.')[0])
-      setSubDomain('devpleno.learn49.com')
+      setSubDomain(process.env.NEXT_PUBLIC_ACCOUNT || window.location.hostname)
     }
   }, [])
 
