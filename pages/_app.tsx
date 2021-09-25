@@ -1,7 +1,10 @@
 import React from 'react'
 import { AppProps } from 'next/app'
+import { Provider } from 'urql'
+
 import { AccountProvider } from '../context/AccountContext'
 import { AuthProvider } from '../context/AuthContext'
+import { client } from '../services/urqlClient'
 
 import 'tailwindcss/tailwind.css'
 
@@ -38,12 +41,14 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   }
 
   return (
-    <AccountProvider account={account}>
-      <Layout>
-        <ToastElement />
-        <Component {...pageProps} />
-      </Layout>
-    </AccountProvider>
+    <Provider value={client}>
+      <AccountProvider account={account}>
+        <Layout>
+          <ToastElement />
+          <Component {...pageProps} />
+        </Layout>
+      </AccountProvider>
+    </Provider>
   )
 }
 
