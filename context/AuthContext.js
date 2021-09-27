@@ -39,9 +39,9 @@ export const AuthProvider = ({ children, role }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('refreshToken')
-    if (!token) {
-      window.location = '/'
-    }
+    // if (!token) {
+    //   window.location = '/'
+    // }
     const localTokenData = jwtDecode(token)
     setTokenData(localTokenData)
   }, [])
