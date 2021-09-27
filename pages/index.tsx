@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Label, Input, Button, HelperText } from '@learn49/aura-ui'
+import { client } from '../services/urqlClient'
 import { toast } from 'react-toastify'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -7,7 +8,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import { AccountContext } from '../context/AccountContext'
-import { fetcher, useMutation } from '../lib/graphql'
+import { useMutation } from 'urql'
 
 import Head from '../elements/Head'
 import Logo from '../elements/Logo'
@@ -51,17 +52,17 @@ const Login = () => {
     },
     validationSchema: Schema,
     onSubmit: async (values: FormValues) => {
-      const input = { ...values, accountId: account.id }
-      setLoading(true)
-      const data = await auth(input)
-      if (data && data.authParent) {
-        localStorage.setItem('refreshToken', data.authParent.refreshToken)
-        localStorage.setItem('accessToken', data.authParent.accessToken)
-        router.push('/app/parents')
-      } else {
-        setLoading(false)
-        toast.error('Email e/ou Senha inválida')
-      }
+      // const input = { ...values, accountId: account.id }
+      // setLoading(true)
+      // const data = await auth(input)
+      // if (data && data.authParent) {
+      //   localStorage.setItem('refreshToken', data.authParent.refreshToken)
+      //   localStorage.setItem('accessToken', data.authParent.accessToken)
+      //   router.push('/app/parents')
+      // } else {
+      //   setLoading(false)
+      //   toast.error('Email e/ou Senha inválida')
+      // }
     }
   })
 
@@ -179,54 +180,6 @@ const Login = () => {
       </div>
     </>
   )
-}
-
-const GET_ACCOUNT_BY_DOMAIN = (subDomain) => `
-  query {
-    getAccountSettings(url: "${subDomain}") {
-      id
-      name
-      url
-      logo
-      background
-      homeImage
-      initialImage
-      configText
-      textTitle
-      textDescription
-    }
-  }
-`
-
-export async function getServerSideProps({ req, res }) {
-  try {
-    const subdomain = req.headers.host.split('.')[0]
-    const query = {
-      query: GET_ACCOUNT_BY_DOMAIN(subdomain)
-    }
-    const data = await fetch(process.env.NEXT_PUBLIC_API, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(query)
-    })
-    res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate')
-    const json = await data.json()
-    return {
-      props: {
-        error: false,
-        account: json.data.getAccountSettings
-      }
-    }
-  } catch (err) {
-    return {
-      props: {
-        error: true
-      }
-    }
-  }
 }
 
 export default Login
