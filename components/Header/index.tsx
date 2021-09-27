@@ -17,7 +17,9 @@ const Header = () => {
   const { toggleSidebar } = useContext(SidebarContext)
 
   const handleSignOut = useCallback(async () => {
-    await signOut()
+    // await signOut()
+    localStorage.removeItem('learn49-token')
+    localStorage.removeItem('learn49-user')
     router.push('/')
   }, [signOut])
 

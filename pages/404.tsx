@@ -1,30 +1,28 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import Head from '../elements/Head'
-import { ForbiddenIcon } from '../icons'
 
 const Page404 = () => (
   <>
     <Head title='Página Não Encontrada' />
-    <div className='flex flex-col items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900'>
-      <ForbiddenIcon
-        className='w-12 h-12 mt-8 text-purple-200'
-        aria-hidden='true'
+    <div className='bg-404 bg-cover flex flex-col items-center min-h-screen p-12 bg-gray-50 dark:bg-gray-900'>
+      <Image
+        src='/404/error-404.svg'
+        alt='Not found'
+        height={300}
+        width={300}
       />
-      <h1 className='text-6xl font-semibold text-gray-700 dark:text-gray-200 mt-4'>
+      <h1 className='text-4xl lg:text-6xl font-bold text-white mt-4'>
         Erro 404
       </h1>
-      <p className='text-gray-700 dark:text-gray-300 my-4'>
-        Página Não Encontrada.
-      </p>
-      <p>
-        <Link href='/'>
-          <a className='text-purple-600 hover:underline dark:text-purple-300'>
-            Voltar
-          </a>
-        </Link>
-      </p>
+      <p className='text-white my-4 font-semibold'>Página Não Encontrada</p>
+      <Link href='/'>
+        <a className='bg-purple-600 px-8 lg:px-24 py-2 rounded-md text-white font-semibold hover:bg-purple-500'>
+          Voltar para Principal
+        </a>
+      </Link>
     </div>
   </>
 )

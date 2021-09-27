@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Label, Input, Button, HelperText } from '@learn49/aura-ui'
-import { client } from '../services/urqlClient'
+import Image from 'next/image'
+import Link from 'next/link'
 import { toast } from 'react-toastify'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 import { AccountContext } from '../context/AccountContext'
 import { useMutation } from 'urql'
@@ -15,103 +15,84 @@ import Logo from '../elements/Logo'
 
 interface FormValues {
   email: string
-  password: string
+  passwd: string
 }
 
-const AUTH = `
-  mutation authParent($accountId: Int!, $email: String!, $password: String!) {
-    authParent(input: {
-      accountId: $accountId,
-      email: $email,
-      password: $password
-    })  {
-      refreshToken
-      accessToken
+const AUTH_USER = `
+  mutation($accountId: String!, $UserInput: UserInput!) {
+    auth(accountId: $accountId, input: $UserInput) {
+      user {
+        id
+        firstName
+        lastName
+        email
+        profilePicture
+        role
+      }
+      token
     }
   }
 `
 
-const Schema = Yup.object().shape({
-  email: Yup.string()
-    .email('Preencha um Email Válido')
-    .required('Preenchimento Obrigatório'),
-  password: Yup.string().required('Preenchimento Obrigatório')
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email('Email inválido').required('Campo obrigatório'),
+  passwd: Yup.string().required('Campo obrigatório')
 })
 
 const Login = () => {
-  const router = useRouter()
+  const { push } = useRouter()
   const account = useContext(AccountContext)
-  const [isLoading, setLoading] = useState(false)
-  const [, auth] = useMutation(AUTH)
-  const [background, setBackground] = useState({ url: '', config: '' })
+  const [, auth] = useMutation(AUTH_USER)
+
+  useEffect(() => {
+    const token = localStorage.getItem('learn49-token')
+    if (token) {
+      push('/app')
+    }
+  }, [])
+
+  const onSubmit = async (values: FormValues) => {
+    const input = { UserInput: { ...values }, accountId: account.id }
+    try {
+      const { data } = await auth(input)
+      if (!data) {
+        toast.error('Usuário e/ou senha inválidos.')
+        return
+      }
+      localStorage.setItem('learn49-token', data.auth.token)
+      localStorage.setItem('learn49-user', JSON.stringify(data.auth.user))
+      push('/app')
+    } catch (e) {
+      toast.error('Erro ao tentar operação')
+    }
+  }
 
   const form = useFormik({
     initialValues: {
       email: '',
-      password: ''
+      passwd: ''
     },
-    validationSchema: Schema,
-    onSubmit: async (values: FormValues) => {
-      // const input = { ...values, accountId: account.id }
-      // setLoading(true)
-      // const data = await auth(input)
-      // if (data && data.authParent) {
-      //   localStorage.setItem('refreshToken', data.authParent.refreshToken)
-      //   localStorage.setItem('accessToken', data.authParent.accessToken)
-      //   router.push('/app/parents')
-      // } else {
-      //   setLoading(false)
-      //   toast.error('Email e/ou Senha inválida')
-      // }
-    }
+    validationSchema,
+    onSubmit
   })
-
-  useEffect(() => {
-    if (account.background) {
-      const configs = JSON.parse(account.background)
-      setBackground(configs)
-    }
-  }, [account])
 
   return (
     <>
-      <Head title={`${account.name} - Login`} />
-      <div
-        className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${background.config}`}
-        style={{ backgroundImage: `url(${background.url})` }}
-      >
+      <Head title={`${account.friendlyName} - Login`} />
+      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900`}>
         <Logo />
-        <div
-          className={`flex items-center 
-            ${account.logo ? 'p-6 lg:mt-6' : 'pt-10 md:pt-2 lg:pt-14'}
-          `}
-        >
+        <div className='flex items-center pt-10 md:pt-2 lg:pt-14'>
           <div className='flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800'>
             <div className='flex flex-col overflow-y-auto md:flex-row'>
-              <div
-                className='flex bg-cover bg-center w-full md:w-1/2 h-64 md:h-auto'
-                style={{
-                  backgroundImage: account.homeImage
-                    ? `url(${account.homeImage})`
-                    : 'url(/img/login-office.jpeg)'
-                }}
-              ></div>
+              <div className='bg-initial flex bg-cover bg-center w-full md:w-1/2 h-64 md:h-auto'></div>
               <main className='flex itembg-cover bg-centers-center justify-center p-6 sm:px-8 md:w-1/2'>
                 <div className='w-full'>
-                  {(account.configText > 0 || account.configText === null) && (
-                    <>
-                      <h1 className='mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200 capitalize'>
-                        {account.configText === 2
-                          ? account.textTitle
-                          : account.name}
-                      </h1>
-                      {account.configText === 2 && (
-                        <p className='text-gray-500 -mt-5 mb-3'>
-                          {account.textDescription}
-                        </p>
-                      )}
-                    </>
-                  )}
+                  <h1 className='mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200 capitalize'>
+                    {account.friendlyName}
+                  </h1>
+                  <p className='text-gray-500 -mt-5 mb-3'>
+                    Faça seu login ou cadastre-se
+                  </p>
                   <form onSubmit={form.handleSubmit}>
                     <Label>
                       <span>Email</span>
@@ -136,42 +117,43 @@ const Login = () => {
                       <Input
                         css='mt-1 border border-opacity-50 border-gray-200'
                         type='password'
-                        id='password'
-                        valid={!form.errors.password}
+                        id='passwd'
+                        valid={!form.errors.passwd}
                         placeholder='Digite sua senha'
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
-                      {form.errors.password && (
+                      {form.errors.passwd && (
                         <HelperText className='text-red-300'>
-                          {form.errors.password}
+                          {form.errors.passwd}
                         </HelperText>
                       )}
                     </Label>
-
                     <Button
                       className='mt-4'
                       block
                       type={'submit'}
-                      disabled={isLoading}
+                      disabled={form.isSubmitting}
                     >
-                      {isLoading ? 'Aguarde...' : 'Entrar'}
+                      {form.isSubmitting ? 'Aguarde...' : 'Entrar'}
                     </Button>
                   </form>
                   <hr className='my-3' />
-                  <p className='flex justify-between'>
-                    <Link href='/admin'>
-                      <a className='text-sm cursor-pointer font-medium text-purple-600 dark:text-purple-400 hover:underline'>
-                        Acesso Administrativo
+                  <div className='flex justify-between'>
+                    <Link href='/signup'>
+                      <a className='text-sm text-gray-500 hover:text-gray-600 hover:underline cursor-pointer'>
+                        Criar Conta
                       </a>
                     </Link>
-                    <a
-                      href='https://alunotv.com.br'
-                      className='text-gray-200 text-right'
-                    >
-                      <img src='/alunotv.png' />
-                    </a>
-                  </p>
+                    <div className='text-right'>
+                      <Image
+                        src='/devpleno.svg'
+                        alt='Logo'
+                        height={25}
+                        width={81}
+                      />
+                    </div>
+                  </div>
                 </div>
               </main>
             </div>

@@ -7,7 +7,7 @@ interface Props {
 
 const CustomHead = ({ title }: Props) => (
   <Head>
-    <title>{title} - Aluno.Tv</title>
+    <title>{title} - Learn49</title>
     <meta name='viewport' content='initial-scale=1.0, width=device-width' />
   </Head>
 )

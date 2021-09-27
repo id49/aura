@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 const Footer = () => {
@@ -18,18 +19,18 @@ const Footer = () => {
           rel='noreferrer'
           className='cursor-pointer hover:bg-gray-500 hover:text-white p-1 rounded'
         >
-          Aluno.Tv
+          Learn49
         </a>{' '}
-        <a
+        {/* <a
           onClick={showTerms}
           className='ml-4 cursor-pointer hover:bg-gray-500 hover:text-white p-1 rounded'
         >
           Termos de Uso
-        </a>
+        </a> */}
       </p>
       <div className='flex -mx-2 text-white mr-4 font-bold'>
-        <a href='https://alunotv.com.br' className='text-gray-200 text-right'>
-          <img src='/alunotv.png' />
+        <a href='https://devpleno.com.' className='text-gray-200 text-right'>
+          <Image src='/devpleno.svg' alt='Logo' height={15} width={80} />
         </a>
       </div>
     </footer>
