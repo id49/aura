@@ -19,7 +19,7 @@ module.exports = windmill({
       },
       backgroundImage: {
         404: 'url(/404/bg.png)',
-        initial: 'url(/img/login-office.jpeg)'
+        initial: 'url(/login.png)'
       }
     }
   }
