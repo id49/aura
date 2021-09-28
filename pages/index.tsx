@@ -41,7 +41,7 @@ const validationSchema = Yup.object().shape({
 
 const Login = () => {
   const { push } = useRouter()
-  const account = useContext(AccountContext)
+  const { id, friendlyName } = useContext(AccountContext)
   const [, auth] = useMutation(AUTH_USER)
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const Login = () => {
   }, [])
 
   const onSubmit = async (values: FormValues) => {
-    const input = { UserInput: { ...values }, accountId: account.id }
+    const input = { UserInput: { ...values }, accountId: id }
     try {
       const { data } = await auth(input)
       if (!data) {
@@ -78,17 +78,17 @@ const Login = () => {
 
   return (
     <>
-      <Head title={`${account.friendlyName} - Login`} />
+      <Head title={`${friendlyName} - Login`} />
       <div className={`min-h-screen bg-gray-50 dark:bg-gray-900`}>
         <Logo />
-        <div className='flex items-center pt-10 md:pt-2 lg:pt-14'>
-          <div className='flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800'>
+        <div className='flex items-center pt-10 md:pt-0 lg:pt-14'>
+          <div className='flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white lg:rounded-lg shadow-xl dark:bg-gray-800'>
             <div className='flex flex-col overflow-y-auto md:flex-row'>
               <div className='bg-initial flex bg-cover bg-center w-full md:w-1/2 h-64 md:h-auto'></div>
-              <main className='flex itembg-cover bg-centers-center justify-center p-6 sm:px-8 md:w-1/2'>
+              <main className='flex justify-center p-6 sm:px-8 md:w-1/2'>
                 <div className='w-full'>
-                  <h1 className='mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200 capitalize'>
-                    {account.friendlyName}
+                  <h1 className='mb-4 text-xl font-semibold text-gray-600 dark:text-gray-200 capitalize'>
+                    {friendlyName}
                   </h1>
                   <p className='text-gray-500 -mt-5 mb-3'>
                     Faça seu login ou cadastre-se
@@ -138,11 +138,16 @@ const Login = () => {
                       {form.isSubmitting ? 'Aguarde...' : 'Entrar'}
                     </Button>
                   </form>
+                  <Link href='/signup'>
+                    <Button tag='a' className='mt-4' layout='outline' block>
+                      Criar Conta
+                    </Button>
+                  </Link>
                   <hr className='my-3' />
                   <div className='flex justify-between'>
-                    <Link href='/signup'>
-                      <a className='text-sm text-gray-500 hover:text-gray-600 hover:underline cursor-pointer'>
-                        Criar Conta
+                    <Link href='/forgot'>
+                      <a className='text-sm text-gray-500 hover:text-gray-600 hover:underline cursor-pointer font-semibold'>
+                        Esqueceu sua Senha?
                       </a>
                     </Link>
                     <div className='text-right'>
