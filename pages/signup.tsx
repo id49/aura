@@ -48,7 +48,7 @@ const SignUp = () => {
   const [confirmEmail, setConfirmEmail] = useState(false)
   const { id, friendlyName, recaptchaSiteKey } = useContext(AccountContext)
   const [, create] = useMutation(CREATE_USER)
-  const captchaRef = useRef()
+  const captchaRef = useRef(null)
   const [siteKey, setSiteKey] = useState('')
 
   const production = process.env.NEXT_PUBLIC_RECAPTCHA !== '--bypass--'
