@@ -11,7 +11,7 @@ import ToastElement from '../elements/Toast'
 import AdminLayout from '../layouts/AdminLayout'
 import ParentLayout from '../layouts/ParentLayout'
 
-const nonAuthenticate = ['/', '/signup', '/404', '/terms', '/admin']
+const nonAuthenticate = ['/', '/signup', '/forgot', '/404', '/terms', '/admin']
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const { account } = pageProps
