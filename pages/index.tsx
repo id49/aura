@@ -81,88 +81,84 @@ const Login = () => {
       <Head title={`${friendlyName} - Login`} />
       <div className={`min-h-screen bg-gray-50 dark:bg-gray-900`}>
         <Logo />
-        <div className='flex items-center pt-10 md:pt-0 lg:pt-14'>
-          <div className='flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white lg:rounded-lg shadow-xl dark:bg-gray-800'>
-            <div className='flex flex-col overflow-y-auto md:flex-row'>
-              <div className='bg-initial flex bg-cover bg-center w-full md:w-1/2 h-64 md:h-auto'></div>
-              <main className='flex justify-center p-6 sm:px-8 md:w-1/2'>
-                <div className='w-full'>
-                  <h1 className='mb-4 text-xl font-semibold text-gray-600 dark:text-gray-200 capitalize'>
-                    {friendlyName}
-                  </h1>
-                  <p className='text-gray-500 -mt-5 mb-3'>
-                    Faça seu login ou cadastre-se
-                  </p>
-                  <form onSubmit={form.handleSubmit}>
-                    <Label>
-                      <span>Email</span>
-                      <Input
-                        css='mt-1 border border-opacity-50'
-                        type='email'
-                        id='email'
-                        valid={form.submitCount == 0 || !form.errors.email}
-                        placeholder='Digite seu email'
-                        onChange={form.handleChange}
-                        onBlur={form.handleBlur}
-                      />
-                      {form.errors.email && (
-                        <HelperText className='text-red-300'>
-                          {form.errors.email}
-                        </HelperText>
-                      )}
-                    </Label>
+        <div className='flex flex-col h-screen overflow-y-auto md:flex-row'>
+          <div className='bg-initial flex bg-cover bg-center w-full md:w-1/2 h-64 md:h-auto'></div>
+          <main className='flex justify-center items-center p-6 sm:px-8 md:w-1/2'>
+            <div className='w-full max-w-lg'>
+              <h1 className='mb-4 text-xl font-semibold text-gray-600 dark:text-gray-200 capitalize'>
+                {friendlyName}
+              </h1>
+              <p className='text-gray-500 -mt-5 mb-3'>
+                Faça seu login ou cadastre-se
+              </p>
+              <form onSubmit={form.handleSubmit}>
+                <Label>
+                  <span>Email</span>
+                  <Input
+                    css='mt-1 border border-opacity-50'
+                    type='email'
+                    id='email'
+                    valid={form.submitCount == 0 || !form.errors.email}
+                    placeholder='Digite seu email'
+                    onChange={form.handleChange}
+                    onBlur={form.handleBlur}
+                  />
+                  {form.errors.email && (
+                    <HelperText className='text-red-300'>
+                      {form.errors.email}
+                    </HelperText>
+                  )}
+                </Label>
 
-                    <Label className='mt-4'>
-                      <span>Senha</span>
-                      <Input
-                        css='mt-1 border border-opacity-50 border-gray-200'
-                        type='password'
-                        id='passwd'
-                        valid={!form.errors.passwd}
-                        placeholder='Digite sua senha'
-                        onChange={form.handleChange}
-                        onBlur={form.handleBlur}
-                      />
-                      {form.errors.passwd && (
-                        <HelperText className='text-red-300'>
-                          {form.errors.passwd}
-                        </HelperText>
-                      )}
-                    </Label>
-                    <Button
-                      className='mt-4'
-                      block
-                      type={'submit'}
-                      disabled={form.isSubmitting}
-                    >
-                      {form.isSubmitting ? 'Aguarde...' : 'Entrar'}
-                    </Button>
-                  </form>
-                  <Link href='/signup'>
-                    <Button tag='a' className='mt-4' layout='outline' block>
-                      Criar Conta
-                    </Button>
-                  </Link>
-                  <hr className='my-3' />
-                  <div className='flex justify-between'>
-                    <Link href='/forgot'>
-                      <a className='text-sm text-gray-500 hover:text-gray-600 hover:underline cursor-pointer font-semibold'>
-                        Esqueceu sua Senha?
-                      </a>
-                    </Link>
-                    <div className='text-right'>
-                      <Image
-                        src='/devpleno.svg'
-                        alt='Logo'
-                        height={25}
-                        width={81}
-                      />
-                    </div>
-                  </div>
+                <Label className='mt-4'>
+                  <span>Senha</span>
+                  <Input
+                    css='mt-1 border border-opacity-50 border-gray-200'
+                    type='password'
+                    id='passwd'
+                    valid={!form.errors.passwd}
+                    placeholder='Digite sua senha'
+                    onChange={form.handleChange}
+                    onBlur={form.handleBlur}
+                  />
+                  {form.errors.passwd && (
+                    <HelperText className='text-red-300'>
+                      {form.errors.passwd}
+                    </HelperText>
+                  )}
+                </Label>
+                <Button
+                  className='mt-4'
+                  block
+                  type={'submit'}
+                  disabled={form.isSubmitting}
+                >
+                  {form.isSubmitting ? 'Aguarde...' : 'Entrar'}
+                </Button>
+              </form>
+              <Link href='/signup'>
+                <Button tag='a' className='mt-4' layout='outline' block>
+                  Criar Conta
+                </Button>
+              </Link>
+              <hr className='my-3' />
+              <div className='flex justify-between'>
+                <Link href='/forgot'>
+                  <a className='text-sm text-gray-500 hover:text-gray-600 hover:underline cursor-pointer font-semibold'>
+                    Esqueceu sua Senha?
+                  </a>
+                </Link>
+                <div className='text-right'>
+                  <Image
+                    src='/devpleno.svg'
+                    alt='Logo'
+                    height={25}
+                    width={81}
+                  />
                 </div>
-              </main>
+              </div>
             </div>
-          </div>
+          </main>
         </div>
       </div>
     </>
