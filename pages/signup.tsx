@@ -220,6 +220,7 @@ const SignUp = () => {
                     <Button
                       className='mt-4'
                       block
+                      size='large'
                       type={'submit'}
                       disabled={form.isSubmitting}
                     >

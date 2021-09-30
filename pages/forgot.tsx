@@ -84,6 +84,7 @@ const Forgot = () => {
                 </Label>
                 <Button
                   className='mt-4 mb-14'
+                  size='large'
                   block
                   type={'submit'}
                   disabled={form.isSubmitting}

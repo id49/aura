@@ -129,6 +129,7 @@ const Login = () => {
                 </Label>
                 <Button
                   className='mt-4'
+                  size='large'
                   block
                   type={'submit'}
                   disabled={form.isSubmitting}
@@ -137,7 +138,13 @@ const Login = () => {
                 </Button>
               </form>
               <Link href='/signup'>
-                <Button tag='a' className='mt-4' layout='outline' block>
+                <Button
+                  className='mt-4'
+                  size='large'
+                  tag='a'
+                  block
+                  layout='outline'
+                >
                   Criar Conta
                 </Button>
               </Link>
