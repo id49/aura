@@ -8,7 +8,7 @@ import { AuthProvider } from '../context/AuthContext'
 import { client, authClient } from '../services/urqlClient'
 
 import ToastElement from '../elements/Toast'
-import AdminLayout from '../layouts/AdminLayout'
+// import AdminLayout from '../layouts/AdminLayout'
 import StudentsLayout from '../layouts/StudentsLayout'
 
 const nonAuthenticate = [
@@ -23,13 +23,13 @@ const nonAuthenticate = [
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const { account } = pageProps
 
-  const AdminAuthenticatedLayout = ({ children }) => (
-    <Provider value={authClient}>
-      <AuthProvider role='owner'>
-        <AdminLayout>{children}</AdminLayout>
-      </AuthProvider>
-    </Provider>
-  )
+  // const AdminAuthenticatedLayout = ({ children }) => (
+  //   <Provider value={authClient}>
+  //     <AuthProvider role='owner'>
+  //       <AdminLayout>{children}</AdminLayout>
+  //     </AuthProvider>
+  //   </Provider>
+  // )
   const StudentsAuthenticatedLayout = ({ children }) => (
     <Provider value={authClient}>
       <AuthProvider role='user'>

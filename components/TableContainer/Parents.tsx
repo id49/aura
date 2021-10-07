@@ -46,24 +46,18 @@ const EDIT_PARENT = `
 }
 `
 
-const REMOVE_PARENT = `
-  mutation panelDeleteParent($id: Int!) {
-    panelDeleteParent(id: $id)
-  }
-`
-
 const TableContainerCustom = ({ data, revalidate }: Props) => {
   const router = useRouter()
   const [isModalOpen, setIsModalOpen] = useState({ state: false, id: null })
   const [, edit] = useMutation(EDIT_PARENT)
-  const [, remove] = useMutation(REMOVE_PARENT)
+  // const [, remove] = useMutation(REMOVE_PARENT)
 
   const handleRemove = (id) => () => {
     setIsModalOpen({ state: true, id })
   }
 
-  const actionModal = async (id) => {
-    const result = await remove({ id })
+  const actionModal = async () => {
+    // const result = await remove({ id })
     revalidate()
     //TODO: Como checar isso?
     // if (data && data.panelCreateUser) {
@@ -161,9 +155,8 @@ const TableContainerCustom = ({ data, revalidate }: Props) => {
                 <TableCell>
                   <span className='flex space-x-4 justify-end'>
                     <ActionButton
-                      alt={`${
-                        parent.active ? 'Desativar' : 'Ativar'
-                      } Responsável`}
+                      alt={`
+                      ${parent.active ? 'Desativar' : 'Ativar'} Responsável`}
                       onClick={handleChangeStatus(parent.id, !parent.active)}
                     >
                       {parent.active && (

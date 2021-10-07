@@ -13,8 +13,6 @@ import { useRouter } from 'next/router'
 import ActionButton from '../../elements/ActionButton'
 import { Computer, EditIcon, TrashIcon } from '../../icons'
 
-import { useMutation } from '../../lib/graphql'
-
 interface Props {
   data: EachCamera[]
   revalidate: () => Promise<boolean>
@@ -26,23 +24,16 @@ interface EachCamera {
   friendlyName: string
 }
 
-const REMOVE_CAMERA = `
-  mutation panelDeleteCamera($id: Int!) {
-    panelDeleteCamera(id: $id)
-  }
-`
-
 const TableContainerCustom = ({ data, revalidate }: Props) => {
   const router = useRouter()
   const [isModalOpen, setIsModalOpen] = useState({ state: false, id: null })
-  const [user, remove] = useMutation(REMOVE_CAMERA)
 
   const handleRemove = (id) => () => {
     setIsModalOpen({ state: true, id })
   }
 
-  const actionModal = async (id) => {
-    const result = await remove({ id })
+  const actionModal = async () => {
+    // const result = await remove({ id })
     revalidate()
     //TODO: Como checar isso?
     // if (data && data.panelCreateUser) {

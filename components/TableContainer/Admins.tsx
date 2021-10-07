@@ -34,12 +34,6 @@ interface EachAdmin {
   extraId: string
 }
 
-const REMOVE_ADMIN = `
-  mutation panelDeleteAdmin($id: Int!) {
-    panelDeleteAdmin(id: $id)
-  }
-`
-
 const EDIT_ADMIN = `
   mutation panelUpdateAdmin($id: Int!, $active: Boolean!) {
     panelUpdateAdmin(input: {
@@ -55,14 +49,14 @@ const TableContainerCustom = ({ data, revalidate }: Props) => {
   const router = useRouter()
   const [isModalOpen, setIsModalOpen] = useState({ state: false, id: null })
   const [, edit] = useMutation(EDIT_ADMIN)
-  const [, remove] = useMutation(REMOVE_ADMIN)
+  // const [, remove] = useMutation(REMOVE_ADMIN)
 
   const handleRemove = (id) => () => {
     setIsModalOpen({ state: true, id })
   }
 
-  const actionModal = async (id) => {
-    const result = await remove({ id })
+  const actionModal = async () => {
+    // const result = await remove({ id })
     revalidate()
     //TODO: Como checar isso?
     // if (data && data.panelCreateUser) {
@@ -143,9 +137,8 @@ const TableContainerCustom = ({ data, revalidate }: Props) => {
                 <TableCell>
                   <span className='flex space-x-4 justify-end'>
                     <ActionButton
-                      alt={`${
-                        admin.active ? 'Desativar' : 'Ativar'
-                      } Administrador`}
+                      alt={`
+                      ${admin.active ? 'Desativar' : 'Ativar'} Administrador`}
                       onClick={handleChangeStatus(admin.id, !admin.active)}
                     >
                       {admin.active && (

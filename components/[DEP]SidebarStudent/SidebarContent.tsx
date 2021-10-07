@@ -8,44 +8,6 @@ import { useQuery } from '../../lib/graphql'
 
 import Logo from '../../elements/Logo'
 
-const routes = [
-  {
-    path: '/app/admin',
-    icon: 'HomeIcon',
-    name: 'Dashboard'
-  },
-  {
-    path: '/app/admin/cameras',
-    icon: 'VideoCamera',
-    name: 'Câmeras'
-  },
-  {
-    path: '/app/admin/admins',
-    icon: 'PeopleIcon2',
-    name: 'Administradores'
-  },
-  {
-    path: '/app/admin/parents',
-    icon: 'User',
-    name: 'Responsáveis'
-  },
-  {
-    path: '/app/admin/classroom',
-    icon: 'AcademicCap2',
-    name: 'Turmas'
-  },
-  {
-    path: '/app/admin/configs',
-    icon: 'FormsIcon',
-    name: 'Configurações'
-  },
-  {
-    path: '/app/admin/stats',
-    icon: 'ChartsIcon',
-    name: 'Estatísticas'
-  }
-]
-
 const GET_SCHEDULES = `
   query {
     getAllSchedules{
@@ -82,7 +44,7 @@ const SubMenu = ({ schedule }) => {
   const router = useRouter()
   const currentSchedule = router.query.s
   const currentCamera = router.query.c
-  const [isDropdownMenuOpen, setDropdown] = useState(true)
+  const [isDropdownMenuOpen] = useState(true)
   const checkSelected = (schedule, camera) => {
     if (
       schedule === Number(currentSchedule) &&
@@ -144,17 +106,9 @@ const SubMenu = ({ schedule }) => {
 }
 
 const SidebarContent = () => {
-  const { pathname } = useRouter()
   const { data } = useQuery(GET_SCHEDULES, {
     refreshInterval: 60 * 1000
   })
-
-  const isItemMenuSelected = (path) => {
-    if (pathname === '/app/admin' && path === '/app/admin') {
-      return true
-    }
-    return path !== '/app/admin' && pathname.startsWith(path)
-  }
 
   return (
     <div className='text-gray-500 dark:text-gray-400'>

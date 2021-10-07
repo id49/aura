@@ -42,12 +42,6 @@ interface EachCamera {
   extraId: string
 }
 
-const REMOVE_CLASSROOM = `
-  mutation panelDeleteClass($id: Int!) {
-    panelDeleteClass(id: $id)
-  }
-`
-
 const GET_ALL_LAYERS_CLASSROOMS = `
   query{
     panelGetAllLayersGroups {
@@ -157,7 +151,7 @@ const TableContainerCustom = ({ data, revalidate }: Props) => {
     id: null,
     extraId: null
   })
-  const [, remove] = useMutation(REMOVE_CLASSROOM)
+  // const [, remove] = useMutation(REMOVE_CLASSROOM)
 
   const handleRemove = (id) => () => {
     setIsModalOpen({ state: true, id })
@@ -166,8 +160,8 @@ const TableContainerCustom = ({ data, revalidate }: Props) => {
     setIsLinkModalOpen({ state: true, id, extraId })
   }
 
-  const actionModal = async (id) => {
-    const result = await remove({ id })
+  const actionModal = async () => {
+    // const result = await remove({ id })
     revalidate()
     //TODO: Como checar isso?
     // if (data && data.panelCreateUser) {

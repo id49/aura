@@ -1,12 +1,6 @@
-import React, { useContext, useState } from 'react'
-import { MoonIcon, SunIcon, BellIcon, OutlineLogoutIcon } from '../../icons'
-import {
-  WindmillContext,
-  Avatar,
-  Badge,
-  Dropdown,
-  DropdownItem
-} from '@learn49/aura-ui'
+import React, { useState } from 'react'
+import { BellIcon, OutlineLogoutIcon } from '../../icons'
+import { Avatar, Badge, Dropdown, DropdownItem } from '@learn49/aura-ui'
 
 // import { SidebarContext } from '../../context/SidebarContext'
 import { useAuth } from '../../context/AuthContext'
@@ -14,7 +8,7 @@ import Logo from '../../elements/Logo'
 
 const Header = () => {
   const { user, signOut } = useAuth()
-  const { mode, toggleMode } = useContext(WindmillContext)
+  // const { mode, toggleMode } = useContext(WindmillContext)
   // const { toggleSidebar } = useContext(SidebarContext)
 
   const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false)
