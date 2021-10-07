@@ -13,7 +13,7 @@ export const authClient = createClient({
     cacheExchange,
     authExchange({
       addAuthToOperation: ({ authState, operation }) => {
-        if (!authState || !authState?.token) {
+        if (!authState || !authState.token) {
           return operation
         }
 
