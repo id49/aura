@@ -3,21 +3,21 @@ import { Windmill } from '@learn49/aura-ui'
 import { SidebarProvider } from '../context/SidebarContext'
 
 import Header from '../components/Header'
-import SidebarParent from '../components/SidebarParent'
+// import SidebarStudent from '../components/SidebarStudent'
 import Footer from '../components/Footer'
 
 interface Props {
   children: JSX.Element[]
 }
 
-const AuthLayout = ({ children }: Props) => {
+const StudentLayout = ({ children }: Props) => {
   return (
     <>
       <SidebarProvider>
-        {/* //TODO: Removing usePreferences */}
+        {/* usePreferences */}
         <Windmill>
           <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
-            <SidebarParent />
+            {/* <SidebarStudent /> */}
             <div className='flex flex-col flex-1 w-full'>
               <Header />
               <main className='h-full overflow-y-auto'>
@@ -32,4 +32,4 @@ const AuthLayout = ({ children }: Props) => {
   )
 }
 
-export default AuthLayout
+export default StudentLayout
