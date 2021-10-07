@@ -10,7 +10,7 @@ const Footer = () => {
   // }
 
   return (
-    <footer className='flex flex-col justify-between items-center px-6 py-2 bg-gray-300 dark:bg-gray-800 sm:flex-row'>
+    <footer className='flex flex-col justify-between 2xl:justify-around items-center px-6 py-2 bg-gray-300 dark:bg-gray-800 sm:flex-row'>
       <p className='py-2 text-gray-500 sm:py-0 uppercase font-light text-sm'>
         Copyright ©{' '}
         <a
