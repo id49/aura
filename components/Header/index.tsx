@@ -92,6 +92,7 @@ const Header = () => {
             >
               <Avatar
                 className='align-middle'
+                size='regular'
                 src={user.profilePicture || '/navbar/profile-empty.png'}
                 alt={user.firstName}
                 aria-hidden='true'
