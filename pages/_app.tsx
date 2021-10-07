@@ -5,11 +5,11 @@ import 'tailwindcss/tailwind.css'
 
 import { AccountProvider } from '../context/AccountContext'
 import { AuthProvider } from '../context/AuthContext'
-import { client } from '../services/urqlClient'
+import { client, authClient } from '../services/urqlClient'
 
 import ToastElement from '../elements/Toast'
 import AdminLayout from '../layouts/AdminLayout'
-import ParentLayout from '../layouts/ParentLayout'
+import StudentsLayout from '../layouts/StudentsLayout'
 
 const nonAuthenticate = [
   '/',
@@ -17,45 +17,48 @@ const nonAuthenticate = [
   '/forgot',
   '/reset-password/[...ids]',
   '/404',
-  '/terms',
-  '/admin'
+  '/terms'
 ]
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const { account } = pageProps
 
   const AdminAuthenticatedLayout = ({ children }) => (
-    <AuthProvider role='admin'>
-      <AdminLayout> {children} </AdminLayout>
-    </AuthProvider>
+    <Provider value={authClient}>
+      <AuthProvider role='owner'>
+        <AdminLayout>{children}</AdminLayout>
+      </AuthProvider>
+    </Provider>
   )
-  const ParentAuthenticatedLayout = ({ children }) => (
-    <AuthProvider role='parent'>
-      <ParentLayout> {children} </ParentLayout>
-    </AuthProvider>
+  const StudentsAuthenticatedLayout = ({ children }) => (
+    <Provider value={authClient}>
+      <AuthProvider role='user'>
+        <StudentsLayout>{children}</StudentsLayout>
+      </AuthProvider>
+    </Provider>
   )
-  const DefaultLayout = ({ children }) => children
+  const DefaultLayout = ({ children }) => (
+    <Provider value={client}>{children}</Provider>
+  )
 
   let Layout = null
   if (nonAuthenticate.includes(router.pathname)) {
     Layout = DefaultLayout
   }
-  if (router.pathname.startsWith('/app')) {
-    Layout = AdminAuthenticatedLayout
-  }
-  // if (router.pathname.startsWith('/app/parents')) {
-  //   Layout = ParentAuthenticatedLayout
+  // if (router.pathname.startsWith('/app/admin')) {
+  //   Layout = AdminAuthenticatedLayout
   // }
+  if (router.pathname.startsWith('/app')) {
+    Layout = StudentsAuthenticatedLayout
+  }
 
   return (
-    <Provider value={client}>
+    <Layout>
       <AccountProvider account={account}>
-        <Layout>
-          <ToastElement />
-          <Component {...pageProps} />
-        </Layout>
+        <ToastElement />
+        <Component {...pageProps} />
       </AccountProvider>
-    </Provider>
+    </Layout>
   )
 }
 
