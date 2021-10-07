@@ -33,7 +33,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
       <StudentsLayout>{children}</StudentsLayout>
     </AuthProvider>
   )
-  const DefaultLayout = ({ children }) => ({ children })
+  const DefaultLayout = ({ children }) => children
 
   let Layout = null
   if (nonAuthenticate.includes(router.pathname)) {
