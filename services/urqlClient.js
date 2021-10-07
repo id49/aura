@@ -2,10 +2,6 @@ import { createClient, dedupExchange, cacheExchange, fetchExchange } from 'urql'
 import { makeOperation } from '@urql/core'
 import { authExchange } from '@urql/exchange-auth'
 
-export const client = createClient({
-  url: process.env.NEXT_PUBLIC_API
-})
-
 export const authClient = createClient({
   url: process.env.NEXT_PUBLIC_API,
   exchanges: [

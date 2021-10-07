@@ -48,22 +48,22 @@ export const AccountProvider = ({ children, account = {} }) => {
     return <Waiting />
   }
 
-  if (!Object.keys(currentAccount).length) {
+  if (Object.keys(currentAccount).length > 0) {
     return (
-      <>
-        <Head title='Account Not Found' />
-        <div className='text-center mt-10'>
-          <h1>Conta não encontrada!</h1>
-          <p>Em caso de dúvidas, entre em contato por: contato@id49.com</p>
-        </div>
-      </>
+      <AccountContext.Provider value={{ ...currentAccount, setAccount }}>
+        {children}
+      </AccountContext.Provider>
     )
   }
 
   return (
-    <AccountContext.Provider value={{ ...currentAccount, setAccount }}>
-      {children}
-    </AccountContext.Provider>
+    <>
+      <Head title='Account Not Found' />
+      <div className='text-center mt-10'>
+        <h1>Conta não encontrada!</h1>
+        <p>Em caso de dúvidas, entre em contato por: contato@id49.com</p>
+      </div>
+    </>
   )
 }
 

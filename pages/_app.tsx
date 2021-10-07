@@ -24,22 +24,16 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const { account } = pageProps
 
   // const AdminAuthenticatedLayout = ({ children }) => (
-  //   <Provider value={authClient}>
   //     <AuthProvider role='owner'>
   //       <AdminLayout>{children}</AdminLayout>
   //     </AuthProvider>
-  //   </Provider>
   // )
   const StudentsAuthenticatedLayout = ({ children }) => (
-    <Provider value={authClient}>
-      <AuthProvider role='user'>
-        <StudentsLayout>{children}</StudentsLayout>
-      </AuthProvider>
-    </Provider>
+    <AuthProvider role='user'>
+      <StudentsLayout>{children}</StudentsLayout>
+    </AuthProvider>
   )
-  const DefaultLayout = ({ children }) => (
-    <Provider value={authClient}>{children}</Provider>
-  )
+  const DefaultLayout = ({ children }) => ({ children })
 
   let Layout = null
   if (nonAuthenticate.includes(router.pathname)) {
@@ -53,12 +47,14 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   }
 
   return (
-    <Layout>
+    <Provider value={authClient}>
       <AccountProvider account={account}>
-        <ToastElement />
-        <Component {...pageProps} />
+        <Layout>
+          <ToastElement />
+          <Component {...pageProps} />
+        </Layout>
       </AccountProvider>
-    </Layout>
+    </Provider>
   )
 }
 
