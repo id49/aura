@@ -91,7 +91,7 @@ const Header = () => {
               aria-haspopup='true'
             >
               <Avatar
-                className='align-middle'
+                className='align-middle w-6 h-6'
                 size='regular'
                 src={user.profilePicture || '/navbar/profile-empty.png'}
                 alt={user.firstName}
