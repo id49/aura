@@ -11,7 +11,6 @@ import ReCaptcha from 'react-google-recaptcha'
 import { AccountContext } from '../context/AccountContext'
 
 import Head from '../elements/Head'
-import Logo from '../elements/Logo'
 import ConfirmEmail from '../components/ConfirmEmail'
 
 interface FormValues {
@@ -100,7 +99,6 @@ const SignUp = () => {
     <>
       <Head title={`${friendlyName} - Login`} />
       <div className={`min-h-screen bg-gray-50 dark:bg-gray-900`}>
-        <Logo />
         <div className='flex flex-col h-screen overflow-y-auto md:flex-row'>
           <div className='bg-initial flex bg-cover bg-center w-full md:w-1/2 h-64 md:h-auto'></div>
           <main className='flex justify-center items-center p-6 sm:px-8 md:w-1/2'>

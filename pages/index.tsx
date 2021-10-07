@@ -11,7 +11,6 @@ import { AccountContext } from '../context/AccountContext'
 import { useMutation } from 'urql'
 
 import Head from '../elements/Head'
-import Logo from '../elements/Logo'
 
 interface FormValues {
   email: string
@@ -60,6 +59,7 @@ const Login = () => {
         return
       }
       localStorage.setItem('learn49-token', data.auth.token)
+      //TODO: rever recebimento deste user
       localStorage.setItem('learn49-user', JSON.stringify(data.auth.user))
       push('/app')
     } catch (e) {
@@ -78,9 +78,8 @@ const Login = () => {
 
   return (
     <>
-      <Head title={`${friendlyName} - Login`} />
+      <Head title={[friendlyName, 'Login'].filter((x) => x).join(' - ')} />
       <div className={`min-h-screen bg-gray-50 dark:bg-gray-900`}>
-        <Logo />
         <div className='flex flex-col h-screen overflow-y-auto md:flex-row'>
           <div className='bg-initial flex bg-cover bg-center w-full md:w-1/2 h-64 md:h-auto'></div>
           <main className='flex justify-center items-center p-6 sm:px-8 md:w-1/2'>
