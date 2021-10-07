@@ -5,7 +5,7 @@ import 'tailwindcss/tailwind.css'
 
 import { AccountProvider } from '../context/AccountContext'
 import { AuthProvider } from '../context/AuthContext'
-import { client, authClient } from '../services/urqlClient'
+import { authClient } from '../services/urqlClient'
 
 import ToastElement from '../elements/Toast'
 // import AdminLayout from '../layouts/AdminLayout'
@@ -38,7 +38,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
     </Provider>
   )
   const DefaultLayout = ({ children }) => (
-    <Provider value={client}>{children}</Provider>
+    <Provider value={authClient}>{children}</Provider>
   )
 
   let Layout = null
