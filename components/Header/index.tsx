@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { BellIcon, OutlineLogoutIcon } from '../../icons'
 import { Avatar, Badge, Dropdown, DropdownItem } from '@learn49/aura-ui'
 
@@ -33,7 +34,11 @@ const Header = () => {
         >
           <MenuIcon className='w-6 h-6' aria-hidden='true' />
         </button> */}
-        <Logo />
+        <Link href='/app'>
+          <a>
+            <Logo />
+          </a>
+        </Link>
         <ul className='flex items-center flex-shrink-0 space-x-6'>
           {/* <!-- Theme toggler --> */}
           {/* <li className='flex'>
