@@ -66,7 +66,7 @@ const Dashboard = () => {
         <Title text='Suporte' subText='Avance ainda mais rápido' />
         <div className='bg-gray-200 rounded-sm flex flex-col md:flex-row gap-4 py-2 px-2'>
           <SuppCardOne />
-          <div className='flex flex-col w-full justify-between gap-10'>
+          <div className='flex flex-col w-full justify-between gap-4'>
             <SuppCardTwo />
             <SuppCardThree />
           </div>

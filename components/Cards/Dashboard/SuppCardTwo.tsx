@@ -1,10 +1,17 @@
 import { Card, CardBody } from '@learn49/aura-ui'
+import Image from 'next/image'
 
 const SuppCardTwo = () => (
-  <Card className='flex h-3/4'>
-    <img className='object-fill w-1/3' src='/login.png' />
+  <Card className='flex'>
+    <Image
+      className='object-cover'
+      alt='Suporte'
+      src='/login.png'
+      height={200}
+      width={600}
+    />
     <CardBody>
-      <p className='mb-4 text-3xl font-bold text-gray-600 dark:text-gray-300'>
+      <p className='mb-4 text-2xl font-bold text-gray-600 dark:text-gray-300'>
         Office Hours
       </p>
       <p className='text-gray-600 dark:text-gray-400'>
