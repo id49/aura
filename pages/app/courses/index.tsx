@@ -10,10 +10,16 @@ const Courses = () => {
     <>
       <Head title='Fullstack Master' />
       <Badge className='mt-2 md:mt-6 py-1 px-6'>Explorador</Badge>
-      <section className='mt-2 pb-6 flex flex-col md:flex-row md:gap-20'>
-        <div className='order-1 md:order-none md:w-2/3'>
+      <Badge>Explorador</Badge>
+      <section className='mt-2 pb-6 flex flex-col md:flex-row md:gap-4'>
+        <div
+          className='order-1 md:order-none md:w-2/3'
+          style={{
+            order: 1
+          }}
+        >
           <div className='py-3'>
-            <p className='text-3xl font-extrabold text-gray-800'>
+            <p className='text-2xl font-extrabold text-gray-800'>
               Fullstack Master
             </p>
           </div>
@@ -62,7 +68,7 @@ const Courses = () => {
             desejem aprender a desenvolver uma aplicação do zero
           </p>
         </div>
-        <div className='order-0 md:order-none md:w-1/3'>
+        <div className='order-0 md:order-none md:w-2/6'>
           <img
             className='rounded-lg'
             src='https://res.cloudinary.com/codersociety/image/fetch/f_webp,ar_16:9,c_fill,w_1140/https://cdn.codersociety.com/uploads/graphql-reasons.png'
