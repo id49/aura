@@ -2,12 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const windmill = require('@learn49/aura-ui/config')
 
 module.exports = windmill({
-  purge: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './elements/**/*.{js,ts,jsx,tsx}',
-    './layouts/**/*.{js,ts,jsx,tsx}'
-  ],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
