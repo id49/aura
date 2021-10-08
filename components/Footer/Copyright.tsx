@@ -1,7 +1,7 @@
 const Copyright = () => (
   <section className='py-4 flex flex-col md:flex-row justify-between md:items-center'>
     <div>
-      <p className='text-sm font-semibold mb-2'>Copyright © 2020 Devpleno.</p>
+      <p className='text-sm font-semibold mb-2'>Copyright © 2021 Devpleno.</p>
       <p className='text-xs'>Todos os direitos reservados. </p>
       <p className='text-xs'>
         Um produto We Dev Ideas / CNPJ: 06.189.599/0001-30
