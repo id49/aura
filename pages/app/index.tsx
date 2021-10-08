@@ -57,7 +57,7 @@ const Dashboard = () => {
         subText='Mini cursos específicos e direto ao ponto'
       />
       <div className='flex flex-wrap gap-4 py-4'>
-        {[0, 1, 2, 3, 4].map((each, i) => (
+        {[0, 1, 2].map((each, i) => (
           <CardTemplate key={i} />
         ))}
       </div>
