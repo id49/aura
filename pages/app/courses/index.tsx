@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import Head from '../../../elements/Head'
 import Title from '../../../elements/Title'
-import { Badge, Button } from '@learn49/aura-ui'
+import { Button } from '@learn49/aura-ui'
 
 const Courses = () => {
   return (
@@ -12,7 +12,6 @@ const Courses = () => {
       <div className='inline-flex text-xs font-medium leading-5 rounded-full text-purple-700 bg-purple-200 mt-2 md:mt-6 py-1 px-6'>
         Explorador
       </div>
-      <Badge type='danger'>Teste</Badge>
       <section className='mt-2 pb-6 flex flex-col md:flex-row md:gap-4 lg:gap-10'>
         <div className='order-1 md:order-none md:w-2/3'>
           <div className='py-3'>
