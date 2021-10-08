@@ -2,8 +2,14 @@ import { Card, CardBody } from '@learn49/aura-ui'
 import Image from 'next/image'
 
 const CardTemplate = () => (
-  <Card className='flex flex-col md:flex-row w-full hover:bg-gray-200 cursor-pointer'>
-    <img className='md:w-1/3' src='/img/implementacionApi.png' />
+  <Card className='flex flex-col md:flex-row gap-2 md:gap-10 w-full hover:bg-gray-200 cursor-pointer'>
+    <Image
+      className='object-cover w-1/4'
+      src='/img/implementacionApi.png'
+      width={300}
+      height={300}
+      layout='intrinsic'
+    />
     <CardBody>
       <p className='font-bold text-2xl text-gray-600 dark:text-gray-300'>
         Fullstack Master
