@@ -7,7 +7,7 @@ const Copyright = () => (
         Um produto We Dev Ideas / CNPJ: 06.189.599/0001-30
       </p>
     </div>
-    <div className='flex gap-6 justify-center items-center my-4'>
+    <div className='flex gap-4 justify-center items-center my-4'>
       <a href='https://www.instagram.com/devpleno/' target='_blank'>
         <svg
           width='20'
