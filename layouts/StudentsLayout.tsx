@@ -20,10 +20,10 @@ const StudentLayout = ({ children }: Props) => {
             {/* <SidebarStudent /> */}
             <div className='flex flex-col flex-1 w-full'>
               <Header />
-              <main className='h-full overflow-y-auto'>
-                <div className='container px-6 mx-auto'>{children}</div>
+              <main className='flex flex-col h-screen overflow-y-auto'>
+                <div className='flex-1'>{children}</div>
+                <Footer />
               </main>
-              <Footer />
             </div>
           </div>
         </Windmill>

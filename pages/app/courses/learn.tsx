@@ -1,25 +1,36 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Input } from '@learn49/aura-ui'
 
 import Head from '../../../elements/Head'
 import Title from '../../../elements/Title'
-import { Button } from '@learn49/aura-ui'
-import CardTemplate from '../../../components/Cards/Dashboard/CardTemplate'
 
-const Courses = () => {
+const Learn = () => {
   return (
-    <div className='container px-6 mx-auto'>
+    <>
       <Head title='Fullstack Master' />
-      <div className='inline-flex text-xs font-medium leading-5 rounded-full text-purple-700 bg-purple-200 mt-2 md:mt-6 py-1 px-6'>
-        Explorador
-      </div>
-      <section className='mt-2 pb-6 flex flex-col md:flex-row md:gap-4 lg:gap-10'>
-        <div className='order-1 md:order-none md:w-2/3'>
+      <section className='pb-6 flex flex-col lg:flex-row xl:container xl:mx-auto md:gap-2'>
+        <div className='lg:w-2/3 xl:w-3/4 m-2'>
+          <div className='h-96 bg-gray-200 flex place-items-center justify-center'>
+            <p>Video</p>
+          </div>
           <div className='py-3'>
             <p className='text-2xl font-extrabold text-gray-800'>
               Fullstack Master
             </p>
+            <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p>
+          </div>
+          <div className='flex items-center gap-2 pb-4'>
+            <Image
+              className='rounded-full'
+              src='/navbar/profile-empty.png'
+              height={50}
+              width={50}
+            />
+            <div className='flex flex-col text-gray-600'>
+              <p className='font-thin text-sm'>Instrutor</p>
+              <p className='font-semibold'>Tulio Faria</p>
+            </div>
           </div>
           <Title text='Descrição' />
           <p className='text-sm my-2'>
@@ -53,61 +64,20 @@ const Courses = () => {
             curso te dará uma visão bastante robusta sobre desenvolvimento Web
             com Javascript! Seja muito bem vindo!
           </p>
-          <Title text='Requisitos' />
-          <p className='text-sm my-2'>
-            É importante que o aluno conheça o básico da linguagem Javascript É
-            importante que o aluno conheça o básico de HTML
-          </p>
-          <Title text='Indicado Para Quem?' />
-          <p className='text-sm my-2'>
-            Programadores Javascript que desejem aprender a desenvolver
-            aplicações profissionais Programadores que desejem aprender React
-            Programadores que desejem aprender React com Redux Programadores que
-            desejem aprender a desenvolver uma aplicação do zero
-          </p>
-          <div className='py-20'>
-            <Title
-              text='Aprenda mais!'
-              subText='Aprofunde seus conhecimentos'
-            />
-            <div className='flex flex-wrap gap-4 py-4'>
-              {[0, 1, 2].map((each, i) => (
-                <CardTemplate key={i} />
-              ))}
-            </div>
-          </div>
         </div>
-        <div className='order-0 md:order-none md:w-1/3'>
-          <img
-            className='rounded-lg'
-            src='https://res.cloudinary.com/codersociety/image/fetch/f_webp,ar_16:9,c_fill,w_1140/https://cdn.codersociety.com/uploads/graphql-reasons.png'
-          />
-          <div className='py-5'>
-            <Link href='courses/learn'>
-              <Button size='large' block>
-                Começar Agora
-              </Button>
-            </Link>
-            <div className='flex items-center gap-2 mt-5 md:mt-8 bg-gray-200 rounded-md py-4 px-2'>
-              <Image
-                className='rounded-full'
-                src='/navbar/profile-empty.png'
-                height={50}
-                width={50}
-              />
-              <div className='flex flex-col text-gray-600'>
-                <p className='font-thin text-sm'>Instrutor</p>
-                <p className='font-semibold'>Tulio Faria</p>
-              </div>
-            </div>
+        <div className='lg:w-1/3 xl:w-1/4 mt-2'>
+          <div className='py-2 px-2 bg-gray-200 rounded-l-xl'>
             <div className='mt-5'>
               <Title text='Conteúdo' />
-              <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p>
+
               <div className='py-4'>
                 {[1, 2, 3].map((e) => (
-                  <div key={e} className='flex py-0.5'>
-                    <div className='w-6'>0{e}</div>
-                    <div className='font-semibold'>Tópico Aqui</div>
+                  <div key={e} className='flex py-0.5 items-center gap-2'>
+                    {e % 2 === 0 && <Input css='' type='checkbox' checked />}
+                    {e % 2 !== 0 && <Input css='' type='checkbox' />}
+                    <div className='font-semibold flex'>
+                      <div className='w-6'>0{e}.</div> Tópico Aqui
+                    </div>
                   </div>
                 ))}
               </div>
@@ -115,8 +85,8 @@ const Courses = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 
-export default Courses
+export default Learn

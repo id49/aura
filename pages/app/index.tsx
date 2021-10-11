@@ -46,7 +46,7 @@ const Dashboard = () => {
   const { data } = result
 
   return (
-    <>
+    <div className='container px-6 mx-auto'>
       <Head title='Dashboard' />
       <Title text='Destaque' />
       <CardTemplateOne />
@@ -89,7 +89,7 @@ const Dashboard = () => {
           {JSON.stringify(data)}
         </p>
       )} */}
-    </>
+    </div>
   )
 }
 
