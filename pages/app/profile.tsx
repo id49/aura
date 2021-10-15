@@ -37,11 +37,6 @@ const Profile = () => {
     onSubmit
   })
 
-  console.log(user)
-  if (Object.keys(user).length < 0) {
-    return <div>Carregando dados...</div>
-  }
-
   return (
     <>
       <Head title='Perfil' />
@@ -54,14 +49,14 @@ const Profile = () => {
             </div>
           </div>
           <div className='w-full md:w-5/6 py-6 px-4'>
-            <Title text='Meu Perfil' />
-            <div className='my-4'>
+            <div className='mt-2 mb-6 py-4 px-2 bg-gray-200 rounded-lg'>
               <p className='font-semibold text-gray-600 dark:text-gray-300'>
                 {[user.firstName, user.lastName].filter((x) => x).join(' ')}
               </p>
               <p className='text-gray-600 dark:text-gray-400'>{user.email}</p>
             </div>
-            <form onSubmit={form.handleSubmit}>
+            <Title text='Meu Perfil' />
+            <form className='mt-4' onSubmit={form.handleSubmit}>
               <div className='flex flex-col md:flex-row justify-between gap-4'>
                 <Label className='w-full'>
                   <span>Primeiro Nome</span>

@@ -2,10 +2,9 @@ import React, { useContext } from 'react'
 
 import Head from '../../elements/Head'
 import Title from '../../elements/Title'
+import CardHero from '../../components/Cards/Dashboard/CardHero'
+import CardSubHero from '../../components/Cards/Dashboard/CardSubHero'
 import CardTemplate from '../../components/Cards/Dashboard/CardTemplate'
-import CardTemplateOne from '../../components/Cards/Dashboard/TemplateOne'
-import CardTemplateTwo from '../../components/Cards/Dashboard/TemplateTwo'
-import { useAuth } from '../../context/AuthContext'
 import { AccountContext } from '../../context/AccountContext'
 import { useQuery } from 'urql'
 
@@ -14,8 +13,8 @@ import SuppCardTwo from '../../components/Cards/Dashboard/SuppCardTwo'
 import SuppCardThree from '../../components/Cards/Dashboard/SuppCardThree'
 import Copyright from '../../components/Footer/Copyright'
 
-const GET_COURSE = `
-  query getCourses($accountId: String!, $limit: Float!, $offset: Float!) {
+const HOME_QUERY = `
+  query getHome($accountId: String!, $limit: Float!, $offset: Float!) {
     getCourses(accountId: $accountId, limit: $limit, offset: $offset) {
       id
       title
@@ -25,17 +24,15 @@ const GET_COURSE = `
       progress
       versions
       latestVersion
-      latestVersionAccessed
     }
   }
 `
 
 const Dashboard = () => {
-  const { user } = useAuth()
   const { id: accountId } = useContext(AccountContext)
 
   const [result] = useQuery({
-    query: GET_COURSE,
+    query: HOME_QUERY,
     requestPolicy: 'network-only',
     variables: {
       accountId,
@@ -43,15 +40,29 @@ const Dashboard = () => {
       offset: 0
     }
   })
-  const { data } = result
+  const { data, fetching } = result
+
+  if (fetching) {
+    return (
+      <div className='container px-6 py-6 mx-auto'>
+        <Head title='Dashboard' />
+        <Title text='Carregando dados...' />
+      </div>
+    )
+  }
 
   return (
-    <div className='container px-6 mx-auto'>
+    <div className='container px-6 py-6 mx-auto'>
       <Head title='Dashboard' />
       <Title text='Destaque' />
-      <CardTemplateOne />
+      {JSON.stringify(data.getCourses)}
+      <CardHero {...data.getCourses[0]} />
       <Title text='Evolua ainda mais' subText='Aperfeiçoe seus conhecimentos' />
-      <CardTemplateTwo />
+      <CardSubHero
+        courseOne={data.getCourses[1] || {}}
+        courseTwo={data.getCourses[2] || {}}
+        courseThree={data.getCourses[3] || {}}
+      />
       <Title
         text='Especialize-se!'
         subText='Mini cursos específicos e direto ao ponto'
