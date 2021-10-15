@@ -1,13 +1,50 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
-import Head from '../../../elements/Head'
-import Title from '../../../elements/Title'
+import { useQuery } from 'urql'
+import { useRouter } from 'next/router'
 import { Button } from '@learn49/aura-ui'
-import CardTemplate from '../../../components/Cards/Dashboard/CardTemplate'
+
+import { AccountContext } from '../../../../../context/AccountContext'
+import Head from '../../../../../elements/Head'
+import Title from '../../../../../elements/Title'
+import CardTemplate from '../../../../../components/Cards/Dashboard/CardTemplate'
+
+const GET_COURSE = `
+  query getCourse($accountId: String!, $courseId: String!) {
+    getCourse(accountId: $accountId, courseId: $courseId) {
+      id
+      title
+      description
+      progress
+    }
+  }
+`
 
 const Courses = () => {
+  const router = useRouter()
+  const { id: accountId } = useContext(AccountContext)
+  const { courseId, courseVersionId } = router.query
+
+  const [result] = useQuery({
+    query: GET_COURSE,
+    variables: {
+      accountId,
+      courseId,
+      courseVersionId
+    }
+  })
+  const { data, fetching } = result
+
+  if (fetching) {
+    return (
+      <div className='container px-6 py-6 mx-auto'>
+        <Head title='Carregando dados...' />
+        <Title text='Carregando dados...' />
+      </div>
+    )
+  }
+
   return (
     <div className='container px-6 mx-auto'>
       <Head title='Fullstack Master' />
@@ -23,29 +60,30 @@ const Courses = () => {
           </div>
           <Title text='Descrição' />
           <p className='text-sm my-2'>
-            O principal objetivo de um desenvolvedor de software é sem dúvida
-            construir aplicações, então que tal construir duas aplicação do
-            absoluto zero usando o principal framework web do mercado? A
-            proposta do curso de React é te guiar passo a passo na construções
-            de duas aplicações completas, mas se você ainda está iniciando no
-            mundo do React, não tem problema porque antes de entrarmos no
-            desenvolvimento das aplicações, serão apresentados vários exercícios
-            para ensinar os fundamentos de Webpack, React, Redux e todo o
-            ecossistema envolvido no processo. Inclusive tecnologias de backend,
-            como Node, Express e MongoDB. Falaremos desde o básico, mostrando os
-            primeiros passos, até assuntos complexos como geração de formulários
-            dinâmicos e middlewares. Curso 100% prático, mas sempre deixando
-            muito claro os conceitos essenciais para que o aluno aprenda os
-            princípios associados à prática. Neste curso também você vai
-            aprender os principais fundamentos e conceitos do NextJS. O NextJS
-            nada mais é do que um framework para React, a principal biblioteca
-            para desenvolvimento web. As principais funcionalidades do Next são
-            a renderização estática e pelo lado do servidor (SSR), possuir
-            suporte para o TypeScript e um serviço próprio de tratamento de
-            rotas. Teremos uma aplicação para Criação, Leitura, Edição e Remoção
-            de dados, o famoso CRUD (Create, Read, Update, Delete) com NextJS.
-            Utilizando o Firebase e Firestore como banco de dados, utilizando
-            também o TailwindCSS para criar o visual do projeto e integrando com
+            {JSON.stringify(data)}O principal objetivo de um desenvolvedor de
+            software é sem dúvida construir aplicações, então que tal construir
+            duas aplicação do absoluto zero usando o principal framework web do
+            mercado? A proposta do curso de React é te guiar passo a passo na
+            construções de duas aplicações completas, mas se você ainda está
+            iniciando no mundo do React, não tem problema porque antes de
+            entrarmos no desenvolvimento das aplicações, serão apresentados
+            vários exercícios para ensinar os fundamentos de Webpack, React,
+            Redux e todo o ecossistema envolvido no processo. Inclusive
+            tecnologias de backend, como Node, Express e MongoDB. Falaremos
+            desde o básico, mostrando os primeiros passos, até assuntos
+            complexos como geração de formulários dinâmicos e middlewares. Curso
+            100% prático, mas sempre deixando muito claro os conceitos
+            essenciais para que o aluno aprenda os princípios associados à
+            prática. Neste curso também você vai aprender os principais
+            fundamentos e conceitos do NextJS. O NextJS nada mais é do que um
+            framework para React, a principal biblioteca para desenvolvimento
+            web. As principais funcionalidades do Next são a renderização
+            estática e pelo lado do servidor (SSR), possuir suporte para o
+            TypeScript e um serviço próprio de tratamento de rotas. Teremos uma
+            aplicação para Criação, Leitura, Edição e Remoção de dados, o famoso
+            CRUD (Create, Read, Update, Delete) com NextJS. Utilizando o
+            Firebase e Firestore como banco de dados, utilizando também o
+            TailwindCSS para criar o visual do projeto e integrando com
             TypeScript. Tudo isso será mostrado e explicado durante a seção,
             desde a criação do projeto, a instalação das dependências,
             configuração e integração com o banco de dados e também a integração
@@ -83,7 +121,7 @@ const Courses = () => {
             src='https://res.cloudinary.com/codersociety/image/fetch/f_webp,ar_16:9,c_fill,w_1140/https://cdn.codersociety.com/uploads/graphql-reasons.png'
           />
           <div className='py-5'>
-            <Link href='courses/learn'>
+            <Link href='/app/courses/learn'>
               <Button size='large' block>
                 Começar Agora
               </Button>
