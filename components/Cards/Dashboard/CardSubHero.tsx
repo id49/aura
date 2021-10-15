@@ -2,15 +2,27 @@ import { Card, CardBody } from '@learn49/aura-ui'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const CardTemplateTwo = () => (
+interface CourseValues {
+  id: string
+  title: string
+  description: string
+}
+
+interface PropsValues {
+  courseOne: CourseValues
+  courseTwo: CourseValues
+  courseThree: CourseValues
+}
+
+const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
   <div className='flex flex-col md:flex-row gap-4 my-4 w-full'>
-    {[0, 1, 2].map((e) => (
-      <Link href='/app/courses'>
-        <Card key={e} className='py-4 hover:bg-gray-200  cursor-pointer'>
+    {[courseOne, courseTwo, courseThree].map(({ id, title, description }) => (
+      <Link key={id} href='/app/courses'>
+        <Card className='py-4 hover:bg-gray-200 cursor-pointer'>
           <img src='/img/implementacionApi.png' />
           <CardBody>
             <p className='font-bold text-2xl text-gray-600 dark:text-gray-300'>
-              Fullstack Master
+              {title}
             </p>
             <div className='flex items-center gap-2 my-2'>
               <Image
@@ -21,12 +33,7 @@ const CardTemplateTwo = () => (
               />
               <p className='font-semibold text-gray-600'>Tulio Faria</p>
             </div>
-            <p className='text-gray-600 dark:text-gray-400'>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga,
-              cum commodi a omnis numquam quod? Totam exercitationem quos hic
-              ipsam at qui cum numquam, sed amet ratione! Ratione, nihil
-              dolorum.
-            </p>
+            <p className='text-gray-600 dark:text-gray-400'>{description}</p>
           </CardBody>
         </Card>
       </Link>
@@ -34,4 +41,4 @@ const CardTemplateTwo = () => (
   </div>
 )
 
-export default CardTemplateTwo
+export default CardSubHero
