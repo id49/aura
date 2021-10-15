@@ -59,7 +59,6 @@ const Login = () => {
         return
       }
       localStorage.setItem('learn49-token', data.auth.token)
-      //TODO: rever recebimento deste user
       localStorage.setItem('learn49-user', JSON.stringify(data.auth.user))
       push('/app')
     } catch (e) {
