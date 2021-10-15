@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
-import { Input } from '@learn49/aura-ui'
+import { Input, Transition } from '@learn49/aura-ui'
 
 import Head from '../../../elements/Head'
 import Title from '../../../elements/Title'
 
 const Learn = () => {
+  const [isDropdownMenuOpen, setIsDropdownMenuOpen] = useState(false)
+
+  const handleDropdownMenuClick = () => {
+    setIsDropdownMenuOpen(!isDropdownMenuOpen)
+  }
+
   return (
     <>
       <Head title='Fullstack Master' />
@@ -66,20 +72,102 @@ const Learn = () => {
           </p>
         </div>
         <div className='lg:w-1/3 xl:w-1/4 mt-2'>
-          <div className='py-2 px-2 bg-gray-200 rounded-l-xl'>
-            <div className='mt-5'>
+          <div className='py-2 px-2 bg-gray-200 rounded-l-xl xl:rounded-xl'>
+            <div className='mt-1'>
               <Title text='Conteúdo' />
-
-              <div className='py-4'>
-                {[1, 2, 3].map((e) => (
-                  <div key={e} className='flex py-0.5 items-center gap-2'>
-                    {e % 2 === 0 && <Input css='' type='checkbox' checked />}
-                    {e % 2 !== 0 && <Input css='' type='checkbox' />}
-                    <div className='font-semibold flex'>
-                      <div className='w-6'>0{e}.</div> Tópico Aqui
-                    </div>
-                  </div>
-                ))}
+              <div className='py-2'>
+                <div className='relative px-1 py-3 bg-purple-300 rounded-lg hover:bg-purple-400'>
+                  <button
+                    className='inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 pr-3'
+                    onClick={handleDropdownMenuClick}
+                    aria-haspopup='true'
+                  >
+                    <span className='inline-flex items-center'>
+                      <span className='ml-1'>Topico</span>
+                    </span>
+                    <Image
+                      src={'/forms/dropdown.svg'}
+                      width={16}
+                      height={16}
+                      alt='Show more'
+                    />
+                  </button>
+                  <Transition
+                    show={isDropdownMenuOpen}
+                    enter='transition-all ease-in-out duration-300'
+                    enterFrom='opacity-25 max-h-0'
+                    enterTo='opacity-100 max-h-xl'
+                    leave='transition-all ease-in-out duration-300'
+                    leaveFrom='opacity-100 max-h-xl'
+                    leaveTo='opacity-0 max-h-0'
+                  >
+                    <ul
+                      className='p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900'
+                      aria-label='submenu'
+                    >
+                      {[1, 2, 3].map((e) => (
+                        <div
+                          key={e}
+                          className='flex items-center gap-2 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer'
+                        >
+                          {e % 2 === 0 && (
+                            <Input css='' type='checkbox' checked />
+                          )}
+                          {e % 2 !== 0 && <Input css='' type='checkbox' />}
+                          <div className='font-semibold flex'>
+                            <div className='w-6'>0{e}.</div> Tópico Aqui
+                          </div>
+                        </div>
+                      ))}
+                    </ul>
+                  </Transition>
+                </div>
+                <div className='relative px-1 py-3 mt-1 bg-purple-300 rounded-lg hover:bg-purple-400'>
+                  <button
+                    className='inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 pr-3'
+                    onClick={handleDropdownMenuClick}
+                    aria-haspopup='true'
+                  >
+                    <span className='inline-flex items-center'>
+                      <span className='ml-1'>Topico</span>
+                    </span>
+                    <Image
+                      src={'/forms/dropdown.svg'}
+                      width={16}
+                      height={16}
+                      alt='Show more'
+                    />
+                  </button>
+                  <Transition
+                    show={isDropdownMenuOpen}
+                    enter='transition-all ease-in-out duration-300'
+                    enterFrom='opacity-25 max-h-0'
+                    enterTo='opacity-100 max-h-xl'
+                    leave='transition-all ease-in-out duration-300'
+                    leaveFrom='opacity-100 max-h-xl'
+                    leaveTo='opacity-0 max-h-0'
+                  >
+                    <ul
+                      className='p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900'
+                      aria-label='submenu'
+                    >
+                      {[1, 2, 3].map((e) => (
+                        <div
+                          key={e}
+                          className='flex items-center gap-2 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer'
+                        >
+                          {e % 2 === 0 && (
+                            <Input css='' type='checkbox' checked />
+                          )}
+                          {e % 2 !== 0 && <Input css='' type='checkbox' />}
+                          <div className='font-semibold flex'>
+                            <div className='w-6'>0{e}.</div> Tópico Aqui
+                          </div>
+                        </div>
+                      ))}
+                    </ul>
+                  </Transition>
+                </div>
               </div>
             </div>
           </div>
