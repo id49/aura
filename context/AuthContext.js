@@ -16,6 +16,7 @@ export const AuthProvider = ({ children, role }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('learn49-token')
+    const user = localStorage.getItem('learn49-user')
     if (!token) {
       window.location = '/'
     }
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children, role }) => {
     if (localTokenData.role !== role) {
       signOut()
     }
-    setData(localTokenData)
+    setData(JSON.parse(user))
   }, [])
 
   const signOut = useCallback(async () => {
