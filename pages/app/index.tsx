@@ -11,7 +11,7 @@ import { useQuery } from 'urql'
 import SuppCardOne from '../../components/Cards/Dashboard/SuppCardOne'
 import SuppCardTwo from '../../components/Cards/Dashboard/SuppCardTwo'
 import SuppCardThree from '../../components/Cards/Dashboard/SuppCardThree'
-import Copyright from '../../components/Footer/Copyright'
+import Copyright from '../../components/Copyright'
 
 const HOME_QUERY = `
   query getHome($accountId: String!, $limit: Float!, $offset: Float!) {

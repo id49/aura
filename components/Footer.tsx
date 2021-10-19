@@ -1,14 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-// import { useRouter } from 'next/router'
 
 const Footer = () => {
-  // const router = useRouter()
-
-  // const showTerms = () => {
-  //   router.push('/terms')
-  // }
-
   return (
     <footer className='flex flex-col justify-between items-center px-6 py-2 bg-gray-300 dark:bg-gray-800 sm:flex-row'>
       <p className='py-2 text-gray-500 sm:py-0 uppercase font-light text-sm'>
@@ -29,7 +22,7 @@ const Footer = () => {
         </a> */}
       </p>
       <div className='flex -mx-2 text-white mr-4 font-bold'>
-        <a href='https://devpleno.com.' className='text-gray-200 text-right'>
+        <a href='https://devpleno.com' className='text-gray-200 text-right'>
           <Image src='/devpleno.svg' alt='Logo' height={15} width={80} />
         </a>
       </div>

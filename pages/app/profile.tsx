@@ -1,11 +1,11 @@
 import React from 'react'
 
+import Head from '../../elements/Head'
 import AvatarProfile from '../../components/Profile/Avatar'
 import CardProfile from '../../components/Profile/CardProfile'
 import FormProfile from '../../components/Profile/FormProfile'
 import FormSecurity from '../../components/Profile/FormSecurity'
-import Copyright from '../../components/Footer/Copyright'
-import Head from '../../elements/Head'
+import Copyright from '../../components/Copyright'
 
 const Profile = () => {
   return (
