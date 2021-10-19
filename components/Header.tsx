@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { BellIcon, OutlineLogoutIcon, OutlineCogIcon } from '../icons'
+import { BellIcon, OutlineLogoutIcon, OutlineCogIcon, User } from '../icons'
 import { Avatar, Badge, Dropdown, DropdownItem } from '@learn49/aura-ui'
 
 // import { SidebarContext } from '../context/SidebarContext'
@@ -63,7 +63,7 @@ const Header = () => {
               aria-label='Notifications'
               aria-haspopup='true'
             >
-              <BellIcon className='w-5 h-5' aria-hidden='true' />
+              <BellIcon className='w-6 h-6' aria-hidden='true' />
               <span
                 aria-hidden='true'
                 className='absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800'
@@ -95,13 +95,21 @@ const Header = () => {
               aria-label='Account'
               aria-haspopup='true'
             >
-              <Avatar
-                className='align-middle w-6 h-6'
-                size='regular'
-                src={user.profilePicture || '/navbar/profile-empty.png'}
-                alt={user.firstName}
-                aria-hidden='true'
-              />
+              {user.profilePicture && (
+                <Avatar
+                  className='align-middle w-6 h-6'
+                  size='regular'
+                  src={user.profilePicture}
+                  alt={user.firstName}
+                  aria-hidden='true'
+                />
+              )}
+              {!user.profilePicture && (
+                <User
+                  className='w-8 h-8 bg-purple-600 rounded-full text-white p-1'
+                  aria-hidden='true'
+                />
+              )}
             </button>
             <Dropdown
               align='right'

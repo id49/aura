@@ -55,7 +55,6 @@ const Dashboard = () => {
     <div className='container px-6 py-6 mx-auto'>
       <Head title='Dashboard' />
       <Title text='Destaque' />
-      {JSON.stringify(data.getCourses)}
       <CardHero {...data.getCourses[0]} />
       <Title text='Evolua ainda mais' subText='Aperfeiçoe seus conhecimentos' />
       <CardSubHero
@@ -85,21 +84,6 @@ const Dashboard = () => {
       </section>
 
       <Copyright />
-      {/* {data && (
-        <p>
-          User:
-          <br />
-          {JSON.stringify(user)}
-          <br />
-          <br />
-          AccountID: {accountId}
-          <br />
-          <br />
-          GetCourses
-          <br />
-          {JSON.stringify(data)}
-        </p>
-      )} */}
     </div>
   )
 }
