@@ -3,7 +3,6 @@ import { Windmill } from '@learn49/aura-ui'
 import { SidebarProvider } from '../context/SidebarContext'
 
 import Header from '../components/Header'
-import AdminSidebar from '../components/SidebarAdmin'
 import Footer from '../components/Footer'
 
 interface Props {
@@ -16,7 +15,6 @@ const AuthLayout = ({ children }: Props) => {
       {/* //TODO: Removing usePreferences */}
       <Windmill>
         <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
-          <AdminSidebar />
           <div className='flex flex-col flex-1 w-full'>
             <Header />
             <main className='h-full overflow-y-auto'>
