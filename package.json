@@ -1,7 +1,7 @@
 {
-  "name": "@learn49/aura",
+  "name": "aura",
   "version": "1.0.2",
-  "description": "",
+  "description": "Plataforma Aura",
   "main": "index.js",
   "scripts": {
     "dev": "next --port 3002",
@@ -9,7 +9,7 @@
     "build": "next build"
   },
   "keywords": [],
-  "author": "",
+  "author": "ID49",
   "license": "ISC",
   "dependencies": {
     "@learn49/aura-ui": "^0.6.0",
