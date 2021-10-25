@@ -1,5 +1,6 @@
 import { createClient, dedupExchange, cacheExchange, fetchExchange } from 'urql'
 import { makeOperation } from '@urql/core'
+import { multipartFetchExchange } from '@urql/exchange-multipart-fetch'
 import { authExchange } from '@urql/exchange-auth'
 
 export const authClient = createClient({
@@ -93,6 +94,7 @@ export const authClient = createClient({
         return null
       }
     }),
+    multipartFetchExchange,
     fetchExchange
   ]
 })

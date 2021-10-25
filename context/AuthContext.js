@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children, role }) => {
-  const [user, setData] = useState({})
+  const [data, setData] = useState({ token: '', user: {} })
   const { push } = useRouter()
 
   useEffect(() => {
@@ -24,7 +24,10 @@ export const AuthProvider = ({ children, role }) => {
     if (localTokenData.role !== role) {
       signOut()
     }
-    setData(JSON.parse(user))
+    setData({
+      token,
+      user: JSON.parse(user)
+    })
   }, [])
 
   const signOut = useCallback(async () => {
@@ -33,8 +36,21 @@ export const AuthProvider = ({ children, role }) => {
     push('/')
   }, [])
 
+  const updateAuthUser = (user) => {
+    localStorage.setItem(
+      'learn49-user',
+      JSON.stringify({ ...user, role: data.user.role })
+    )
+    setData({
+      user: {
+        ...user,
+        role: data.user.role
+      }
+    })
+  }
+
   return (
-    <AuthContext.Provider value={{ user, signOut }}>
+    <AuthContext.Provider value={{ user: data.user, updateAuthUser, signOut }}>
       {children}
     </AuthContext.Provider>
   )

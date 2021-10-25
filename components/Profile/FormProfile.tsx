@@ -32,34 +32,29 @@ const validationSchema = Yup.object().shape({
 })
 
 const FormProfile = () => {
-  const { user } = useAuth()
+  const { user, updateAuthUser } = useAuth()
   const { id: accountId } = useAccount()
   const [, updateUser] = useMutation(UPDATE_USER)
 
   const onSubmit = async (values: FormValues) => {
-    const { data } = await updateUser({
-      accountId,
-      input: {
-        ...values
-      }
-    })
+    const { data } = await updateUser({ accountId, input: { ...values } })
     if (!data) {
       toast.error('Ocorreu um erro ao atualizar.')
       return
     }
     toast.success('Dados alterados com sucesso.')
+    updateAuthUser(data.updateUser)
   }
 
   const form = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: ''
-    },
+    initialValues: { firstName: '', lastName: '' },
     validationSchema,
     onSubmit
   })
 
   useEffect(() => {
+    form.setFieldValue('firstName', user.firstName)
+    form.setFieldValue('lastName', user.lastName)
     form.setValues({ firstName: user.firstName, lastName: user.lastName })
   }, [user])
 

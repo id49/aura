@@ -16,7 +16,7 @@ const Profile = () => {
           <div className='md:w-1/6 flex flex-col items-center bg-gray-50 py-4'>
             <AvatarProfile />
             <div className='mt-4'>
-              <p className='text-xs font-thin'>Desde: 15/10/2021</p>
+              {/* <p className='text-xs font-thin'>Desde: 15/10/2021</p> */}
             </div>
           </div>
           <div className='w-full md:w-5/6 py-6 px-4'>

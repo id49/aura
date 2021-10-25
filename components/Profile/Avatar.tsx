@@ -9,15 +9,19 @@ import { useAccount } from '../../context/AccountContext'
 import { useAuth } from '../../context/AuthContext'
 
 const UPLOAD_PROFILE_PICTURE = `
-  mutation($accountId: String!, $file: Upload!) {
+  mutation($file: Upload!, $accountId: String!) {
     uploadProfilePicture(accountId: $accountId, file: $file) {
+      id
+      firstName
+      lastName
+      email
       profilePicture
     }
   }
 `
 
 const AvatarProfile = () => {
-  const { user } = useAuth()
+  const { user, updateAuthUser } = useAuth()
   const { id: accountId } = useAccount()
   const [, uploadProfilePicture] = useMutation(UPLOAD_PROFILE_PICTURE)
 
@@ -31,6 +35,7 @@ const AvatarProfile = () => {
         toast.error('Ocorreu um erro ao atualizar.')
         return
       }
+      updateAuthUser(data.uploadProfilePicture)
     }
   }, [])
 
