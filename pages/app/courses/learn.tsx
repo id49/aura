@@ -29,7 +29,7 @@ const Learn = () => {
           <div className='flex items-center gap-2 pb-4'>
             <Image
               className='rounded-full'
-              src='/navbar/profile-empty.png'
+              src='/tuliofaria.jpg'
               height={50}
               width={50}
             />
