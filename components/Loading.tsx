@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Refresh } from '../../icons'
+import { Refresh } from '../icons'
 
 const Loading = () => (
   <div className='flex flex-row mx-auto justify-center mt-4 text-gray-400'>

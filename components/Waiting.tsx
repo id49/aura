@@ -1,6 +1,6 @@
 import React from 'react'
-import Loading from '../Loading'
-import Head from '../../elements/Head'
+import Loading from './Loading'
+import Head from '../elements/Head'
 
 const Waiting = () => (
   <>

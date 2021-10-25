@@ -3,13 +3,16 @@ import { AppProps } from 'next/app'
 import { Provider } from 'urql'
 import 'tailwindcss/tailwind.css'
 
+import { Windmill } from '@learn49/aura-ui'
+
 import { AccountProvider } from '../context/AccountContext'
+import { SidebarProvider } from '../context/SidebarContext'
 import { AuthProvider } from '../context/AuthContext'
 import { authClient } from '../services/urqlClient'
 
 import ToastElement from '../elements/Toast'
-// import AdminLayout from '../layouts/AdminLayout'
-import StudentsLayout from '../layouts/StudentsLayout'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const nonAuthenticate = [
   '/',
@@ -23,14 +26,22 @@ const nonAuthenticate = [
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const { account } = pageProps
 
-  // const AdminAuthenticatedLayout = ({ children }) => (
-  //     <AuthProvider role='owner'>
-  //       <AdminLayout>{children}</AdminLayout>
-  //     </AuthProvider>
-  // )
   const StudentsAuthenticatedLayout = ({ children }) => (
     <AuthProvider role='user'>
-      <StudentsLayout>{children}</StudentsLayout>
+      <SidebarProvider>
+        {/* usePreferences */}
+        <Windmill>
+          <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
+            <div className='flex flex-col flex-1 w-full'>
+              <Header />
+              <main className='flex flex-col h-screen overflow-y-auto'>
+                <div className='flex-1'>{children}</div>
+                <Footer />
+              </main>
+            </div>
+          </div>
+        </Windmill>
+      </SidebarProvider>
     </AuthProvider>
   )
   const DefaultLayout = ({ children }) => children
@@ -39,9 +50,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   if (nonAuthenticate.includes(router.pathname)) {
     Layout = DefaultLayout
   }
-  // if (router.pathname.startsWith('/app/admin')) {
-  //   Layout = AdminAuthenticatedLayout
-  // }
   if (router.pathname.startsWith('/app')) {
     Layout = StudentsAuthenticatedLayout
   }

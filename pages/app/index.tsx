@@ -55,12 +55,12 @@ const Dashboard = () => {
     <div className='container px-6 py-6 mx-auto'>
       <Head title='Dashboard' />
       <Title text='Destaque' />
-      <CardHero {...data.getCourses[0]} />
+      <CardHero {...data?.getCourses[0]} />
       <Title text='Evolua ainda mais' subText='Aperfeiçoe seus conhecimentos' />
       <CardSubHero
-        courseOne={data.getCourses[1] || {}}
-        courseTwo={data.getCourses[2] || {}}
-        courseThree={data.getCourses[3] || {}}
+        courseOne={data?.getCourses[1] || {}}
+        courseTwo={data?.getCourses[2] || {}}
+        courseThree={data?.getCourses[3] || {}}
       />
       <Title
         text='Especialize-se!'
