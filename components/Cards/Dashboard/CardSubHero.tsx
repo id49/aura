@@ -27,7 +27,7 @@ const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
             <div className='flex items-center gap-2 my-2'>
               <Image
                 className='rounded-full'
-                src='/navbar/profile-empty.png'
+                src='/tuliofaria.jpg'
                 height={40}
                 width={40}
               />
