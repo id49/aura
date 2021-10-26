@@ -6,6 +6,7 @@ interface CourseValues {
   id: string
   image: string
   title: string
+  subTitle: string
   description: string
 }
 
@@ -18,7 +19,7 @@ interface PropsValues {
 const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
   <div className='flex flex-col md:flex-row gap-10 my-4 w-full'>
     {[courseOne, courseTwo, courseThree].map(
-      ({ id, image, title, description }: CourseValues) => (
+      ({ id, image, title, subTitle, description }: CourseValues) => (
         <Link key={id} href='/app/courses'>
           <Card className='pb-4 w-1/3 hover:bg-gray-200 cursor-pointer'>
             <div
@@ -36,21 +37,10 @@ const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
                 objectFit='contain'
               />
             </div>
-            <CardBody>
-              <p className='font-bold text-2xl text-gray-600 dark:text-gray-300'>
-                {title}
-              </p>
-              <div className='flex items-center gap-2 my-2'>
-                <Image
-                  className='rounded-full'
-                  src='/tuliofaria.jpg'
-                  height={40}
-                  width={40}
-                  alt='Tulio Faria'
-                />
-                <p className='font-semibold text-gray-600'>Tulio Faria</p>
-              </div>
-              <p className='text-gray-600 dark:text-gray-400'>{description}</p>
+            <CardBody className='text-gray-600'>
+              <p className='font-bold text-2xl'>{title}</p>
+              <p className='text-sm font-light'>{subTitle}</p>
+              <p className='py-3'>{description}</p>
             </CardBody>
           </Card>
         </Link>

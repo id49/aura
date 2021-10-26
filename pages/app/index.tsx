@@ -18,19 +18,27 @@ const fullCourses = [
     id: '1',
     image: '/courses/FSM_branco.png',
     title: 'Fullstack Master',
-    description: 'Fullstack Master'
+    subTitle:
+      'Entregue aplicações web profissionais com autonomia e destrave a sua carreira para salários acima de 10 mil reais.',
+    description:
+      'Já se imaginou trabalhando em grandes projetos para empresas nacionais e estrangeiras, sendo muito bem remunerado e ainda tendo mais liberdade na carreira? A realização desse sonho pode estar mais perto do que você imagina.'
   },
   {
     id: '2',
     image: '/courses/logo_devreact_branco.png',
     title: 'DevReact',
-    description: 'DevReact'
+    subTitle:
+      'Domine a tecnologia que está fazendo desenvolvedores dobrarem seus salários',
+    description:
+      'No DevReactJS, você vai do zero à entrega aplicações profissionais em React. Você aprenderá na prática, de forma descomplicada, e estará apto para disputar as melhores vagas de emprego nas diversas empresas nacionais e estrangeiras que utilizam ReactJS em seus projetos.'
   },
   {
     id: '3',
     image: '/courses/powersites.png',
     title: 'PowerSites',
-    description: 'PowerSites'
+    subTitle: 'Crie sites até 10 vezes mais rápidos e 5 vezes mais lucrativos',
+    description:
+      'O PowerSites é um treinamento Premium que vai te ajudar a faturar na internet com um modelo de negócio simples e recorrente. Você terá tudo que precisa para entregar sites que performam e geram resultados positivos para seus futuros clientes.'
   }
 ]
 
