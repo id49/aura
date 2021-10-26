@@ -25,17 +25,9 @@ const CardTemplate = ({ image, title, description }: PropsValues) => (
             <p className='font-bold text-2xl text-gray-600 dark:text-gray-300'>
               {title}
             </p>
-            <div className='flex items-center gap-2 my-2'>
-              <Image
-                className='rounded-full'
-                src='/tuliofaria.jpg'
-                height={40}
-                width={40}
-                alt='Tulio Faria'
-              />
-              <p className='font-semibold text-gray-600'>Tulio Faria</p>
-            </div>
-            <p className='text-gray-600 dark:text-gray-400'>{description}</p>
+            <p className='text-gray-600 dark:text-gray-400 py-3'>
+              {description}
+            </p>
           </CardBody>
         </div>
       </Card>
