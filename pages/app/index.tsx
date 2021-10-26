@@ -121,7 +121,7 @@ const Dashboard = () => {
         text='Especialize-se!'
         subText='Cursos específicos e direto ao ponto'
       />
-      <div className='flex flex-wrap gap-4 py-4'>
+      <div className='flex flex-col gap-4 py-4'>
         {directToPoint.map((each, i) => (
           <CardTemplate key={i} {...each} />
         ))}

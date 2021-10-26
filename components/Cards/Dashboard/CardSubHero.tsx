@@ -16,7 +16,7 @@ interface PropsValues {
 }
 
 const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
-  <div className='flex flex-col md:flex-row gap-4 my-4 w-full'>
+  <div className='flex flex-col md:flex-row gap-10 my-4 w-full'>
     {[courseOne, courseTwo, courseThree].map(
       ({ id, image, title, description }: CourseValues) => (
         <Link key={id} href='/app/courses'>

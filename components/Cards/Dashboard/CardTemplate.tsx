@@ -11,7 +11,7 @@ interface PropsValues {
 const CardTemplate = ({ image, title, description }: PropsValues) => (
   <Link href='/app/courses'>
     <a>
-      <Card className='flex flex-col md:flex-row gap-2 md:gap-10 w-full hover:bg-gray-200 cursor-pointer'>
+      <Card className='flex flex-col md:flex-row gap-2 md:gap-10 w-full h-48 hover:bg-gray-200 cursor-pointer'>
         <div
           className='flex items-center justify-center py-2 px-6 md:w-1/5'
           style={{
@@ -20,7 +20,7 @@ const CardTemplate = ({ image, title, description }: PropsValues) => (
         >
           <Image src={image} height={100} width={100} alt={title} />
         </div>
-        <div className='md:w-4/5'>
+        <div className='md:w-4/5 md:py-3'>
           <CardBody>
             <p className='font-bold text-2xl text-gray-600 dark:text-gray-300'>
               {title}
