@@ -21,7 +21,7 @@ const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
     {[courseOne, courseTwo, courseThree].map(
       ({ id, image, title, subTitle, description }: CourseValues) => (
         <Link key={id} href='/app/courses'>
-          <Card className='pb-4 w-1/3 hover:bg-gray-200 cursor-pointer'>
+          <Card className='pb-4 md:w-1/3 hover:bg-gray-200 cursor-pointer'>
             <div
               className='flex items-center justify-center py-8'
               style={{
