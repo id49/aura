@@ -28,7 +28,7 @@ const supportChannels = [
 const SuppCardOne = () => (
   <Card className='flex flex-col md:w-2/3'>
     <div
-      className='flex items-center justify-center py-12'
+      className='flex items-center justify-center py-8'
       style={{
         backgroundColor: '#000024'
       }}
