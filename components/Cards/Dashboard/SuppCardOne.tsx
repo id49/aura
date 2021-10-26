@@ -5,6 +5,7 @@ const supportChannels = [
   {
     text: 'Whatsapp',
     image: '/dashboard/whatsapp.png',
+    // eslint-disable-next-line prettier/prettier
     url: 'https://api.whatsapp.com/send?1=pt_BR&phone=5535999090011&text=Gostaria%20de%20saber%20mais%20sobre%20o%20curso'
   },
   {
