@@ -18,7 +18,7 @@ interface PropsValues {
 const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
   <div className='flex flex-col md:flex-row gap-4 my-4 w-full'>
     {[courseOne, courseTwo, courseThree].map(
-      ({ id, image, title, description }) => (
+      ({ id, image, title, description }: CourseValues) => (
         <Link key={id} href='/app/courses'>
           <Card className='pb-4 w-1/3 hover:bg-gray-200 cursor-pointer'>
             <div
