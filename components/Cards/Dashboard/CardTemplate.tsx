@@ -2,7 +2,13 @@ import { Card, CardBody } from '@learn49/aura-ui'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const CardTemplate = ({ image, title, description }) => (
+interface PropsValues {
+  title: string
+  image: string
+  description: string
+}
+
+const CardTemplate = ({ image, title, description }: PropsValues) => (
   <Link href='/app/courses'>
     <a>
       <Card className='flex flex-col md:flex-row gap-2 md:gap-10 w-full hover:bg-gray-200 cursor-pointer'>
