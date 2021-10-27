@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useQuery } from 'urql'
 import { useRouter } from 'next/router'
 import { Button } from '@learn49/aura-ui'
+import Image from 'next/image'
 
 import fullCourses from '@/data/fullCourses.json'
 import { AccountContext } from '@/context/AccountContext'
@@ -13,7 +14,7 @@ import ContentList from '@/components/Courses/ContentList'
 import CardLastCourseAccess from '@/components/Dashboard/CardLastCourseAccess'
 import CardInstructor from '@/components/Courses/CardInstructor'
 import ProgressBar from '@/components/ProgressBar'
-import CardImage from '@/components/Courses/CardImage'
+import Copyright from '@/components/Copyright'
 
 const GET_COURSE = `
   query getCourse(
@@ -79,18 +80,12 @@ const Courses = () => {
   })
   const { data, fetching } = result
 
-  const WrapperLayout = ({ children }) => (
-    <div className='container px-6 py-6 mx-auto'>
-      <Head title='Fullstack Master' />
-      {children}
-    </div>
-  )
-
   if (fetching) {
     return (
-      <WrapperLayout>
+      <div className='container px-6 py-6 mx-auto'>
+        <Head title='Aguarde' />
         <Title text='Carregando dados...' />
-      </WrapperLayout>
+      </div>
     )
   }
 
@@ -105,50 +100,76 @@ const Courses = () => {
   }
 
   return (
-    <WrapperLayout>
-      <Badge text='Explorador' />
-      <section className='mt-2 pb-6 flex flex-col md:flex-row md:gap-4 lg:gap-10'>
-        <div className='order-1 md:order-none md:w-2/3'>
-          <div className='py-3'>
-            <p className='text-2xl font-extrabold text-gray-800'>
-              {fullCourses[data.getCourse.id].title}
-            </p>
+    <>
+      <Head title={data?.getCourse.title} />
+      <div className='py-4 mx-auto max-w-xl lg:max-w-screen-xl'>
+        <div className='flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded-lg shadow-xl md:flex-row sm:mx-auto'>
+          <div
+            className='flex items-center justify-center py-2 relative lg:w-1/2'
+            style={{
+              backgroundColor: '#000024'
+            }}
+          >
+            <Image
+              width={320}
+              height={200}
+              src={fullCourses[data.getCourse.id].image}
+              alt={'title'}
+              objectFit='contain'
+            />
+            <svg
+              className='absolute top-0 right-0 hidden h-full text-white lg:inline-block'
+              viewBox='0 0 20 104'
+              fill='currentColor'
+            >
+              <polygon points='17.3036738 5.68434189e-14 20 5.68434189e-14 20 104 0.824555778 104'></polygon>
+            </svg>
           </div>
-          {data.getLastCourseAccess && isIncluded && (
-            <CardLastCourseAccess type='lite' {...data?.getLastCourseAccess} />
-          )}
-          <Title text='Descrição' />
-          <p className='text-sm my-2'>{data.getCourse.description}</p>
-        </div>
-        <div className='order-0 md:order-none md:w-1/3'>
-          <CardImage {...fullCourses[data.getCourse.id]} />
-          <ProgressBar {...data.getCourse} />
-          <div className='py-5'>
-            <Link href={createLink(data.getCourse?.progress)}>
-              <Button size='large' block>
-                {data.getCourse?.progress ? 'Continuar Curso' : 'Começar Agora'}
-              </Button>
-            </Link>
-            <CardInstructor />
-            <div className='mt-5'>
-              <Title text='Conteúdo' />
-              {/* <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p> */}
-              <div className='py-4'>
-                {data?.getCourseModules.map((e, pos) => (
-                  <ContentList
-                    key={pos}
-                    pos={pos + 1}
-                    courseId={courseId}
-                    courseVersionId={courseVersionId}
-                    {...e}
-                  />
-                ))}
-              </div>
+          <div className='flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2'>
+            <div className='pb-4'>
+              <Badge text='Explorador' />
+            </div>
+            <div className='mb-3 text-2xl font-extrabold text-gray-700 leading-none sm:text-4xl'>
+              {data.getCourse.title}
+              <ProgressBar {...data.getCourse} />
+            </div>
+            <p className='py-4 mb-5 text-gray-600 text-sm'>
+              {data.getCourse.description}
+            </p>
+            <div className='flex items-center'>
+              <Link href={createLink(data.getCourse?.progress)}>
+                <Button size='large' block>
+                  {data.getCourse?.progress
+                    ? 'Continuar Curso'
+                    : 'Começar Agora'}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
+      </div>
+      <section className='container mx-auto px-2'>
+        {data.getLastCourseAccess && isIncluded && (
+          <CardLastCourseAccess type='lite' {...data?.getLastCourseAccess} />
+        )}
+        <CardInstructor type='clean' />
       </section>
-    </WrapperLayout>
+      <section className='container mx-auto py-4 px-2'>
+        <Title text='Conteúdo do curso' />
+        <div className='py-4'>
+          {data?.getCourseModules.map((e, pos) => (
+            <ContentList
+              key={pos}
+              pos={pos + 1}
+              courseId={courseId}
+              courseVersionId={courseVersionId}
+              {...e}
+            />
+          ))}
+        </div>
+        <Copyright />
+      </section>
+    </>
   )
 }
 
