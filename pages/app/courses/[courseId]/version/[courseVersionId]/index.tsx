@@ -5,11 +5,11 @@ import { useQuery } from 'urql'
 import { useRouter } from 'next/router'
 import { Button } from '@learn49/aura-ui'
 
-import { AccountContext } from '../../../../../../context/AccountContext'
-import Head from '../../../../../../elements/Head'
-import Title from '../../../../../../elements/Title'
-import CoursesContent from '../../../../../../components/CoursesContent'
-import fullCourses from '../../../../../../data/fullCourses.json'
+import { AccountContext } from '@/context/AccountContext'
+import Head from '@/elements/Head'
+import Title from '@/elements/Title'
+import CoursesContent from '@/components/CoursesContent'
+import fullCourses from '@/data/fullCourses.json'
 
 const GET_COURSE = `
   query getCourse(

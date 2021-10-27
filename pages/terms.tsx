@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Head from '../elements/Head'
+import Head from '@/elements/Head'
 
 const Terms = () => {
   return (

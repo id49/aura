@@ -7,9 +7,8 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useMutation } from 'urql'
 
-import { AccountContext } from '../context/AccountContext'
-
-import Head from '../elements/Head'
+import { AccountContext } from '@/context/AccountContext'
+import Head from '@/elements/Head'
 
 interface FormValues {
   email: string

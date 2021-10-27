@@ -1,17 +1,15 @@
 import React, { useContext } from 'react'
 import { useQuery } from 'urql'
 
-import Head from '../../elements/Head'
-import Title from '../../elements/Title'
-import { AccountContext } from '../../context/AccountContext'
-import CardHero from '../../components/Cards/Dashboard/CardHero'
-import CardSubHero from '../../components/Cards/Dashboard/CardSubHero'
-import CardTemplate from '../../components/Cards/Dashboard/CardTemplate'
-import SuppCardOne from '../../components/Cards/Dashboard/SuppCardOne'
-import SuppCardTwo from '../../components/Cards/Dashboard/SuppCardTwo'
-// import SuppCardThree from '../../components/Cards/Dashboard/SuppCardThree'
-import Copyright from '../../components/Copyright'
-import fullCourses from '../../data/fullCourses.json'
+import { AccountContext } from '@/context/AccountContext'
+import Title from '@/elements/Title'
+import Head from '@/elements/Head'
+import CardLastCourseAccess from '@/components/Dashboard/CardLastCourseAccess'
+import CardTop3 from '@/components/Dashboard/CardTop3'
+import CardCourses from '@/components/Dashboard/CardCourses'
+import Support from '@/components/Dashboard/Support'
+import Copyright from '@/components/Copyright'
+import fullCourses from '@/data/fullCourses.json'
 
 const HOME_QUERY = `
   query getHome($accountId: String!, $limit: Float!, $offset: Float!) {
@@ -52,33 +50,28 @@ const Dashboard = () => {
   })
   const { data, fetching } = result
 
+  const WrapperLayout = ({ children }) => (
+    <div className='container px-6 py-6 mx-auto'>
+      <Head title='Dashboard' />
+      {children}
+    </div>
+  )
+
   if (fetching) {
     return (
-      <div className='container px-6 py-6 mx-auto'>
-        <Head title='Dashboard' />
+      <WrapperLayout>
         <Title text='Carregando dados...' />
-      </div>
+      </WrapperLayout>
     )
   }
 
   return (
-    <div className='container px-6 py-6 mx-auto'>
-      <Head title='Dashboard' />
-      {data &&
-        Object.keys(fullCourses).includes(
-          data.getLastCourseAccess.courseId
-        ) && (
-          <>
-            <Title
-              text='Continue Assistindo'
-              subText='Não perca o foco! Continue de onde parou.'
-            />
-            <CardHero {...data?.getLastCourseAccess} />
-          </>
-        )}
+    <WrapperLayout>
+      {Object.keys(fullCourses).includes(data.getLastCourseAccess.courseId) && (
+        <CardLastCourseAccess {...data?.getLastCourseAccess} />
+      )}
       <Title text='Destaques' />
-      {/* <Title text='Evolua ainda mais' subText='Aperfeiçoe seus conhecimentos' /> */}
-      <CardSubHero
+      <CardTop3
         courseOne={Object.values(fullCourses)[0]}
         courseTwo={Object.values(fullCourses)[1]}
         courseThree={Object.values(fullCourses)[2]}
@@ -91,24 +84,12 @@ const Dashboard = () => {
         {Object.values(fullCourses)
           .filter((_, id) => id > 2)
           .map((each, i) => (
-            <CardTemplate key={i} {...each} />
+            <CardCourses key={i} {...each} />
           ))}
       </div>
-
-      <section className='py-4'>
-        <Title text='Suporte' subText='Avance ainda mais rápido' />
-        <div className='bg-gray-200 rounded-sm flex flex-col md:flex-row gap-4 py-2 px-2'>
-          <SuppCardOne />
-          <SuppCardTwo />
-          {/* <div className='flex flex-col w-full justify-between gap-4'>
-            <SuppCardTwo />
-            <SuppCardThree />
-          </div> */}
-        </div>
-      </section>
-
+      <Support />
       <Copyright />
-    </div>
+    </WrapperLayout>
   )
 }
 

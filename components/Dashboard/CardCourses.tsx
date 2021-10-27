@@ -10,7 +10,7 @@ interface PropsValues {
   description: string
 }
 
-const CardTemplate = ({
+const CardCourses = ({
   id,
   version,
   image,
@@ -43,4 +43,4 @@ const CardTemplate = ({
   </Link>
 )
 
-export default CardTemplate
+export default CardCourses

@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import Head from '../elements/Head'
+import Head from '@/elements/Head'
 
 const Page404 = () => (
   <>

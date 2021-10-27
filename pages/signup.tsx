@@ -8,10 +8,8 @@ import * as Yup from 'yup'
 import { useMutation } from 'urql'
 import ReCaptcha from 'react-google-recaptcha'
 
-import { AccountContext } from '../context/AccountContext'
-
-import Head from '../elements/Head'
-import ConfirmEmail from '../components/ConfirmEmail'
+import { AccountContext } from '@/context/AccountContext'
+import Head from '@/elements/Head'
 
 interface FormValues {
   firstName: string
@@ -106,7 +104,16 @@ const SignUp = () => {
               <h1 className='mb-4 text-xl font-semibold text-gray-600 dark:text-gray-200 capitalize'>
                 {friendlyName}
               </h1>
-              {confirmEmail && <ConfirmEmail />}
+              {confirmEmail && (
+                <div className='py-20 lg:py-44'>
+                  <p className='text-lg font-extrabold text-gray-500'>
+                    Confirme sua conta
+                  </p>
+                  <p className='text-md font-light text-gray-500'>
+                    Verifique seu email para confirmar sua conta.
+                  </p>
+                </div>
+              )}
               {!confirmEmail && (
                 <>
                   <p className='text-gray-500 -mt-5 mb-3'>

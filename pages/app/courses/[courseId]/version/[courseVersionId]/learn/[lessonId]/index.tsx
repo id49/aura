@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Input, Transition } from '@learn49/aura-ui'
 
-import Head from '../../../../../../../../elements/Head'
-import Title from '../../../../../../../../elements/Title'
+import Head from '@/elements/Head'
+import Title from '@/elements/Title'
 
 const Learn = () => {
   const [isDropdownMenuOpen, setIsDropdownMenuOpen] = useState(false)

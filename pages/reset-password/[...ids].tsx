@@ -8,10 +8,9 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useMutation } from 'urql'
 
-import { AccountContext } from '../../context/AccountContext'
-
-import Head from '../../elements/Head'
-import Logo from '../../elements/Logo'
+import { AccountContext } from '@/context/AccountContext'
+import Head from '@/elements/Head'
+import Logo from '@/elements/Logo'
 
 interface FormValues {
   passwd: string

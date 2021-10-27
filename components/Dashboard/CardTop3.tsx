@@ -17,7 +17,7 @@ interface PropsValues {
   courseThree: CourseValues
 }
 
-const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
+const CardTop3 = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
   <div className='flex flex-col md:flex-row gap-4 my-4 w-full'>
     {[courseOne, courseTwo, courseThree].map(
       ({ id, version, image, title, subTitle, description }: CourseValues) => (
@@ -50,4 +50,4 @@ const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
   </div>
 )
 
-export default CardSubHero
+export default CardTop3

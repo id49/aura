@@ -7,7 +7,7 @@ import { Avatar, Badge, Dropdown, DropdownItem } from '@learn49/aura-ui'
 import { useAuth } from '../context/AuthContext'
 import Logo from '../elements/Logo'
 
-const Header = () => {
+const Navbar = () => {
   const { user, signOut } = useAuth()
   // const { mode, toggleMode } = useContext(WindmillContext)
   // const { toggleSidebar } = useContext(SidebarContext)
@@ -56,7 +56,7 @@ const Header = () => {
           </li> */}
           {/* <!-- Notifications menu --> */}
 
-          <li className='relative'>
+          {/* <li className='relative'>
             <button
               className='relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple'
               onClick={handleNotificationsClick}
@@ -81,6 +81,35 @@ const Header = () => {
               <DropdownItem tag='a' href='#' className='justify-between'>
                 <span>Sales</span>
                 <Badge type='danger'>2</Badge>
+              </DropdownItem>
+              <DropdownItem onClick={() => alert('Alerts!')}>
+                <span>Alerts</span>
+              </DropdownItem>
+            </Dropdown>
+          </li> */}
+          <li className='relative'>
+            <button
+              className='relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple'
+              onClick={handleNotificationsClick}
+              aria-label='Notifications'
+              aria-haspopup='true'
+            >
+              <BellIcon className='w-6 h-6' aria-hidden='true' />
+              <span
+                aria-hidden='true'
+                className='absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800'
+              ></span>
+            </button>
+            <Dropdown
+              align='right'
+              isOpen={false}
+              onClose={() => setIsNotificationsMenuOpen(false)}
+            >
+              <DropdownItem tag='a' href='#' className='justify-between'>
+                <span>FAQ</span>
+              </DropdownItem>
+              <DropdownItem tag='a' href='#' className='justify-between'>
+                <span>SUPORTE</span>
               </DropdownItem>
               <DropdownItem onClick={() => alert('Alerts!')}>
                 <span>Alerts</span>
@@ -144,4 +173,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Navbar

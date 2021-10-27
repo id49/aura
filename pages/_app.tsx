@@ -5,14 +5,14 @@ import 'tailwindcss/tailwind.css'
 
 import { Windmill } from '@learn49/aura-ui'
 
-import { AccountProvider } from '../context/AccountContext'
-import { SidebarProvider } from '../context/SidebarContext'
-import { AuthProvider } from '../context/AuthContext'
-import { authClient } from '../services/urqlClient'
+import { AccountProvider } from '@/context/AccountContext'
+import { SidebarProvider } from '@/context/SidebarContext'
+import { AuthProvider } from '@/context/AuthContext'
+import { authClient } from '@/services/urqlClient'
 
-import ToastElement from '../elements/Toast'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import ToastElement from '@/elements/Toast'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 const nonAuthenticate = [
   '/',
@@ -33,7 +33,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         <Windmill>
           <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
             <div className='flex flex-col flex-1 w-full'>
-              <Header />
+              <Navbar />
               <main className='flex flex-col h-screen overflow-y-auto'>
                 <div className='flex-1'>{children}</div>
                 <Footer />
