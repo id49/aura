@@ -148,13 +148,13 @@ const Courses = () => {
           </div>
         </div>
       </div>
-      <section className='container mx-auto px-2'>
+      <section className='container mx-auto max-w-5xl px-2'>
         {data.getLastCourseAccess && isIncluded && (
           <CardLastCourseAccess type='lite' {...data?.getLastCourseAccess} />
         )}
         <CardInstructor type='clean' />
       </section>
-      <section className='container mx-auto py-4 px-2'>
+      <section className='container mx-auto max-w-5xl py-4 px-2'>
         <Title text='Conteúdo do curso' />
         <div className='py-4'>
           {data?.getCourseModules.map((e, pos) => (
