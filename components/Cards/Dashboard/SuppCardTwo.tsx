@@ -3,21 +3,27 @@ import Image from 'next/image'
 
 const SuppCardTwo = () => (
   <Card className='flex'>
-    <Image
-      className='object-cover'
-      alt='Suporte'
-      src='/login.png'
-      height={200}
-      width={600}
-    />
+    <div
+      className='flex items-center justify-center p-8'
+      style={{
+        backgroundColor: '#000024'
+      }}
+    >
+      <Image
+        alt='Suporte'
+        src='/dashboard/officehours.png'
+        objectFit='contain'
+        height={200}
+        width={150}
+      />
+    </div>
     <CardBody>
       <p className='mb-4 text-2xl font-bold text-gray-600 dark:text-gray-300'>
         Office Hours
       </p>
       <p className='text-gray-600 dark:text-gray-400'>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, cum
-        commodi a omnis numquam quod? Totam exercitationem quos hic ipsam at qui
-        cum numquam, sed amet ratione! Ratione, nihil dolorum.
+        Surgiu alguma dúvida durante as aulas? Vamos conversar sobre isso e
+        outros assuntos ao vivo?
       </p>
     </CardBody>
   </Card>

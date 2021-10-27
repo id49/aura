@@ -1,44 +1,48 @@
 import { Card, CardBody } from '@learn49/aura-ui'
 import Link from 'next/link'
 import Image from 'next/image'
+import fullCourses from '../../../data/fullCourses.json'
 
 interface PropsValues {
-  id: string
-  title: string
-  description: string
+  courseId: string
+  moduleTitle: string
+  lessonTitle: string
   courseVersionId: string
   defaultVersion: string
 }
 
 const CardHero = ({
-  id,
-  title,
-  description,
+  courseId,
+  moduleTitle,
+  lessonTitle,
   courseVersionId,
   defaultVersion
 }: PropsValues) => (
   <Link
-    href={`/app/courses/${id}/version/${courseVersionId || defaultVersion}`}
+    href={`
+    /app/courses/${courseId}/version/${courseVersionId || defaultVersion}`}
   >
-    <Card className='flex flex-col lg:flex-row w-full mt-2 mb-4 py-10 lg:py-20 px-4 lg:px-10 gap-4 bg-teal-700 hover:bg-teal-600 cursor-pointer'>
-      <img
-        className='lg:w-1/3 rounded-lg'
-        src='https://res.cloudinary.com/codersociety/image/fetch/f_webp,ar_16:9,c_fill,w_1140/https://cdn.codersociety.com/uploads/graphql-reasons.png'
-      />
+    <Card
+      className='flex flex-col lg:flex-row w-full mt-2 mb-4 py-10 lg:py-20 px-4 lg:px-10 gap-10 cursor-pointer'
+      style={{
+        backgroundColor: '#000024'
+      }}
+    >
+      <div className='flex items-center justify-center py-8 text-white'>
+        <Image
+          width={220}
+          height={70}
+          src={fullCourses[courseId].image}
+          alt={fullCourses[courseId].title}
+          layout='fixed'
+          objectFit='contain'
+        />
+      </div>
       <CardBody>
-        <p className='font-bold text-2xl lg:text-4xl text-green-100 hover:text-white'>
-          {title}
+        <p className='font-bold text-2xl lg:text-3xl text-green-100 hover:text-white'>
+          {moduleTitle}
         </p>
-        <div className='flex items-center gap-2 my-2'>
-          <Image
-            className='rounded-full'
-            src='/tuliofaria.jpg'
-            height={40}
-            width={40}
-          />
-          <p className='font-semibold text-white py-4'>Tulio Faria</p>
-        </div>
-        <p className='text-gray-200 mt-6'>{description}</p>
+        <p className='text-gray-200 mt-2'>Assunto: {lessonTitle}</p>
       </CardBody>
     </Card>
   </Link>

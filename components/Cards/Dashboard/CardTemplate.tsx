@@ -3,15 +3,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface PropsValues {
+  id: string
+  version: string
   title: string
   image: string
   description: string
 }
 
-const CardTemplate = ({ image, title, description }: PropsValues) => (
-  <Link href='/app/courses'>
+const CardTemplate = ({
+  id,
+  version,
+  image,
+  title,
+  description
+}: PropsValues) => (
+  <Link href={`/app/courses/${id}/version/${version}`}>
     <a>
-      <Card className='flex flex-col md:flex-row gap-2 md:gap-12 w-full h-56 hover:bg-gray-200 cursor-pointer'>
+      <Card className='flex flex-col md:flex-row gap-2 md:gap-12 w-full lg:h-56 hover:bg-gray-200 cursor-pointer'>
         <div
           className='flex items-center justify-center py-2 px-6 md:w-1/5'
           style={{

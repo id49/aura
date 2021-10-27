@@ -5,17 +5,45 @@ import { useQuery } from 'urql'
 import { useRouter } from 'next/router'
 import { Button } from '@learn49/aura-ui'
 
-import { AccountContext } from '../../../../../context/AccountContext'
-import Head from '../../../../../elements/Head'
-import Title from '../../../../../elements/Title'
+import { AccountContext } from '../../../../../../context/AccountContext'
+import Head from '../../../../../../elements/Head'
+import Title from '../../../../../../elements/Title'
+import CoursesContent from '../../../../../../components/CoursesContent'
+import fullCourses from '../../../../../../data/fullCourses.json'
 
 const GET_COURSE = `
-  query getCourse($accountId: String!, $courseId: String!) {
+  query getCourse(
+    $accountId: String!
+    $courseId: String!
+    $courseVersionId: String!
+    $limit: Int
+    $offset: Int
+  ) {
     getCourse(accountId: $accountId, courseId: $courseId) {
       id
       title
       description
       progress
+    }
+    getCourseModules(
+      accountId: $accountId
+      courseVersionId: $courseVersionId
+      limit: $limit
+      offset: $offset
+    ) {
+      id
+      title
+      isActive
+      baseId
+      courseVersionId
+      sortOrder
+      lessons {
+        id
+        title
+        accountId
+        releaseOnDate
+        completed
+      }
     }
   }
 `
@@ -30,7 +58,9 @@ const Courses = () => {
     variables: {
       accountId,
       courseId,
-      courseVersionId
+      courseVersionId,
+      limit: 50,
+      offset: 0
     }
   })
   const { data, fetching } = result
@@ -54,21 +84,44 @@ const Courses = () => {
         <div className='order-1 md:order-none md:w-2/3'>
           <div className='py-3'>
             <p className='text-2xl font-extrabold text-gray-800'>
-              Fullstack Master
+              {fullCourses[data.getCourse.id].title}
             </p>
           </div>
           <Title text='Descrição' />
           <p className='text-sm my-2'>{data.getCourse.description}</p>
+          <pre>{JSON.stringify(data.getCourseModules, null, 2)}</pre>
         </div>
         <div className='order-0 md:order-none md:w-1/3'>
-          <img
-            className='rounded-lg'
-            src='https://res.cloudinary.com/codersociety/image/fetch/f_webp,ar_16:9,c_fill,w_1140/https://cdn.codersociety.com/uploads/graphql-reasons.png'
-          />
+          <div
+            className='flex items-center justify-center py-8'
+            style={{
+              backgroundColor: '#000024'
+            }}
+          >
+            <Image
+              width={220}
+              height={70}
+              src={fullCourses[data.getCourse.id].image}
+              alt={fullCourses[data.getCourse.id].title}
+              layout='fixed'
+              objectFit='contain'
+            />
+          </div>
+          <div className='relative py-1'>
+            <div className='overflow-hidden h-2 text-xs flex rounded-sm bg-purple-200'>
+              <div
+                style={{ width: `${data.getCourse?.progress}%` }}
+                // eslint-disable-next-line prettier/prettier
+                className={`h-full ${data.getCourse?.progress < 70 ? 'bg-purple-600' : 'bg-purple-900'}`}
+              ></div>
+            </div>
+          </div>
           <div className='py-5'>
-            <Link href='/app/courses/learn'>
+            <Link
+              href={`/app/courses/${courseId}/version/${courseVersionId}/learn/${'lessonId'}`}
+            >
               <Button size='large' block>
-                Começar Agora
+                {data.getCourse?.progress ? 'Continuar Curso' : 'Começar Agora'}
               </Button>
             </Link>
             <div className='flex items-center gap-2 mt-5 md:mt-8 bg-gray-200 rounded-md py-4 px-2'>
@@ -85,14 +138,12 @@ const Courses = () => {
             </div>
             <div className='mt-5'>
               <Title text='Conteúdo' />
-              <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p>
+              {/* <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p> */}
               <div className='py-4'>
-                {[1, 2, 3].map((e) => (
-                  <div key={e} className='flex py-0.5'>
-                    <div className='w-6'>0{e}</div>
-                    <div className='font-semibold'>Tópico Aqui</div>
-                  </div>
-                ))}
+                {data &&
+                  data.getCourseModules.map((e, pos) => (
+                    <CoursesContent key={pos} pos={pos + 1} {...e} />
+                  ))}
               </div>
             </div>
           </div>

@@ -4,9 +4,10 @@ import Link from 'next/link'
 
 interface CourseValues {
   id: string
+  version: string
   image: string
   title: string
-  subTitle: string
+  subTitle?: string
   description: string
 }
 
@@ -19,8 +20,8 @@ interface PropsValues {
 const CardSubHero = ({ courseOne, courseTwo, courseThree }: PropsValues) => (
   <div className='flex flex-col md:flex-row gap-4 my-4 w-full'>
     {[courseOne, courseTwo, courseThree].map(
-      ({ id, image, title, subTitle, description }: CourseValues) => (
-        <Link key={id} href='/app/courses'>
+      ({ id, version, image, title, subTitle, description }: CourseValues) => (
+        <Link key={id} href={`/app/courses/${id}/version/${version}`}>
           <Card className='pb-4 md:w-1/3 hover:bg-gray-200 cursor-pointer'>
             <div
               className='flex items-center justify-center py-8'

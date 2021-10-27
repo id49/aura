@@ -1,0 +1,61 @@
+{
+  "78de96e5-1146-41d7-a462-a2097fe26bee": {
+    "id": "78de96e5-1146-41d7-a462-a2097fe26bee",
+    "version": "8bc118b0-a124-4d83-b26f-9582fa6c7c88",
+    "image": "/courses/FSM_branco.png",
+    "title": "Fullstack Master",
+    "subTitle": "Entregue aplicações web profissionais com autonomia e destrave a sua carreira para salários acima de 10 mil reais.",
+    "description": "Já se imaginou trabalhando em grandes projetos para empresas nacionais e estrangeiras, sendo muito bem remunerado e ainda tendo mais liberdade na carreira? A realização desse sonho pode estar mais perto do que você imagina."
+  },
+  "2": {
+    "id": "2",
+    "version": "",
+    "image": "/courses/logo_devreact_branco.png",
+    "title": "DevReact",
+    "subTitle": "Domine a tecnologia que está fazendo desenvolvedores dobrarem seus salários",
+    "description": "No DevReactJS, você vai do zero à entrega aplicações profissionais em React. Você aprenderá na prática, de forma descomplicada, e estará apto para disputar as melhores vagas de emprego nas diversas empresas nacionais e estrangeiras que utilizam ReactJS em seus projetos."
+  },
+  "3": {
+    "id": "3",
+    "version": "",
+    "image": "/courses/powersites.png",
+    "title": "PowerSites",
+    "subTitle": "Crie sites até 10 vezes mais rápidos e 5 vezes mais lucrativos",
+    "description": "O PowerSites é um treinamento Premium que vai te ajudar a faturar na internet com um modelo de negócio simples e recorrente. Você terá tudo que precisa para entregar sites que performam e geram resultados positivos para seus futuros clientes."
+  },
+  "f65e97b1-dab7-4f29-8588-7169dab71ba6": {
+    "id": "f65e97b1-dab7-4f29-8588-7169dab71ba6",
+    "version": "8070819c-9895-4382-8144-6fe19b570cda",
+    "image": "/courses/context.png",
+    "title": "ContextAPI em React",
+    "description": "Não entendo ContextAPI! Afinal, por onde começo? Existe no React Native? Posso usar ContextAPI dentro de outro? Quais os benefícios de usar? Aprenda a importância deste recurso em uma aula incrível, com exemplos reais e práticos. Entenda o funcionamento, organização e a implementação da funcionalidade com códigos diretos e explicações detalhadas."
+  },
+  "a3137083-ef14-4672-9dbb-b1872879b890": {
+    "id": "a3137083-ef14-4672-9dbb-b1872879b890",
+    "version": "0b89fe8b-dba3-4296-87f1-244e0a276592",
+    "image": "/courses/forms.png",
+    "title": "Formulários em React",
+    "description": "Qual a diferença de formulários controlados e não controlados? como usar cada um deles? Além disso, aprenda a utilizar os populares Formik e React-hook-forms; aplicando tambem Validações e relacionados."
+  },
+  "5c550fe9-e971-4390-904d-e202d7fbe1f6": {
+    "id": "5c550fe9-e971-4390-904d-e202d7fbe1f6",
+    "version": "3b6d5d0b-0fb5-4e87-8bd6-556392630649",
+    "image": "/courses/hooks.png",
+    "title": "Tudo sobre React Hooks",
+    "description": "O que é e como funciona os famosos Hooks do React? Aprenda os conceitos e as regras que regem a construção; como criar hooks personalizados e muitas outras dúvidas esclarecidas em um conteúdo completo. Aqui você verá explicações detalhadas sobre como funcionam cada um dos hooks useState, useEffect, useCallBack, useMemo, useRef e também o Swr!"
+  },
+  "a1127bf8-cbf4-435b-b2f4-68471b3cd262": {
+    "id": "a1127bf8-cbf4-435b-b2f4-68471b3cd262",
+    "version": "0227f2ad-2f42-479b-9755-999d8c392a1a",
+    "image": "/courses/framework.png",
+    "title": "Tudo sobre NextJS",
+    "description": "Entenda o que é e como o NextJS é capaz de criar Rotas estáticas, Server Side Rendering (SSR), Server Side Generation (SSG) e Incremental Static Regeneration (ISR). Saiba como aplicar Revalidate, motivos de usar o \"Link\", observando segurança e privacidade dos dados e a utilização da API."
+  },
+  "9c19b9ea-e12a-48e9-960b-511523e2612f": {
+    "id": "9c19b9ea-e12a-48e9-960b-511523e2612f",
+    "version": "18e0a1d5-c3a9-4d28-87d1-332ff3b1e6e7",
+    "image": "/courses/continuous.png",
+    "title": "CI/CD: Continuous Integration / Continuous Deployment",
+    "description": "Como adicionar ainda mais qualidade ao seu projeto com processo de integração contínua e entrega contínua."
+  }
+}
