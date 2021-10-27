@@ -30,12 +30,12 @@ const LastCourseAccess = ({
     /app/courses/${courseId}/version/${courseVersionId || defaultVersion}`}
     >
       <Card
-        className='flex flex-col lg:flex-row w-full mt-2 mb-4 py-10 lg:py-20 px-4 lg:px-10 gap-8 cursor-pointer'
+        className='flex flex-col lg:flex-row w-full mt-2 mb-4 py-10 lg:py-20 px-4 lg:px-10 gap-4 cursor-pointer'
         style={{
           backgroundColor: '#000024'
         }}
       >
-        <div className='flex items-center justify-center py-8 text-white'>
+        <div className='flex items-center justify-center py-8 mr-4 text-white'>
           <Image
             width={220}
             height={70}
