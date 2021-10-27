@@ -50,16 +50,16 @@ const ContentList = ({ title, lessons }: IProps) => {
     <div className='border-gray-400 border-b hover:bg-gray-300'>
       <div
         onClick={toggle}
-        className='flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
+        className='flex flex-col md:flex-row justify-between md:items-center p-5 pl-8 pr-8 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
       >
         <div className='flex gap-2 font-semibold text-xl text-gray-700'>
-          <div className='rounded-full text-gray-500 w-7 h-7 flex items-center justify-center'>
+          <div className='rounded-full text-gray-500 mt-0.5 w-7 h-7 flex items-center justify-center'>
             {isOpen && <OpenIcon />}
             {!isOpen && <CloseIcon />}
           </div>
           <p>{title}</p>
         </div>
-        <p className='flex text-sm font-thin'>
+        <p className='flex text-sm font-thin self-end md:self-auto'>
           {lessons.length > 1
             ? lessons.length + ' aulas'
             : lessons.length + ' aula'}

@@ -102,7 +102,7 @@ const Courses = () => {
   return (
     <>
       <Head title={data?.getCourse.title} />
-      <div className='py-4 mx-auto max-w-xl lg:max-w-screen-xl'>
+      <div className='py-4 mx-auto max-w-5xl px-2 lg:px-0'>
         <div className='flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded-lg shadow-xl md:flex-row sm:mx-auto'>
           <div
             className='flex items-center justify-center py-2 relative lg:w-1/2'
@@ -148,13 +148,13 @@ const Courses = () => {
           </div>
         </div>
       </div>
-      <section className='container mx-auto max-w-5xl px-2'>
+      <section className='container mx-auto max-w-5xl px-2 lg:px-0'>
         {data.getLastCourseAccess && isIncluded && (
           <CardLastCourseAccess type='lite' {...data?.getLastCourseAccess} />
         )}
         <CardInstructor type='clean' />
       </section>
-      <section className='container mx-auto max-w-5xl py-4 px-2'>
+      <section className='container mx-auto max-w-5xl py-4 px-2 lg:px-0'>
         <Title text='Conteúdo do curso' />
         <div className='py-4'>
           {data?.getCourseModules.map((e, pos) => (
