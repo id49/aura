@@ -157,14 +157,8 @@ const Courses = () => {
       <section className='container mx-auto max-w-5xl py-4 px-2 lg:px-0'>
         <Title text='Conteúdo do curso' />
         <div className='py-4'>
-          {data?.getCourseModules.map((e, pos) => (
-            <ContentList
-              key={pos}
-              pos={pos + 1}
-              courseId={courseId}
-              courseVersionId={courseVersionId}
-              {...e}
-            />
+          {data?.getCourseModules.map((e, i) => (
+            <ContentList key={i} {...e} />
           ))}
         </div>
         <Copyright />
