@@ -82,9 +82,14 @@ const Courses = () => {
 
   if (fetching) {
     return (
-      <div className='container px-6 py-6 mx-auto'>
+      <div className='flex flex-col items-center p-5 gap-4'>
         <Head title='Aguarde' />
         <Title text='Carregando dados...' />
+        <div className='flex space-x-2 animate-pulse'>
+          <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
+          <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
+          <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
+        </div>
       </div>
     )
   }
@@ -94,9 +99,19 @@ const Courses = () => {
 
   const createLink = (haveProgress: number) => {
     const preLink = `/app/courses/${courseId}/version/${courseVersionId}/learn/`
-    return haveProgress
+    return haveProgress && haveProgress < 100
       ? preLink + data.getLastCourseAccess.lessonId
       : preLink + data.getCourseModules[0].lessons[0].id
+  }
+
+  const buttonMessage = (progress) => {
+    if (!progress) {
+      return 'Começar Agora'
+    }
+    if (progress === 100) {
+      return 'Curso Concluído'
+    }
+    return 'Continuar Curso'
   }
 
   return (
@@ -114,7 +129,7 @@ const Courses = () => {
               width={320}
               height={200}
               src={fullCourses[data.getCourse.id].image}
-              alt={'title'}
+              alt={fullCourses[data.getCourse.id].title}
               objectFit='contain'
             />
             <svg
@@ -139,9 +154,7 @@ const Courses = () => {
             <div className='flex items-center'>
               <Link href={createLink(data.getCourse?.progress)}>
                 <Button size='large' block>
-                  {data.getCourse?.progress
-                    ? 'Continuar Curso'
-                    : 'Começar Agora'}
+                  {buttonMessage(data.getCourse?.progress)}
                 </Button>
               </Link>
             </div>

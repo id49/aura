@@ -87,7 +87,7 @@ const Navbar = () => {
               </DropdownItem>
             </Dropdown>
           </li> */}
-          <li className='relative'>
+          {/* <li className='relative'>
             <button
               className='relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple'
               onClick={handleNotificationsClick}
@@ -115,7 +115,7 @@ const Navbar = () => {
                 <span>Alerts</span>
               </DropdownItem>
             </Dropdown>
-          </li>
+          </li> */}
           {/* <!-- Profile menu --> */}
           <li className='relative'>
             <button
@@ -135,7 +135,7 @@ const Navbar = () => {
               )}
               {!user.profilePicture && (
                 <User
-                  className='w-8 h-8 bg-purple-600 rounded-full text-white p-1'
+                  className='w-6 h-6 bg-purple-600 rounded-full text-white p-1'
                   aria-hidden='true'
                 />
               )}

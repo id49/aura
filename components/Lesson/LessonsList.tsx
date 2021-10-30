@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+
+import LessonItem from './LessonItem'
 
 interface IContent {
   id: string
   title: string
+  completed: boolean
 }
 
 interface IProps {
+  isExpanded: boolean
   title: string
   lessons: [IContent]
 }
@@ -41,8 +45,14 @@ const CloseIcon = () => (
   </svg>
 )
 
-const ContentList = ({ title, lessons }: IProps) => {
-  const [isOpen, setOpen] = useState(false)
+const LessonsList = ({ isExpanded = false, title, lessons }: IProps) => {
+  const router = useRouter()
+  const { courseId, courseVersionId, lessonId } = router.query
+  const [isOpen, setOpen] = useState(true)
+
+  useEffect(() => {
+    setOpen(isExpanded)
+  }, [isExpanded])
 
   const toggle = () => setOpen(!isOpen)
 
@@ -50,38 +60,30 @@ const ContentList = ({ title, lessons }: IProps) => {
     <div className='border-gray-400 border-b hover:bg-gray-300'>
       <div
         onClick={toggle}
-        className='flex flex-col md:flex-row justify-between md:items-center py-5 px-8 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
+        className='sticky z-10 flex justify-between items-center py-2 px-1 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
       >
-        <div className='flex gap-2 font-semibold text-xl text-gray-700'>
-          <div className='rounded-full text-gray-500 mt-0.5 w-7 h-7 flex items-center justify-center'>
-            {isOpen && <OpenIcon />}
-            {!isOpen && <CloseIcon />}
+        <div className='flex items-center font-semibold text-gray-700 w-5/6'>
+          <div className='rounded-full text-gray-500 w-7 h-7 flex items-center justify-center'>
+            {isOpen ? <OpenIcon /> : <CloseIcon />}
           </div>
-          <p>{title}</p>
+          {title}
         </div>
-        <p className='flex text-sm font-thin self-end md:self-auto'>
+        <p className='flex text-sm font-thin justify-end lg:text-center pr-1 w-1/6'>
           {lessons.length} aula{lessons.length > 1 && 's'}
         </p>
       </div>
       {lessons.length > 0 &&
         isOpen &&
-        lessons.map((lesson: IContent) => (
-          <div
+        lessons.map((lesson) => (
+          <LessonItem
             key={lesson.id}
-            className='px-8 py-4 bg-gray-100 text-gray-700 border-gray-200 border-b flex items-center gap-2'
-          >
-            <Image
-              height={15}
-              width={15}
-              src='/courses/play-button.png'
-              alt='Play Icon'
-              layout='fixed'
-            />
-            {lesson.title}
-          </div>
+            url={`/app/courses/${courseId}/version/${courseVersionId}/learn/${lesson.id}`}
+            actually={lesson.id === lessonId}
+            {...lesson}
+          />
         ))}
     </div>
   )
 }
 
-export default ContentList
+export default LessonsList
