@@ -80,7 +80,7 @@ const Courses = () => {
   })
   const { data, fetching } = result
 
-  if (fetching) {
+  if (fetching && !data) {
     return (
       <div className='flex flex-col items-center p-5 gap-4'>
         <Head title='Aguarde' />
@@ -141,9 +141,7 @@ const Courses = () => {
             </svg>
           </div>
           <div className='flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2'>
-            <div className='pb-4'>
-              <Badge text='Explorador' />
-            </div>
+            <Badge text='Explorador' className='mb-4' />
             <div className='mb-3 text-2xl font-extrabold text-gray-700 leading-none sm:text-4xl'>
               {data.getCourse.title}
               <ProgressBar {...data.getCourse} />
