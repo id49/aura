@@ -80,20 +80,6 @@ const Courses = () => {
   })
   const { data, fetching } = result
 
-  if (fetching && !data) {
-    return (
-      <div className='flex flex-col items-center p-5 gap-4'>
-        <Head title='Aguarde' />
-        <Title text='Carregando dados...' />
-        <div className='flex space-x-2 animate-pulse'>
-          <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
-          <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
-          <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
-        </div>
-      </div>
-    )
-  }
-
   const isIncluded = () =>
     Object.keys(fullCourses).includes(data.getLastCourseAccess.courseId)
 
@@ -125,13 +111,26 @@ const Courses = () => {
               backgroundColor: '#000024'
             }}
           >
-            <Image
-              width={320}
-              height={200}
-              src={fullCourses[data.getCourse.id].image}
-              alt={fullCourses[data.getCourse.id].title}
-              objectFit='contain'
-            />
+            {fetching && !data && (
+              <div className='flex flex-col items-center p-5 gap-4'>
+                <Head title='Aguarde' />
+                <Title text='Carregando dados...' />
+                <div className='flex space-x-2 animate-pulse'>
+                  <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
+                  <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
+                  <div className='w-3 h-3 bg-gray-500 rounded-full'></div>
+                </div>
+              </div>
+            )}
+            {!fetching && data && (
+              <Image
+                width={320}
+                height={200}
+                src={fullCourses[data.getCourse.id].image}
+                alt={fullCourses[data.getCourse.id].title}
+                objectFit='contain'
+              />
+            )}
             <svg
               className='absolute top-0 right-0 hidden h-full text-white lg:inline-block'
               viewBox='0 0 20 104'
@@ -141,26 +140,30 @@ const Courses = () => {
             </svg>
           </div>
           <div className='flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2'>
-            <Badge text='Explorador' className='mb-4' />
+            <div className='mb-4'>
+              <Badge text='Explorador' />
+            </div>
             <div className='mb-3 text-2xl font-extrabold text-gray-700 leading-none sm:text-4xl'>
-              {data.getCourse.title}
-              <ProgressBar {...data.getCourse} />
+              {data?.getCourse.title}
+              <ProgressBar {...data?.getCourse} />
             </div>
             <p className='py-4 mb-5 text-gray-600 text-sm'>
-              {data.getCourse.description}
+              {data?.getCourse.description}
             </p>
             <div className='flex items-center'>
-              <Link href={createLink(data.getCourse?.progress)}>
-                <Button size='large' block>
-                  {buttonMessage(data.getCourse?.progress)}
-                </Button>
-              </Link>
+              {!fetching && data && (
+                <Link href={createLink(data?.getCourse?.progress)}>
+                  <Button size='large' block>
+                    {buttonMessage(data?.getCourse?.progress)}
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
       </div>
       <section className='container mx-auto max-w-5xl px-2 lg:px-0'>
-        {data.getLastCourseAccess && isIncluded && (
+        {data?.getLastCourseAccess && isIncluded && (
           <CardLastCourseAccess type='lite' {...data?.getLastCourseAccess} />
         )}
         <CardInstructor type='clean' />
