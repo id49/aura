@@ -26,7 +26,7 @@ const LessonAbout = ({ parsedBody, description }) => {
 
   return (
     <div className='py-4'>
-      <div className='flex text-lg font-medium pt-2 bg-gray-100'>
+      <div className='flex text-lg font-medium py-2 bg-gray-100'>
         {TabOptions.map((e) => (
           <LessonTabItem key={e.id} action={setShowTab} show={showTab} {...e} />
         ))}
