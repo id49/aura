@@ -74,6 +74,10 @@ const Login = () => {
     onSubmit
   })
 
+  const handleCreateAccount = () => {
+    push('/signup')
+  }
+
   return (
     <>
       <Head title={[friendlyName, 'Login'].filter((x) => x).join(' - ')} />
@@ -134,17 +138,15 @@ const Login = () => {
                   {form.isSubmitting ? 'Aguarde...' : 'Entrar'}
                 </Button>
               </form>
-              <Link href='/signup'>
-                <Button
-                  className='mt-4'
-                  size='large'
-                  tag='a'
-                  block
-                  layout='outline'
-                >
-                  Criar Conta
-                </Button>
-              </Link>
+              <Button
+                className='mt-4'
+                size='large'
+                block
+                layout='outline'
+                onClick={handleCreateAccount}
+              >
+                Criar Conta
+              </Button>
               <hr className='my-3' />
               <div className='flex justify-between'>
                 <Link href='/forgot'>
