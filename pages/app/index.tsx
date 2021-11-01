@@ -50,26 +50,14 @@ const Dashboard = () => {
   })
   const { data, fetching } = result
 
-  const WrapperLayout = ({ children }) => (
-    <div className='container px-6 py-6 mx-auto'>
-      <Head title='Dashboard' />
-      {children}
-    </div>
-  )
-
-  if (fetching) {
-    return (
-      <WrapperLayout>
-        <Title text='Carregando dados...' />
-      </WrapperLayout>
-    )
-  }
-
   return (
-    <WrapperLayout>
-      {Object.keys(fullCourses).includes(data.getLastCourseAccess.courseId) && (
-        <CardLastCourseAccess {...data?.getLastCourseAccess} />
-      )}
+    <div className='container px-2 lg:px-1 py-6 mx-auto'>
+      <Head title='Dashboard' />
+      {!fetching &&
+        Object.keys(data).length > 0 &&
+        Object.keys(fullCourses).includes(
+          data.getLastCourseAccess.courseId
+        ) && <CardLastCourseAccess {...data?.getLastCourseAccess} />}
       <Title text='Destaques' />
       <CardTop3
         courseOne={Object.values(fullCourses)[0]}
@@ -80,7 +68,7 @@ const Dashboard = () => {
         text='Especialize-se!'
         subText='Cursos específicos e direto ao ponto'
       />
-      <div className='flex flex-col gap-4 py-4'>
+      <div className='py-4 grid lg:grid-cols-2 gap-4'>
         {Object.values(fullCourses)
           .filter((_, id) => id > 2)
           .map((each, i) => (
@@ -89,7 +77,7 @@ const Dashboard = () => {
       </div>
       <Support />
       <Copyright />
-    </WrapperLayout>
+    </div>
   )
 }
 

@@ -15,9 +15,9 @@
     "subTitle": "Domine a tecnologia que está fazendo desenvolvedores dobrarem seus salários",
     "description": "No DevReactJS, você vai do zero à entrega aplicações profissionais em React. Você aprenderá na prática, de forma descomplicada, e estará apto para disputar as melhores vagas de emprego nas diversas empresas nacionais e estrangeiras que utilizam ReactJS em seus projetos."
   },
-  "3": {
-    "id": "3",
-    "version": "",
+  "6e334eb5-6b1f-4830-9329-c5efa2255692": {
+    "id": "6e334eb5-6b1f-4830-9329-c5efa2255692",
+    "version": "7592308d-bbf6-4d33-92b9-636eb4958174",
     "image": "/courses/powersites.png",
     "title": "PowerSites",
     "subTitle": "Crie sites até 10 vezes mais rápidos e 5 vezes mais lucrativos",
@@ -57,5 +57,33 @@
     "image": "/courses/continuous.png",
     "title": "CI/CD: Continuous Integration / Continuous Deployment",
     "description": "Como adicionar ainda mais qualidade ao seu projeto com processo de integração contínua e entrega contínua."
+  },
+  "7333ef25-b2ba-4ff2-9a69-7c68f1a091ec": {
+    "id": "7333ef25-b2ba-4ff2-9a69-7c68f1a091ec",
+    "version": "268d1cdd-1467-4f57-89a9-5957a5eba39d",
+    "image": "/courses/adwords.png",
+    "title": "Criando anúncios no Google Ads",
+    "description": "Como criar e administrar campanhas na rede de pesquisa do Google Ads para sites."
+  },
+  "a334fa88-2dff-4f9e-8946-a60d2d05a71f": {
+    "id": "a334fa88-2dff-4f9e-8946-a60d2d05a71f",
+    "version": "98fb5148-2d27-437f-acd6-246c7a1ff394",
+    "image": "/courses/google.png",
+    "title": "Google Meu Negócio",
+    "description": "Aprenda a criar e gerenciar o 'Google Meu Negócio'"
+  },
+  "8a3c0bfa-8e1b-4a12-8b95-91b92763ea08": {
+    "id": "8a3c0bfa-8e1b-4a12-8b95-91b92763ea08",
+    "version": "f846b8ac-4d4e-4527-a398-8d8a96d3fdda",
+    "image": "/courses/contract.png",
+    "title": "Contratos de Sites",
+    "description": "Como formalizar de forma correta a sua prestação de serviços. Inclusive, iremos fornecer o contrato que eu utilizava e todos os porquês que ele contém."
+  },
+  "891fe854-1f0f-4854-b7d3-f3746a92585a": {
+    "id": "891fe854-1f0f-4854-b7d3-f3746a92585a",
+    "version": "df48b6d6-efcb-4e62-82d6-0611c73e58cb",
+    "image": "/courses/dns.png",
+    "title": "Dominando Domínios e DNS para sites",
+    "description": "Você conhecerá tudo sobre domínios e DNS para sites. Como configurar, cuidados e para que serve cada tipo de registro no DNS."
   }
 }

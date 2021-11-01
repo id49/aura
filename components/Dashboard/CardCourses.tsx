@@ -19,14 +19,20 @@ const CardCourses = ({
 }: PropsValues) => (
   <Link href={`/app/courses/${id}/version/${version}`}>
     <a>
-      <Card className='flex flex-col md:flex-row gap-2 md:gap-12 w-full lg:h-56 hover:bg-gray-200 cursor-pointer'>
+      <Card className='flex flex-col md:flex-row gap-2 md:gap-12 hover:bg-gray-200 cursor-pointer h-full'>
         <div
           className='flex items-center justify-center py-2 px-6 md:w-1/5'
           style={{
             backgroundColor: '#000024'
           }}
         >
-          <Image src={image} height={100} width={100} alt={title} />
+          <Image
+            src={image}
+            height={80}
+            width={80}
+            alt={title}
+            layout='fixed'
+          />
         </div>
         <div className='md:w-4/5 md:py-3'>
           <CardBody>
