@@ -152,18 +152,25 @@ const Navbar = () => {
                 />
                 <span>Profile</span>
               </DropdownItem>*/}
-              <Link href='/app/profile'>
-                <DropdownItem tag='a'>
-                  <OutlineCogIcon className='w-4 h-4 mr-3' aria-hidden='true' />
-                  <span>Perfil</span>
-                </DropdownItem>
-              </Link>
+              <DropdownItem>
+                <Link href='/app/profile'>
+                  <a className='flex items-center'>
+                    <OutlineCogIcon
+                      className='w-4 h-4 mr-3'
+                      aria-hidden='true'
+                    />
+                    <span>Perfil</span>
+                  </a>
+                </Link>
+              </DropdownItem>
               <DropdownItem onClick={signOut}>
-                <OutlineLogoutIcon
-                  className='w-4 h-4 mr-3'
-                  aria-hidden='true'
-                />
-                <span>Deslogar</span>
+                <div className='flex items-center'>
+                  <OutlineLogoutIcon
+                    className='w-4 h-4 mr-3'
+                    aria-hidden='true'
+                  />
+                  <span>Deslogar</span>
+                </div>
               </DropdownItem>
             </Dropdown>
           </li>

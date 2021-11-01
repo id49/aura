@@ -17,5 +17,6 @@ module.exports = windmill({
         initial: 'url(/login.png)'
       }
     }
-  }
+  },
+  plugins: [require('@tailwindcss/aspect-ratio')]
 })

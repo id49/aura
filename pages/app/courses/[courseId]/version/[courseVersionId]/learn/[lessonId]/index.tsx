@@ -164,7 +164,7 @@ const Learn = () => {
             {fetchingLessons && <FetchingData />}
             {!fetchingLessons && lessons && parsedBody?.entityMap['0'] && (
               <div
-                className='relative bg-gray-700 flex justify-center items-center w-full'
+                className='relative bg-gray-700 aspect-w-2 flex justify-center items-center w-full'
                 style={{
                   paddingTop: '56.25%'
                 }}
