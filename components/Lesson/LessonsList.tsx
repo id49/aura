@@ -62,7 +62,7 @@ const LessonsList = ({ isExpanded = false, title, lessons }: IProps) => {
         onClick={toggle}
         className='sticky z-10 flex justify-between items-center py-2 px-1 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
       >
-        <div className='flex items-center font-semibold text-gray-700 w-5/6'>
+        <div className='flex items-center font-medium text-gray-700 w-5/6'>
           <div className='rounded-full text-gray-500 w-7 h-7 flex items-center justify-center'>
             {isOpen ? <OpenIcon /> : <CloseIcon />}
           </div>

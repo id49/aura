@@ -52,7 +52,7 @@ const ContentList = ({ title, lessons }: IProps) => {
         onClick={toggle}
         className='flex flex-col md:flex-row justify-between md:items-center py-5 px-8 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
       >
-        <div className='flex gap-2 font-semibold text-xl text-gray-700'>
+        <div className='flex gap-2 font-medium text-xl text-gray-700'>
           <div className='rounded-full text-gray-500 mt-0.5 w-7 h-7 flex items-center justify-center'>
             {isOpen && <OpenIcon />}
             {!isOpen && <CloseIcon />}
