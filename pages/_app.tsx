@@ -2,6 +2,7 @@ import React from 'react'
 import { AppProps } from 'next/app'
 import { Provider } from 'urql'
 import 'tailwindcss/tailwind.css'
+import '../editorDraft.css'
 
 import { Windmill } from '@learn49/aura-ui'
 
@@ -28,20 +29,20 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
 
   const StudentsAuthenticatedLayout = ({ children }) => (
     <AuthProvider role='user'>
-      <SidebarProvider>
-        {/* usePreferences */}
-        <Windmill>
-          <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
-            <div className='flex flex-col flex-1 w-full'>
-              <Navbar />
-              <main className='flex flex-col h-screen overflow-y-auto'>
-                <div className='flex-1'>{children}</div>
-                <Footer />
-              </main>
-            </div>
+      {/* <SidebarProvider> */}
+      {/* usePreferences */}
+      <Windmill>
+        <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
+          <div className='flex flex-col flex-1 w-full'>
+            <Navbar />
+            <main className='flex flex-col h-screen lg:overflow-y-auto'>
+              <div className='flex-1'>{children}</div>
+              <Footer />
+            </main>
           </div>
-        </Windmill>
-      </SidebarProvider>
+        </div>
+      </Windmill>
+      {/* </SidebarProvider> */}
     </AuthProvider>
   )
   const DefaultLayout = ({ children }) => children

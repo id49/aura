@@ -12,19 +12,14 @@ const Navbar = () => {
   // const { mode, toggleMode } = useContext(WindmillContext)
   // const { toggleSidebar } = useContext(SidebarContext)
 
-  const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false)
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
-
-  function handleNotificationsClick() {
-    setIsNotificationsMenuOpen(!isNotificationsMenuOpen)
-  }
 
   function handleProfileClick() {
     setIsProfileMenuOpen(!isProfileMenuOpen)
   }
 
   return (
-    <header className='z-40 py-4 bg-white shadow-bottom dark:bg-gray-800'>
+    <header className='z-40 py-2 bg-white shadow-bottom dark:bg-gray-800'>
       <div className='container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300'>
         {/* <!-- Mobile hamburger --> */}
         {/* <button
@@ -35,7 +30,7 @@ const Navbar = () => {
           <MenuIcon className='w-6 h-6' aria-hidden='true' />
         </button> */}
         <Link href='/app'>
-          <a>
+          <a className='pt-2'>
             <Logo />
           </a>
         </Link>

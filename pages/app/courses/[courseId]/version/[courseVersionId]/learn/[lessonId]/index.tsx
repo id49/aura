@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useMutation, useQuery } from 'urql'
 import { useRouter } from 'next/router'
-import ReactPlayer from 'react-player/vimeo'
 
 import { AccountContext } from '@/context/AccountContext'
 import Head from '@/elements/Head'
@@ -11,9 +10,8 @@ import ProgressBar from '@/components/ProgressBar'
 import CardInstructor from '@/components/Courses/CardInstructor'
 import LessonsList from '@/components/Lesson/LessonsList'
 import LessonControls from '@/components/Lesson/LessonControls'
-import LessonAbout from '@/components/Lesson/LessonAbout'
 import FetchingData from '@/components/Lesson/FetchingData'
-import LessonWithoutVideo from '@/components/Lesson/LessonWithoutVideo'
+import EditorDraftJS from '@/components/EditorDraftJS'
 
 const GET_COURSE = `
   query getCourse(
@@ -162,26 +160,8 @@ const Learn = () => {
         <div className='w-full lg:w-3/4 m-0 p-0'>
           <div className='flex flex-col gap-4'>
             {fetchingLessons && <FetchingData />}
-            {!fetchingLessons && lessons && parsedBody?.entityMap['0'] && (
-              <div
-                className='relative bg-gray-700 aspect-w-2 flex justify-center items-center w-full'
-                style={{
-                  paddingTop: '56.25%'
-                }}
-              >
-                <ReactPlayer
-                  className='absolute top-0'
-                  url={parsedBody.entityMap['0'].data.src}
-                  controls={true}
-                  width='100%'
-                  height='100%'
-                />
-              </div>
-            )}
-            {!fetchingLessons && lessons && !parsedBody?.entityMap['0'] && (
-              <LessonWithoutVideo />
-            )}
-            <div className='w-full md:flex md:flex-row md:justify-between md:items-center md:px-4 lg:px-0'>
+            {!fetchingLessons && <EditorDraftJS parsedBody={parsedBody} />}
+            <div className='w-full md:flex md:flex-row md:justify-between md:items-center md:px-4 lg:px-2'>
               <Badge text='Explorador' className='hidden md:block' />
               <LessonControls
                 action={markLessonAsSeen}
@@ -192,19 +172,21 @@ const Learn = () => {
             </div>
           </div>
           {!fetchingCourse && course && (
-            <div className='flex flex-col justify-center px-4 lg:px-0'>
+            <div className='flex flex-col justify-center px-4 lg:px-2'>
               <CardInstructor type='clean' />
               <div className='text-2xl font-extrabold text-gray-700 leading-none sm:text-4xl'>
                 {course?.getCourse.title}
                 <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p>
                 <ProgressBar {...course?.getCourse} />
               </div>
-              <LessonAbout parsedBody={parsedBody} {...course?.getCourse} />
+              <p className='py-4 mb-5 text-gray-600 text-sm'>
+                {course?.getCourse.description}
+              </p>
             </div>
           )}
           <div className='lg:py-10'></div>
         </div>
-        <div className='py-10 lg:py-0 px-4 lg:w-1/4'>
+        <div className='py-10 lg:py-0 lg:w-1/4'>
           <div className='flex justify-between items-center bg-gray-300'>
             <Title text='Conteúdo' className='p-2' />
           </div>
