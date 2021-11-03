@@ -158,9 +158,12 @@ const Learn = () => {
       <Head title={course?.getCourse.title || 'Aguarde'} />
       <main className='flex flex-col lg:flex-row xl:container xl:max-w-7xl xl:mx-auto'>
         <div className='w-full lg:w-3/4 m-0 p-0'>
-          <div className='flex flex-col gap-4'>
+          <div className='flex flex-col'>
             {fetchingLessons && <FetchingData />}
             {!fetchingLessons && <EditorDraftJS parsedBody={parsedBody} />}
+            <div className='text-2xl text-gray-600 font-semibold my-2'>
+              Aula: {lessons?.getCourseLessonByEnrollment.title}
+            </div>
             <div className='w-full md:flex md:flex-row md:justify-between md:items-center md:px-4 lg:px-2'>
               <Badge text='Explorador' className='hidden md:block' />
               <LessonControls
@@ -176,7 +179,7 @@ const Learn = () => {
               <CardInstructor type='clean' />
               <div className='text-2xl font-extrabold text-gray-700 leading-none sm:text-4xl'>
                 {course?.getCourse.title}
-                <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p>
+                {/* <p className='font-thin text-sm'>Duração: 42min - 10 aulas</p> */}
                 <ProgressBar {...course?.getCourse} />
               </div>
               <p className='py-4 mb-5 text-gray-600 text-sm'>

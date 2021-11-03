@@ -24,7 +24,7 @@ const EditorDraftJS = ({ parsedBody }) => {
     <div
       className='lg:container pt-2 text-gray-800 bg-gray-100'
       style={{
-        minHeight: width > 1024 && 540
+        minHeight: width > 1024 && 580
       }}
     >
       <Editor editorState={editorState} plugins={plugins} readOnly />
