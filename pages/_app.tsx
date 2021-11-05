@@ -7,7 +7,6 @@ import '../editorDraft.css'
 import { Windmill } from '@learn49/aura-ui'
 
 import { AccountProvider } from '@/context/AccountContext'
-//import { SidebarProvider } from '@/context/SidebarContext'
 import { AuthProvider } from '@/context/AuthContext'
 import { authClient } from '@/services/urqlClient'
 
@@ -31,8 +30,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
 
   const StudentsAuthenticatedLayout = ({ children }) => (
     <AuthProvider role='user'>
-      {/* <SidebarProvider> */}
-      {/* usePreferences */}
       <Windmill>
         <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
           <div className='flex flex-col flex-1 w-full'>
@@ -44,7 +41,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
           </div>
         </div>
       </Windmill>
-      {/* </SidebarProvider> */}
     </AuthProvider>
   )
   const DefaultLayout = ({ children }) => children
@@ -59,17 +55,17 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
 
   return (
     <>
-    <Head>
-      <link rel='icon' type='image/png' href='/icons/icon-96x96.png' />
-    </Head>
-    <Provider value={authClient}>
-      <AccountProvider account={account}>
-        <Layout>
-          <ToastElement />
-          <Component {...pageProps} />
-        </Layout>
-      </AccountProvider>
-    </Provider>
+      <Head>
+        <link rel='icon' type='image/png' href='/icons/icon-96x96.png' />
+      </Head>
+      <Provider value={authClient}>
+        <AccountProvider account={account}>
+          <Layout>
+            <ToastElement />
+            <Component {...pageProps} />
+          </Layout>
+        </AccountProvider>
+      </Provider>
     </>
   )
 }

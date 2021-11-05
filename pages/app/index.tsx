@@ -22,6 +22,10 @@ const HOME_QUERY = `
       progress
       versions
       latestVersion
+      labels{
+        label,
+        isPrivate
+      }
     }
     getLastCourseAccess(accountId: $accountId) {
       id
