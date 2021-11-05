@@ -15,6 +15,8 @@ import ToastElement from '@/elements/Toast'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+import Head from 'next/head'
+
 const nonAuthenticate = [
   '/',
   '/signup',
@@ -56,6 +58,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   }
 
   return (
+    <>
+    <Head>
+      <link rel='icon' type='image/png' href='/icons/icon-96x96.png' />
+    </Head>
     <Provider value={authClient}>
       <AccountProvider account={account}>
         <Layout>
@@ -64,6 +70,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         </Layout>
       </AccountProvider>
     </Provider>
+    </>
   )
 }
 
