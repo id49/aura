@@ -7,7 +7,7 @@ import '../editorDraft.css'
 import { Windmill } from '@learn49/aura-ui'
 
 import { AccountProvider } from '@/context/AccountContext'
-import { SidebarProvider } from '@/context/SidebarContext'
+//import { SidebarProvider } from '@/context/SidebarContext'
 import { AuthProvider } from '@/context/AuthContext'
 import { authClient } from '@/services/urqlClient'
 
