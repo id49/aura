@@ -30,13 +30,15 @@ const LastCourseAccess = ({
     type === 'lite' && 'bg-gray-200 rounded-md p-4 mt-4 mb-8'
   )
 
-  const cardDefaultWrapper =
-    'flex flex-col lg:flex-row w-full mt-2 mb-4 px-4 lg:px-10 gap-4 cursor-pointer'
   const cardTypeModels = {
     default: 'py-10 lg:py-20',
     lite: 'py-4'
   }[type]
-  const CardStyles = classNames(cardDefaultWrapper, cardTypeModels)
+
+  const CardStyles = classNames(
+    'flex flex-col lg:flex-row w-full mt-2 mb-4 px-4 lg:px-10 gap-4 cursor-pointer',
+    cardTypeModels
+  )
 
   return (
     <div className={WrapperStyles}>
@@ -62,7 +64,7 @@ const LastCourseAccess = ({
             </div>
           )}
           <CardBody>
-            <p className='font-bold text-2xl lg:text-3xl text-green-100 hover:text-white'>
+            <p className='font-bold text-2xl lg:text-3xl text-white'>
               {moduleTitle}
             </p>
             <p className='text-gray-200 mt-2'>Assunto: {lessonTitle}</p>
