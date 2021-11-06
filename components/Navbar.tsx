@@ -32,7 +32,7 @@ const Navbar = () => {
             >
               {user.profilePicture ? (
                 <Avatar
-                  className='align-middle w-6 h-6'
+                  className='align-middle w-8 h-8'
                   size='regular'
                   src={user.profilePicture}
                   alt={user.firstName}
@@ -40,7 +40,7 @@ const Navbar = () => {
                 />
               ) : (
                 <User
-                  className='w-6 h-6 bg-purple-600 rounded-full text-white p-1'
+                  className='w-8 h-8 bg-purple-600 rounded-full text-white p-1'
                   aria-hidden='true'
                 />
               )}
