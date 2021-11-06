@@ -22,7 +22,7 @@ const HOME_QUERY = `
       progress
       versions
       latestVersion
-      labels{
+      labels {
         label,
         isPrivate
       }
