@@ -29,6 +29,10 @@ const GET_COURSE = `
       title
       description
       progress
+      labels {
+        label,
+        isPrivate
+      }
     }
     getCourseModules(
       accountId: $accountId
@@ -140,8 +144,11 @@ const Courses = () => {
             </svg>
           </div>
           <div className='flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2'>
-            <div className='mb-4'>
-              <Badge text='Explorador' />
+            <div className='mb-4 flex gap-2'>
+              {data?.getCourse.labels.length > 0 &&
+                data?.getCourse.labels
+                  .filter((e) => !e.isPrivate)
+                  .map((e) => <Badge key={e.label} text={e.label} />)}
             </div>
             <div className='mb-3 text-2xl font-extrabold text-gray-700 leading-none sm:text-4xl'>
               {data?.getCourse.title}

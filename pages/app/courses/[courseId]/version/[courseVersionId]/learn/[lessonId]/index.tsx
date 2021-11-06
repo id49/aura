@@ -161,11 +161,10 @@ const Learn = () => {
           <div className='flex flex-col'>
             {fetchingLessons && <FetchingData />}
             {!fetchingLessons && <EditorDraftJS parsedBody={parsedBody} />}
-            <div className='text-2xl text-gray-600 font-semibold my-2'>
+            <div className='text-2xl text-gray-600 font-semibold mb-2 px-4 lg:px-2'>
               Aula: {lessons?.getCourseLessonByEnrollment.title}
             </div>
-            <div className='w-full md:flex md:flex-row md:justify-between md:items-center md:px-4 lg:px-2'>
-              <Badge text='Explorador' className='hidden md:block' />
+            <div className='w-full md:flex md:flex-row md:justify-end md:items-center md:px-4 lg:px-2 py-1'>
               <LessonControls
                 action={markLessonAsSeen}
                 isLoadingNextLesson={fetchingLessons}

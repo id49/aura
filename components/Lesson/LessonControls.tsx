@@ -24,6 +24,7 @@ const LessonControls = ({
 
   const defaultStyle =
     'w-1/2 md:w-auto text-center text-sm py-3 font-semibold rounded text-white'
+
   const buttonStyles = classNames(
     defaultStyle,
     'cursor-pointer',
@@ -59,7 +60,7 @@ const LessonControls = ({
   }
 
   return (
-    <div className='flex justify-between px-4 md:px-0 gap-4'>
+    <div className='flex justify-between px-4 md:px-0 gap-4 bg-white'>
       <button
         onClick={handleAction}
         disabled={isLoadingMarkUpdate}
