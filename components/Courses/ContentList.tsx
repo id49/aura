@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface IContent {
   id: string
@@ -42,6 +44,8 @@ const CloseIcon = () => (
 )
 
 const ContentList = ({ title, lessons }: IProps) => {
+  const router = useRouter()
+  const { courseId, courseVersionId } = router.query
   const [isOpen, setOpen] = useState(false)
 
   const toggle = () => setOpen(!isOpen)
@@ -66,19 +70,21 @@ const ContentList = ({ title, lessons }: IProps) => {
       {lessons.length > 0 &&
         isOpen &&
         lessons.map((lesson: IContent) => (
-          <div
+          <Link
             key={lesson.id}
-            className='px-8 py-4 bg-gray-100 text-gray-700 border-gray-200 border-b flex items-center gap-2'
+            href={`/app/courses/${courseId}/version/${courseVersionId}/learn/${lesson.id}`}
           >
-            <Image
-              height={15}
-              width={15}
-              src='/courses/play-button.png'
-              alt='Play Icon'
-              layout='fixed'
-            />
-            {lesson.title}
-          </div>
+            <a className='px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 border-gray-200 border-b flex items-center gap-2'>
+              <Image
+                height={15}
+                width={15}
+                src='/courses/play-button.png'
+                alt='Play Icon'
+                layout='fixed'
+              />
+              {lesson.title}
+            </a>
+          </Link>
         ))}
     </div>
   )
