@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 import { AccountContext } from '@/context/AccountContext'
 import Head from '@/elements/Head'
 import Title from '@/elements/Title'
-import Badge from '@/elements/Badge'
 import ProgressBar from '@/components/ProgressBar'
 import CardInstructor from '@/components/Courses/CardInstructor'
 import LessonsList from '@/components/Lesson/LessonsList'
@@ -124,6 +123,7 @@ const Learn = () => {
 
   const [lessonsData] = useQuery({
     query: GET_COURSE_LESSON_BY_ENROLLMENT,
+    requestPolicy: 'network-only',
     variables: {
       accountId,
       courseId,
