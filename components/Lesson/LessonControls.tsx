@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
@@ -38,6 +38,10 @@ const LessonControls = ({
     'md:px-12',
     nextLesson ? 'bg-purple-700 hover:bg-purple-600 ' : 'bg-purple-300'
   )
+
+  useEffect(() => {
+    setCompleted(completed)
+  }, [completed])
 
   const handleAction = () => {
     action(!isCompleted)
