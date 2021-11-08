@@ -60,7 +60,7 @@ const Dashboard = () => {
       {!fetching &&
         Object.keys(data).length > 0 &&
         Object.keys(fullCourses).includes(
-          data.getLastCourseAccess.courseId
+          data?.getLastCourseAccess?.courseId
         ) && <CardLastCourseAccess {...data?.getLastCourseAccess} />}
       <Title text='Destaques' />
       <CardTop3
