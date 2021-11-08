@@ -85,7 +85,7 @@ const Courses = () => {
   const { data, fetching } = result
 
   const isIncluded = () =>
-    Object.keys(fullCourses).includes(data.getLastCourseAccess.courseId)
+    Object.keys(fullCourses).includes(data?.getLastCourseAccess?.courseId)
 
   const createLink = (haveProgress: number) => {
     const preLink = `/app/courses/${courseId}/version/${courseVersionId}/learn/`
