@@ -1,19 +1,20 @@
+import React from 'react'
+import { useCourseData } from '@/context/CourseContext'
 import { useCurrentWidth } from 'react-breakpoints-hook'
 import { EditorState, convertFromRaw } from 'draft-js'
-import Editor from 'draft-js-plugins-editor'
-import createEmbedPlugin from 'draft-js-embed-plugin'
+import createEmbedPlugin from '@/components/EditorEmbed'
 import createImagePlugin from 'draft-js-image-plugin'
-import createVideoPlugin from 'draft-js-video-plugin'
-import createLinkifyPlugin from '@draft-js-plugins/linkify'
+import Editor from '@draft-js-plugins/editor'
+import createVideoPlugin from '@draft-js-plugins/video'
 
 const embedPlugin = createEmbedPlugin()
 const imagePlugin = createImagePlugin()
 const videoPlugin = createVideoPlugin()
-const linkifyPlugin = createLinkifyPlugin()
 
-const plugins = [imagePlugin, embedPlugin, videoPlugin, linkifyPlugin]
+const plugins = [imagePlugin, videoPlugin, embedPlugin]
 
-const EditorDraftJS = ({ parsedBody }) => {
+const EditorDraftJS = () => {
+  const { parsedBody } = useCourseData()
   let width = useCurrentWidth()
 
   const editorState = parsedBody
@@ -22,7 +23,7 @@ const EditorDraftJS = ({ parsedBody }) => {
 
   return (
     <div
-      className='lg:container pt-2 text-gray-800 bg-gray-100'
+      className='lg:container pt-2 text-gray-800 bg-gray-100 mb-4'
       style={{
         minHeight: width > 1024 && 580
       }}

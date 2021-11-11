@@ -15,7 +15,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className='z-40 py-2 bg-white shadow-bottom dark:bg-gray-800'>
+    <header className='z-40 py-2 bg-white shadow-bottom'>
       <div className='container flex items-center justify-between h-full px-2 md:px-0 mx-auto text-purple-600 dark:text-purple-300'>
         <Link href='/app'>
           <a className='pt-2'>

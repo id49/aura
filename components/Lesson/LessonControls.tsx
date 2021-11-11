@@ -1,26 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
 
-interface IProps {
-  nextLesson: string
-  completed: boolean
-  isLoadingMarkUpdate: boolean
-  isLoadingNextLesson: boolean
-  action: any
-}
+import { useCourseData } from '@/context/CourseContext'
 
-const LessonControls = ({
-  completed,
-  nextLesson,
-  isLoadingMarkUpdate,
-  isLoadingNextLesson,
-  action
-}: IProps) => {
+const LessonControls = () => {
   const router = useRouter()
+  const { getCourseLessonByEnrollment, handleMarkLesson } = useCourseData()
   const { courseId, courseVersionId } = router.query
-  const [isCompleted, setCompleted] = useState(completed)
 
   const defaultStyle =
     'w-1/2 md:w-auto text-center text-sm py-3 font-semibold rounded text-white'
@@ -28,7 +16,7 @@ const LessonControls = ({
   const buttonStyles = classNames(
     defaultStyle,
     'cursor-pointer',
-    isCompleted
+    getCourseLessonByEnrollment?.completed
       ? 'bg-purple-500 hover:bg-purple-400 md:px-12'
       : 'bg-purple-700 hover:bg-purple-600 md:px-4'
   )
@@ -36,24 +24,14 @@ const LessonControls = ({
   const linkStyles = classNames(
     defaultStyle,
     'md:px-12',
-    nextLesson ? 'bg-purple-700 hover:bg-purple-600 ' : 'bg-purple-300'
+    getCourseLessonByEnrollment?.nextLesson
+      ? 'bg-purple-700 hover:bg-purple-600 '
+      : 'bg-purple-300'
   )
 
-  useEffect(() => {
-    setCompleted(completed)
-  }, [completed])
-
-  const handleAction = () => {
-    action(!isCompleted)
-    setCompleted(!isCompleted)
-  }
-
   const HasNextLesson = ({ children }) => {
-    const url = `/app/courses/${courseId}/version/${courseVersionId}/learn/${nextLesson}`
-    if (isLoadingNextLesson) {
-      return <div className={linkStyles}>Buscando Aula</div>
-    }
-    if (nextLesson) {
+    const url = `/app/courses/${courseId}/version/${courseVersionId}/learn/${getCourseLessonByEnrollment.nextLesson}`
+    if (getCourseLessonByEnrollment?.nextLesson) {
       return (
         <Link href={url}>
           <a className={linkStyles}>{children}</a>
@@ -63,15 +41,24 @@ const LessonControls = ({
     return <div className={linkStyles}>Fim da(s) Aula(s)</div>
   }
 
+  if (!getCourseLessonByEnrollment) {
+    return (
+      <div className='h-12 animate-pulse bg-purple-100 rounded-md w-1/2'></div>
+    )
+  }
+
   return (
-    <div className='flex justify-between px-4 md:px-0 gap-4 bg-white'>
-      <button
-        onClick={handleAction}
-        disabled={isLoadingMarkUpdate}
-        className={buttonStyles}
-      >
-        {isCompleted ? 'Aula Concluida' : 'Marcar como Concluída'}
-      </button>
+    <div className='flex justify-between px-4 md:px-0 gap-4'>
+      {getCourseLessonByEnrollment?.completed ? (
+        <button onClick={handleMarkLesson(false)} className={buttonStyles}>
+          Aula Concluida
+        </button>
+      ) : (
+        <button onClick={handleMarkLesson(true)} className={buttonStyles}>
+          Marcar como Concluída
+        </button>
+      )}
+
       <HasNextLesson>Próxima Aula</HasNextLesson>
     </div>
   )
