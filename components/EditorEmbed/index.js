@@ -19,18 +19,7 @@ const addEmbed = (editorState, data) => {
 }
 
 const EmbedComponent = ({ block, theme = {}, ...otherProps }) => {
-  const {
-    blockProps, // eslint-disable-line no-unused-vars
-    customStyleMap, // eslint-disable-line no-unused-vars
-    customStyleFn, // eslint-disable-line no-unused-vars
-    decorator, // eslint-disable-line no-unused-vars
-    forceSelection, // eslint-disable-line no-unused-vars
-    offsetKey, // eslint-disable-line no-unused-vars
-    selection, // eslint-disable-line no-unused-vars
-    tree, // eslint-disable-line no-unused-vars
-    contentState,
-    ...elementProps
-  } = otherProps
+  const { contentState, ...elementProps } = otherProps
 
   const entity = block.getEntityAt(0)
   const embedProps = contentState.getEntity(entity).getData()
