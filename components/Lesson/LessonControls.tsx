@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
-import { CourseContext } from '@/context/CourseContext'
+
+import { CourseContext } from '../../context/CourseContext'
 
 const LessonControls = () => {
   const router = useRouter()
