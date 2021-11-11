@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useCourseData } from '@/context/CourseContext'
 import { useCurrentWidth } from 'react-breakpoints-hook'
 import { EditorState, convertFromRaw } from 'draft-js'
 import Editor from 'draft-js-plugins-editor'
@@ -6,7 +7,6 @@ import createEmbedPlugin from 'draft-js-embed-plugin'
 import createImagePlugin from 'draft-js-image-plugin'
 import createVideoPlugin from 'draft-js-video-plugin'
 import createLinkifyPlugin from '@draft-js-plugins/linkify'
-import { CourseContext } from '@/context/CourseContext'
 
 const embedPlugin = createEmbedPlugin()
 const imagePlugin = createImagePlugin()
@@ -16,7 +16,7 @@ const linkifyPlugin = createLinkifyPlugin()
 const plugins = [imagePlugin, embedPlugin, videoPlugin, linkifyPlugin]
 
 const EditorDraftJS = () => {
-  const { parsedBody } = useContext(CourseContext)
+  const { parsedBody } = useCourseData()
   let width = useCurrentWidth()
 
   const editorState = parsedBody

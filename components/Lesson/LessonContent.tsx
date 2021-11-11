@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { CourseContext } from '@/context/CourseContext'
+import React from 'react'
+import { useCourseData } from '@/context/CourseContext'
 import LessonsModule from './LessonsModule'
 
 const LessonContent = () => {
-  const { getCourseModules } = useContext(CourseContext)
+  const { getCourseModules } = useCourseData()
 
   return (
     <>

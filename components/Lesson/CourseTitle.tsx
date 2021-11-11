@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { CourseContext } from '@/context/CourseContext'
+import React from 'react'
 
+import { useCourseData } from '@/context/CourseContext'
 import ProgressBar from '../ProgressBar'
 
 const CourseTitle = () => {
-  const { getCourse } = useContext(CourseContext)
+  const { getCourse } = useCourseData()
   return (
     <div className='text-2xl font-extrabold text-gray-700 leading-none sm:text-4xl'>
       {getCourse?.title || (

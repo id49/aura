@@ -1,14 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
 
-import { CourseContext } from '../../context/CourseContext'
+import { useCourseData } from '@/context/CourseContext'
 
 const LessonControls = () => {
   const router = useRouter()
-  const { getCourseLessonByEnrollment, handleMarkLesson } =
-    useContext(CourseContext)
+  const { getCourseLessonByEnrollment, handleMarkLesson } = useCourseData()
   const { courseId, courseVersionId } = router.query
 
   const defaultStyle =

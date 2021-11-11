@@ -172,6 +172,4 @@ export const CourseProvider = ({ children }) => {
   )
 }
 
-export const useAccount = () => {
-  return useContext(CourseContext)
-}
+export const useCourseData = () => useContext(CourseContext)

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
-import { CourseContext } from '@/context/CourseContext'
+import React from 'react'
+import { useCourseData } from '@/context/CourseContext'
 
 const CourseDescription = () => {
-  const { getCourse } = useContext(CourseContext)
+  const { getCourse } = useCourseData()
   return (
     <div className='py-4 mb-5 text-gray-600 text-sm'>
       {getCourse?.description || (
