@@ -90,6 +90,24 @@ const MARK_LESSON_AS_SEEN = `
   }
 `
 
+const CREATE_OR_UPDATE_LAST_COURSE_LESSON_ACCESS = `
+  mutation createOrUpdateLastCourseLessonAccess(
+    $accountId: String!
+    $courseId: String!
+    $courseVersionId: String!
+    $lessonId: String!
+  ) {
+    createOrUpdateLastCourseLessonAccess(
+      accountId: $accountId
+      courseId: $courseId
+      courseVersionId: $courseVersionId
+      lessonId: $lessonId
+    ) {
+      id
+    }
+  }
+`
+
 export const CourseContext = createContext()
 
 export const CourseProvider = ({ children }) => {
@@ -98,6 +116,9 @@ export const CourseProvider = ({ children }) => {
   const { courseId, courseVersionId, lessonId } = router.query
   const [lessons, setLessons] = useState({})
   const [, markLesson] = useMutation(MARK_LESSON_AS_SEEN)
+  const [, updateLastLessonAccess] = useMutation(
+    CREATE_OR_UPDATE_LAST_COURSE_LESSON_ACCESS
+  )
 
   const [courseData] = useQuery({
     query: GET_COURSE,
@@ -152,6 +173,15 @@ export const CourseProvider = ({ children }) => {
     })
   }
 
+  const handleUpdateLastLessonAccess = async () => {
+    await updateLastLessonAccess({
+      accountId,
+      courseId,
+      courseVersionId,
+      lessonId
+    })
+  }
+
   const parsedBody =
     lessons?.getCourseLessonByEnrollment?.blocks &&
     JSON.parse(lessons?.getCourseLessonByEnrollment?.blocks)
@@ -163,7 +193,8 @@ export const CourseProvider = ({ children }) => {
         ...modules,
         ...lessons,
         parsedBody,
-        handleMarkLesson
+        handleMarkLesson,
+        handleUpdateLastLessonAccess
       }}
     >
       <Head title={course?.getCourse.title || 'Aguarde'} />
