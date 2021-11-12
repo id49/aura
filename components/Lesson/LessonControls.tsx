@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
@@ -7,8 +7,16 @@ import { useCourseData } from '@/context/CourseContext'
 
 const LessonControls = () => {
   const router = useRouter()
-  const { getCourseLessonByEnrollment, handleMarkLesson } = useCourseData()
+  const {
+    getCourseLessonByEnrollment,
+    handleMarkLesson,
+    handleUpdateLastLessonAccess
+  } = useCourseData()
   const { courseId, courseVersionId } = router.query
+
+  useEffect(() => {
+    handleUpdateLastLessonAccess()
+  }, [])
 
   const defaultStyle =
     'w-1/2 md:w-auto text-center text-sm py-3 font-semibold rounded text-white'
