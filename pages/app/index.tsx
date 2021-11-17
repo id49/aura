@@ -61,7 +61,12 @@ const Dashboard = () => {
         Object.keys(data).length > 0 &&
         Object.keys(fullCourses).includes(
           data?.getLastCourseAccess?.courseId
-        ) && <CardLastCourseAccess {...data?.getLastCourseAccess} />}
+        ) && (
+          <CardLastCourseAccess
+            courseName={fullCourses[data.getLastCourseAccess?.courseId].title}
+            {...data?.getLastCourseAccess}
+          />
+        )}
       <Title text='Destaques' />
       <CardTop3
         courseOne={Object.values(fullCourses)[0]}

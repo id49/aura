@@ -51,7 +51,7 @@ const Support = () => {
       offset: 0
     }
   })
-  const { data, fetching } = result
+  const { data } = result
 
   return (
     <>

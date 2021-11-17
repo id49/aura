@@ -8,6 +8,7 @@ import fullCourses from '@/data/fullCourses.json'
 
 export type CardType = 'default' | 'lite'
 interface PropsValues {
+  courseName?: string
   courseId: string
   moduleTitle: string
   lessonId: string
@@ -18,6 +19,7 @@ interface PropsValues {
 }
 
 const LastCourseAccess = ({
+  courseName,
   courseId,
   moduleTitle,
   lessonId,
@@ -65,7 +67,7 @@ const LastCourseAccess = ({
           )}
           <CardBody>
             <p className='font-bold text-2xl lg:text-3xl text-white'>
-              {moduleTitle}
+              {[courseName, moduleTitle].filter((x) => x).join(' - ')}
             </p>
             <p className='text-gray-200 mt-2'>Assunto: {lessonTitle}</p>
           </CardBody>

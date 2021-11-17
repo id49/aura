@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import LessonItem from './LessonItem'
@@ -10,7 +10,6 @@ interface IContent {
 }
 
 interface IProps {
-  isExpanded: boolean
   title: string
   lessons: [IContent]
 }
@@ -45,14 +44,10 @@ const CloseIcon = () => (
   </svg>
 )
 
-const LessonsList = ({ isExpanded = false, title, lessons }: IProps) => {
+const LessonModule = ({ title, lessons }: IProps) => {
   const router = useRouter()
   const { courseId, courseVersionId, lessonId } = router.query
   const [isOpen, setOpen] = useState(true)
-
-  useEffect(() => {
-    setOpen(isExpanded)
-  }, [isExpanded])
 
   const toggle = () => setOpen(!isOpen)
 
@@ -86,4 +81,4 @@ const LessonsList = ({ isExpanded = false, title, lessons }: IProps) => {
   )
 }
 
-export default LessonsList
+export default LessonModule
