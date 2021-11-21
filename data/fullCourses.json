@@ -95,5 +95,12 @@
     "image": "/courses/agendaLa.png",
     "title": "AgendaLá",
     "description": "Entenda e aplique a estratégia de provas de conceito e transforme em código prático no projeto AgendaLá utilizando NextJS, API Routes e SWR para consumir dados da api do Notion!"
+  },
+  "cefecb39-af95-41f6-9585-8b05b93bee9a": {
+    "id": "cefecb39-af95-41f6-9585-8b05b93bee9a",
+    "version": "6c7ba813-aef2-4eeb-91c8-d0ed7f3ab761",
+    "image": "/courses/BlogDocMDX.png",
+    "title": "Blog e Documentação com MDX",
+    "description": "Crie um blog ou a documentação do seu software ou da sua integração com markdown + componentes em React."
   }
 }

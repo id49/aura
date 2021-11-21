@@ -120,6 +120,38 @@ const Dashboard = () => {
             </div>
           </a>
         </Link>
+        <Link
+          href={`/app/courses/${Object.values(fullCourses)[14].id}/version/${Object.values(fullCourses)[14].version
+            }`}
+        >
+          <a>
+            <div className='container px-6 py-8 mx-auto bg-gray-100 hover:bg-gray-300 rounded-lg'>
+              <div className='items-center lg:flex'>
+                <div className='lg:w-1/2 xl:w-2/3'>
+                  <h2 className='text-3xl font-bold text-gray-600'>
+                    {Object.values(fullCourses)[14].title}
+                  </h2>
+
+                  <p className='mt-4 text-gray-500'>
+                    {Object.values(fullCourses)[14].description}
+                  </p>
+                </div>
+
+                <div className='mt-8 lg:mt-0 lg:w-1/2 xl:w-1/3'>
+                  <div className='flex items-center justify-center lg:justify-end'>
+                    <div className='max-w-lg'>
+                      <img
+                        className='object-cover object-center w-full h-64 rounded-md shadow'
+                        src={Object.values(fullCourses)[14].image}
+                        alt='Projeto'
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </Link>
       </div>
       <Support />
       <Copyright />
