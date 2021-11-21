@@ -86,8 +86,12 @@
     "title": "Dominando Domínios e DNS para sites",
     "description": "Você conhecerá tudo sobre domínios e DNS para sites. Como configurar, cuidados e para que serve cada tipo de registro no DNS."
   },
-  "": {
-    "id": null
+  "891fe854-1f0f-4854-b7d3-f3746a925851": {
+    "id": "891fe854-1f0f-4854-b7d3-f3746a92585a",
+    "version": "df48b6d6-efcb-4e62-82d6-0611c73e58cb",
+    "image": "/courses/dns.png",
+    "title": "Dominando Domínios e DNS para sites",
+    "description": "Você conhecerá tudo sobre domínios e DNS para sites. Como configurar, cuidados e para que serve cada tipo de registro no DNS."
   },
   "1bfc1906-04a0-4ee5-8667-cbaef3b5c1ad": {
     "id": "1bfc1906-04a0-4ee5-8667-cbaef3b5c1ad",

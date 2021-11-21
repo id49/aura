@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface CourseValues {
-  id: string
+  id?: string
   version: string
   image: string
   title: string
