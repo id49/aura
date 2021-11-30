@@ -31,14 +31,14 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const StudentsAuthenticatedLayout = ({ children }) => (
     <AuthProvider role='user'>
       <Windmill>
-        <div className='flex h-screen bg-gray-50 dark:bg-gray-900'>
-          <div className='flex flex-col flex-1 w-full'>
-            <Navbar />
-            <main className='flex flex-col h-screen lg:overflow-y-auto'>
-              <div className='flex-1'>{children}</div>
-              <Footer />
-            </main>
-          </div>
+        <div className='flex flex-col h-screen bg-gray-50'>
+          {/* <div className='flex flex-col flex-1 w-full'> */}
+          <Navbar />
+          <main className='flex flex-col h-screen lg:overflow-y-auto'>
+            <div className='flex-1'>{children}</div>
+            {/* <Footer /> */}
+          </main>
+          {/* </div> */}
         </div>
       </Windmill>
     </AuthProvider>

@@ -5,7 +5,8 @@
     "image": "/courses/FSM_branco.png",
     "title": "Fullstack Master",
     "subTitle": "Entregue aplicações web profissionais com autonomia e destrave a sua carreira para salários acima de 10 mil reais.",
-    "description": "Já se imaginou trabalhando em grandes projetos para empresas nacionais e estrangeiras, sendo muito bem remunerado e ainda tendo mais liberdade na carreira? A realização desse sonho pode estar mais perto do que você imagina."
+    "description": "Já se imaginou trabalhando em grandes projetos para empresas nacionais e estrangeiras, sendo muito bem remunerado e ainda tendo mais liberdade na carreira? A realização desse sonho pode estar mais perto do que você imagina.",
+    "labels": [{ "label": "Curso Completo", "isPrivate": false }]
   },
   "7945dbab-8ed7-4a26-9145-6b7f0b73327d": {
     "id": "7945dbab-8ed7-4a26-9145-6b7f0b73327d",
@@ -13,7 +14,8 @@
     "image": "/courses/logo_devreact_branco.png",
     "title": "DevReact",
     "subTitle": "Domine a tecnologia que está fazendo desenvolvedores dobrarem seus salários",
-    "description": "No DevReactJS, você vai do zero à entrega aplicações profissionais em React. Você aprenderá na prática, de forma descomplicada, e estará apto para disputar as melhores vagas de emprego nas diversas empresas nacionais e estrangeiras que utilizam ReactJS em seus projetos."
+    "description": "No DevReactJS, você vai do zero à entrega aplicações profissionais em React. Você aprenderá na prática, de forma descomplicada, e estará apto para disputar as melhores vagas de emprego nas diversas empresas nacionais e estrangeiras que utilizam ReactJS em seus projetos.",
+    "labels": [{ "label": "Curso Completo", "isPrivate": false }]
   },
   "6e334eb5-6b1f-4830-9329-c5efa2255692": {
     "id": "6e334eb5-6b1f-4830-9329-c5efa2255692",
@@ -21,7 +23,22 @@
     "image": "/courses/powersites.png",
     "title": "PowerSites",
     "subTitle": "Crie sites até 10 vezes mais rápidos e 5 vezes mais lucrativos",
-    "description": "O PowerSites é um treinamento Premium que vai te ajudar a faturar na internet com um modelo de negócio simples e recorrente. Você terá tudo que precisa para entregar sites que performam e geram resultados positivos para seus futuros clientes."
+    "description": "O PowerSites é um treinamento Premium que vai te ajudar a faturar na internet com um modelo de negócio simples e recorrente. Você terá tudo que precisa para entregar sites que performam e geram resultados positivos para seus futuros clientes.",
+    "labels": [{ "label": "Curso Completo", "isPrivate": false }]
+  },
+  "cefecb39-af95-41f6-9585-8b05b93bee9a": {
+    "id": "cefecb39-af95-41f6-9585-8b05b93bee9a",
+    "version": "6c7ba813-aef2-4eeb-91c8-d0ed7f3ab761",
+    "image": "/courses/BlogDocMDX.png",
+    "title": "Blog e Documentação com MDX",
+    "description": "Crie um blog ou a documentação do seu software ou da sua integração com markdown + componentes em React."
+  },
+  "1bfc1906-04a0-4ee5-8667-cbaef3b5c1ad": {
+    "id": "1bfc1906-04a0-4ee5-8667-cbaef3b5c1ad",
+    "version": "ece72391-a293-4d4d-8277-c8054bf7b463",
+    "image": "/courses/agendaLa.png",
+    "title": "AgendaLá",
+    "description": "Entenda e aplique a estratégia de provas de conceito e transforme em código prático no projeto AgendaLá utilizando NextJS, API Routes e SWR para consumir dados da api do Notion!"
   },
   "f65e97b1-dab7-4f29-8588-7169dab71ba6": {
     "id": "f65e97b1-dab7-4f29-8588-7169dab71ba6",
@@ -85,26 +102,5 @@
     "image": "/courses/dns.png",
     "title": "Dominando Domínios e DNS para sites",
     "description": "Você conhecerá tudo sobre domínios e DNS para sites. Como configurar, cuidados e para que serve cada tipo de registro no DNS."
-  },
-  "891fe854-1f0f-4854-b7d3-f3746a925851": {
-    "id": "891fe854-1f0f-4854-b7d3-f3746a92585a",
-    "version": "df48b6d6-efcb-4e62-82d6-0611c73e58cb",
-    "image": "/courses/dns.png",
-    "title": "Dominando Domínios e DNS para sites",
-    "description": "Você conhecerá tudo sobre domínios e DNS para sites. Como configurar, cuidados e para que serve cada tipo de registro no DNS."
-  },
-  "1bfc1906-04a0-4ee5-8667-cbaef3b5c1ad": {
-    "id": "1bfc1906-04a0-4ee5-8667-cbaef3b5c1ad",
-    "version": "ece72391-a293-4d4d-8277-c8054bf7b463",
-    "image": "/courses/agendaLa.png",
-    "title": "AgendaLá",
-    "description": "Entenda e aplique a estratégia de provas de conceito e transforme em código prático no projeto AgendaLá utilizando NextJS, API Routes e SWR para consumir dados da api do Notion!"
-  },
-  "cefecb39-af95-41f6-9585-8b05b93bee9a": {
-    "id": "cefecb39-af95-41f6-9585-8b05b93bee9a",
-    "version": "6c7ba813-aef2-4eeb-91c8-d0ed7f3ab761",
-    "image": "/courses/BlogDocMDX.png",
-    "title": "Blog e Documentação com MDX",
-    "description": "Crie um blog ou a documentação do seu software ou da sua integração com markdown + componentes em React."
   }
 }
