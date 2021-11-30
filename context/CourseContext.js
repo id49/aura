@@ -86,7 +86,10 @@ const MARK_LESSON_AS_SEEN = `
       courseId: $courseId
       lessonId: $lessonId
       isCompleted: $isCompleted
-    )
+    ){
+      id
+      completed
+    }
   }
 `
 
