@@ -23,7 +23,7 @@ const Learn = () => {
             </div>
           </div>
           <div className='flex flex-col justify-center px-4 lg:px-2'>
-            <CardInstructor type='clean' />
+            {/* <CardInstructor type='clean' /> */}
             <CourseTitle />
             <CourseDescription />
           </div>

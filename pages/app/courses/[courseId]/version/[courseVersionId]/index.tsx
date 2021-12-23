@@ -173,7 +173,7 @@ const Courses = () => {
         {data?.getLastCourseAccess && isIncluded && (
           <CardLastCourseAccess type='lite' {...data?.getLastCourseAccess} />
         )}
-        <CardInstructor type='clean' />
+        {/* <CardInstructor type='clean' /> */}
       </section>
       <section className='container mx-auto max-w-5xl py-4 px-2 lg:px-0'>
         <Title text='Conteúdo do curso' />
