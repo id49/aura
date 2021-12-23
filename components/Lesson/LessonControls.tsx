@@ -37,6 +37,14 @@ const LessonControls = () => {
       : 'bg-purple-300'
   )
 
+  const markLesson = (state) => async () => {
+    const url = `/app/courses/${courseId}/version/${courseVersionId}/learn/${getCourseLessonByEnrollment.nextLesson}`
+    await handleMarkLesson(state)()
+    if (getCourseLessonByEnrollment?.nextLesson) {
+      router.push(url)
+    }
+  }
+
   const HasNextLesson = ({ children }) => {
     const url = `/app/courses/${courseId}/version/${courseVersionId}/learn/${getCourseLessonByEnrollment.nextLesson}`
     if (getCourseLessonByEnrollment?.nextLesson) {
@@ -62,7 +70,7 @@ const LessonControls = () => {
           Aula Concluida
         </button>
       ) : (
-        <button onClick={handleMarkLesson(true)} className={buttonStyles}>
+        <button onClick={markLesson(true)} className={buttonStyles}>
           Marcar como Concluída
         </button>
       )}
