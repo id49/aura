@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Image from 'next/image'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination, Navigation } from 'swiper'
+// import Image from 'next/image'
+// import { Swiper, SwiperSlide } from 'swiper/react'
+// import { Autoplay, Pagination, Navigation } from 'swiper'
 import { useQuery } from 'urql'
 import Link from 'next/link'
 import 'swiper/css'
@@ -61,22 +61,22 @@ const Dashboard = () => {
   })
   const { data, fetching } = result
 
-  const sliderData = [
-    {
-      img: '/courses/backgrounds/AplicandoTestescomNestJs.png',
-      title: 'Aplicando Testes no NestJS',
-      titleColor: '#fff',
-      description: 'Lorem ipsum here',
-      descriptionColor: '#fff'
-    },
-    {
-      img: '/courses/SaasEMultiTenancy.png',
-      title: 'SaaS e Multi-Tenancy',
-      titleColor: '#fff',
-      description: 'Lorem ipsum here',
-      descriptionColor: '#fff'
-    }
-  ]
+  // const sliderData = [
+  //   {
+  //     img: '/courses/backgrounds/AplicandoTestescomNestJs.png',
+  //     title: 'Aplicando Testes no NestJS',
+  //     titleColor: '#fff',
+  //     description: 'Lorem ipsum here',
+  //     descriptionColor: '#fff'
+  //   },
+  //   {
+  //     img: '/courses/SaasEMultiTenancy.png',
+  //     title: 'SaaS e Multi-Tenancy',
+  //     titleColor: '#fff',
+  //     description: 'Lorem ipsum here',
+  //     descriptionColor: '#fff'
+  //   }
+  // ]
 
   return (
     <>
