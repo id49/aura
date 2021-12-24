@@ -113,6 +113,12 @@
     "image": "/courses/AplicandoTestescomNestJs.png",
     "title": "[Bônus] Aplicando Testes com NestJs",
     "description": "Veja como aplicar testes no famoso framework NestJS, utilizando Jest." 
+  },
+  "0a212c27-b2fc-4d4f-9ea0-a411540b2221": {
+    "id": "0a212c27-b2fc-4d4f-9ea0-a411540b2221",
+    "version": "fd5ad5da-fbd1-437c-b013-3a34b43f18cc",
+    "image": "/courses/SaasEMultiTenancy.png",
+    "title": "[Bônus] SaaS e Multi-Tenancy",
+    "description": "O que é Software as a Service (SaaS) e como funciona o modelo Multi-Tenancy?" 
   }
-  
 }
