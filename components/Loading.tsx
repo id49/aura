@@ -7,7 +7,7 @@ const Loading = () => (
     <svg className='animate-spin h-5 w-5 mr-3' viewBox='0 0 24 24'>
       <Refresh className='w-4 h-4' aria-hidden='true' />
     </svg>
-    Aguarde...
+    <h1>Aguarde...</h1>
   </div>
 )
 
