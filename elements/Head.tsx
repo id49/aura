@@ -33,6 +33,7 @@ const CustomHead = ({ title }: Props) => (
       <meta charSet='utf-8' />
       <meta httpEquiv='Content-Language' content='pt' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+      <link rel='alternate' href='http://cursos.devpleno.com/' hrefLang='pt' />
     </Head>
   </>
 )
