@@ -106,5 +106,19 @@
     "image": "/courses/BlogDocMDX.png",
     "title": "Blog e Documentação com MDX",
     "description": "Crie um blog ou a documentação do seu software ou da sua integração com markdown + componentes em React."
+  },
+  "51257ad0-2e20-4adf-b847-c8acbddfe5d7": {
+    "id": "51257ad0-2e20-4adf-b847-c8acbddfe5d7",
+    "version": "43327a2f-be15-4152-aa85-58b4d90d2e28",
+    "image": "/courses/AplicandoTestescomNestJs.png",
+    "title": "[Bônus] Aplicando Testes com NestJs",
+    "description": "Veja como aplicar testes no famoso framework NestJS, utilizando Jest."
+  },
+  "0a212c27-b2fc-4d4f-9ea0-a411540b2221": {
+    "id": "0a212c27-b2fc-4d4f-9ea0-a411540b2221",
+    "version": "fd5ad5da-fbd1-437c-b013-3a34b43f18cc",
+    "image": "/courses/SaasEMultiTenancy.png",
+    "title": "[Bônus] SaaS e Multi-Tenancy",
+    "description": "O que é Software as a Service (SaaS) e como funciona o modelo Multi-Tenancy?"
   }
 }
