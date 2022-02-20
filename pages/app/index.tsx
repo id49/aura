@@ -58,7 +58,7 @@ const Dashboard = () => {
   return (
     <div className='container px-2 lg:px-1 py-6 mx-auto'>
       <Head title='Dashboard' />
-      {!fetching &&
+      {!fetching && data &&
         Object.keys(data).length > 0 &&
         Object.keys(fullCourses).includes(
           data?.getLastCourseAccess?.courseId

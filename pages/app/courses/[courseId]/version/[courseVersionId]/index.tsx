@@ -145,8 +145,8 @@ const Courses = () => {
           </div>
           <div className='flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2'>
             <div className='mb-4 flex gap-2'>
-              {data?.getCourse.labels.length > 0 &&
-                data?.getCourse.labels
+              {data?.getCourse?.labels?.length > 0 &&
+                data?.getCourse?.labels
                   .filter((e) => !e.isPrivate)
                   .map((e) => <Badge key={e.label} text={e.label} />)}
             </div>

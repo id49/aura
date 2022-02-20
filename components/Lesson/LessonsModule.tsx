@@ -64,10 +64,10 @@ const LessonModule = ({ title, lessons }: IProps) => {
           {title}
         </div>
         <p className='flex text-sm font-thin justify-end lg:text-center pr-1 w-1/6'>
-          {lessons.length} aula{lessons.length > 1 && 's'}
+          {lessons?.length} aula{lessons?.length > 1 && 's'}
         </p>
       </div>
-      {lessons.length > 0 &&
+      {lessons?.length > 0 &&
         isOpen &&
         lessons.map((lesson) => (
           <LessonItem

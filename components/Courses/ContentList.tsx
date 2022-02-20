@@ -64,10 +64,10 @@ const ContentList = ({ title, lessons }: IProps) => {
           <p>{title}</p>
         </div>
         <p className='flex text-sm font-thin self-end md:self-auto'>
-          {lessons.length} aula{lessons.length > 1 && 's'}
+          {lessons?.length} aula{lessons?.length > 1 && 's'}
         </p>
       </div>
-      {lessons.length > 0 &&
+      {lessons?.length > 0 &&
         isOpen &&
         lessons.map((lesson: IContent) => (
           <Link
