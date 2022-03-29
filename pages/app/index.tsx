@@ -91,7 +91,7 @@ const Dashboard = () => {
         </div>
         <div className='py-4 gap-4'>
           <Title text='Projetos' subText='Aumente sua experiência prática!' />
-          {[13, 14, 15, 16].map((courseId) => (
+          {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22].map((courseId) => (
             <Link
               key={courseId}
               href={`/app/courses/${Object.values(fullCourses)[courseId].id
@@ -104,8 +104,7 @@ const Dashboard = () => {
                       <h2 className='text-3xl font-bold text-gray-600'>
                         {Object.values(fullCourses)[courseId].title}
                       </h2>
-
-                      <p className='mt-4 text-gray-500'>
+                      <p className='mt-4 text-gray-500 pr-2'>
                         {Object.values(fullCourses)[courseId].description}
                       </p>
                     </div>
