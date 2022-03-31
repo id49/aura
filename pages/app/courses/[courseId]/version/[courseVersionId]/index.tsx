@@ -91,7 +91,7 @@ const Courses = () => {
     const preLink = `/app/courses/${courseId}/version/${courseVersionId}/learn/`
     return haveProgress && haveProgress < 100
       ? preLink + data.getLastCourseAccess.lessonId
-      : preLink + data.getCourseModules[0].lessons[0].id
+      : preLink + data.getCourseModules[0]?.lessons[0].id
   }
 
   const buttonMessage = (progress) => {

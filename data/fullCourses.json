@@ -107,18 +107,60 @@
     "title": "Blog e Documentação com MDX",
     "description": "Crie um blog ou a documentação do seu software ou da sua integração com markdown + componentes em React."
   },
-  "51257ad0-2e20-4adf-b847-c8acbddfe5d7": {
-    "id": "51257ad0-2e20-4adf-b847-c8acbddfe5d7",
-    "version": "43327a2f-be15-4152-aa85-58b4d90d2e28",
-    "image": "/courses/AplicandoTestescomNestJs.png",
-    "title": "[Bônus] Aplicando Testes com NestJs",
-    "description": "Veja como aplicar testes no famoso framework NestJS, utilizando Jest."
-  },
   "0a212c27-b2fc-4d4f-9ea0-a411540b2221": {
     "id": "0a212c27-b2fc-4d4f-9ea0-a411540b2221",
     "version": "fd5ad5da-fbd1-437c-b013-3a34b43f18cc",
     "image": "/courses/SaasEMultiTenancy.png",
     "title": "[Bônus] SaaS e Multi-Tenancy",
     "description": "O que é Software as a Service (SaaS) e como funciona o modelo Multi-Tenancy?"
+  },
+  "cbf9482d-89c3-45f5-9106-3e0eb6f24401": {
+    "id": "cbf9482d-89c3-45f5-9106-3e0eb6f24401",
+    "version": "57d20798-cb41-406f-bf7b-0a0a2dd51f50",
+    "image": "/officehours/linkedin.png",
+    "title": "[Office Hours] Especial: Linkedin",
+    "description": "Office Hours Especial sobre Linkedin. Como personalizar e elaborar sua marca pessoal incrementando com detalhes seu perfil na rede social de profissionais mais famosa do mundo."
+  },
+  "79ea4162-befe-4b79-8f03-eff4a6d02f91": {
+    "id": "79ea4162-befe-4b79-8f03-eff4a6d02f91",
+    "version": "458651d9-356e-4da6-81f5-f0da9e5672f4",
+    "image": "/officehours/firstjob.png",
+    "title": "[Office Hours] Especial: Primeiro Emprego/Transição",
+    "description": "Office Hours Especial sobre Primeiro Emprego e Transição de Carreira"
+  },
+  "1f0eaa0d-497f-461f-89ea-a1f3110ded5b": {
+    "id": "1f0eaa0d-497f-461f-89ea-a1f3110ded5b",
+    "version": "a4c01f4f-6654-47fa-8e66-f2f614d92925",
+    "image": "/officehours/github.png",
+    "title": "[Office Hours] Especial: Github",
+    "description": "Office Hours Especial sobre como dar maior visibilidade ao seu Github"
+  },
+  "bf074bf8-858a-48ba-a390-dc8686b6f9da": {
+    "id": "bf074bf8-858a-48ba-a390-dc8686b6f9da",
+    "version": "a6d44b1c-8750-43de-bcc3-bc39e662d1df",
+    "image": "/officehours/saas.png",
+    "title": "[Office Hours] Especial: SaaS",
+    "description": "Office Hours Especial sobre SaaS!"
+  },
+  "78fd9eac-f5fa-491a-bd76-51debc30dd3e": {
+    "id": "78fd9eac-f5fa-491a-bd76-51debc30dd3e",
+    "version": "4b3e0a6f-89e2-491e-a6bd-1498d3f78ebb",
+    "image": "/officehours/internationalcareer.png",
+    "title": "[Office Hours] Especial: Carreira Internacional",
+    "description": "Office Hours Especial sobre carreira internacional"
+  },
+  "51257ad0-2e20-4adf-b847-c8acbddfe5d7": {
+    "id": "51257ad0-2e20-4adf-b847-c8acbddfe5d7",
+    "version": "43327a2f-be15-4152-aa85-58b4d90d2e28",
+    "image": "/officehours/AplicandoTestescomNestJs.png",
+    "title": "[Office Hours] Especial: Aplicando Testes com NestJs",
+    "description": "Veja como aplicar testes no famoso framework NestJS, utilizando Jest."
+  },
+  "3e339631-5f53-4597-a296-d4bcc1eb9104": {
+    "id": "3e339631-5f53-4597-a296-d4bcc1eb9104",
+    "version": "8d56563a-d677-4e79-9554-d98d5dd65944",
+    "image": "/officehours/desconstruindo.png",
+    "title": "[Office Hours] Especial: Desconstruindo a Carreira",
+    "description": "Nesta Office Hours, nosso Tutor conta desde sua decisão de mudar de carreira até a conquista do trabalho no exterior, atingindo a marca de Dev10K."
   }
 }
