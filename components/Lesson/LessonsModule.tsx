@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import LessonItem from './LessonItem'
@@ -10,6 +10,7 @@ interface IContent {
 }
 
 interface IProps {
+  isExpanded: boolean
   title: string
   lessons: [IContent]
 }
@@ -44,10 +45,14 @@ const CloseIcon = () => (
   </svg>
 )
 
-const LessonModule = ({ title, lessons }: IProps) => {
+const LessonModule = ({ isExpanded = false, title, lessons }: IProps) => {
   const router = useRouter()
   const { courseId, courseVersionId, lessonId } = router.query
-  const [isOpen, setOpen] = useState(true)
+  const [isOpen, setOpen] = useState(false)
+
+  useEffect(() => {
+    setOpen(isExpanded)
+  }, [isExpanded])
 
   const toggle = () => setOpen(!isOpen)
 
@@ -55,7 +60,7 @@ const LessonModule = ({ title, lessons }: IProps) => {
     <div className='border-gray-400 border-b hover:bg-gray-300'>
       <div
         onClick={toggle}
-        className='sticky z-10 flex justify-between items-center py-2 px-1 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
+        className='sticky top-0 z-10 flex justify-between items-center py-2 px-1 cursor-pointer select-none bg-gray-200 hover:bg-gray-300'
       >
         <div className='flex items-center text-gray-700 w-5/6'>
           <div className='rounded-full text-gray-500 w-7 h-7 flex items-center justify-center'>
