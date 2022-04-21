@@ -3,12 +3,16 @@ import { useCourseData } from '@/context/CourseContext'
 import LessonsModule from './LessonsModule'
 
 const LessonContent = () => {
-  const { getCourseModules } = useCourseData()
+  const { getCourseModules, getCourseLessonByEnrollment } = useCourseData()
 
   return (
     <>
       {getCourseModules?.map((e) => (
-        <LessonsModule key={e.id} {...e} />
+        <LessonsModule
+          key={e.id}
+          isExpanded={e.id === getCourseLessonByEnrollment?.moduleId}
+          {...e}
+        />
       ))}
     </>
   )
