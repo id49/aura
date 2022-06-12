@@ -162,5 +162,12 @@
     "image": "/officehours/desconstruindo.png",
     "title": "[Office Hours] Especial: Desconstruindo a Carreira",
     "description": "Nesta Office Hours, nosso Tutor conta desde sua decisão de mudar de carreira até a conquista do trabalho no exterior, atingindo a marca de Dev10K."
+  },
+  "e88200dd-fc72-414d-90f4-604f9a4cca43": {
+    "id": "e88200dd-fc72-414d-90f4-604f9a4cca43",
+    "version": "eaf4c5a9-4532-4877-ae8d-80a390a0bde2",
+    "image": "/officehours/platform.jpg",
+    "title": "[Office Hours] Plataforma",
+    "description": "Nesta live, vamos conversando, debatendo e corrigindo alguns erros da Plataforma; um olhar crítico sobre renderização, SEO e outros assuntos avançados em NextJS"
   }
 }
