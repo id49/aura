@@ -91,7 +91,7 @@ const Dashboard = () => {
         </div>
         <div className='py-4 gap-4'>
           <Title text='Projetos' subText='Aumente sua experiência prática!' />
-          {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22].map((courseId) => (
+          {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23].map((courseId) => (
             <Link
               key={courseId}
               href={`/app/courses/${Object.values(fullCourses)[courseId].id
@@ -113,7 +113,8 @@ const Dashboard = () => {
                       <div className='flex items-center justify-center lg:justify-end'>
                         <div className='max-w-lg'>
                           <img
-                            className='object-cover object-center w-full h-64 rounded-md shadow'
+                            className='object-cover object-center h-64 rounded-md shadow'
+                            width={'450px'}
                             src={Object.values(fullCourses)[courseId].image}
                             alt='Projeto'
                           />
