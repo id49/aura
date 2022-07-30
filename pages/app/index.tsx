@@ -78,6 +78,16 @@ const Dashboard = () => {
           courseTwo={Object.values(fullCourses)[1]}
           courseThree={Object.values(fullCourses)[2]}
         />
+        <div className='py-4'>
+          <Title text='Lançamento:' />
+          <div className='py-4 gap-4'>
+            {Object.values(fullCourses)
+              .filter((_, id) => id === 24)
+              .map((each, i) => (
+                <CardCourses fullImage key={i} {...each} />
+              ))}
+          </div>
+        </div>
         <Title
           text='Especialize-se!'
           subText='Cursos específicos e direto ao ponto'

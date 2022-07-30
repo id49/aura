@@ -169,5 +169,12 @@
     "image": "/officehours/platform.jpg",
     "title": "[Office Hours] Plataforma",
     "description": "Nesta live, vamos conversando, debatendo e corrigindo alguns erros da Plataforma; um olhar crítico sobre renderização, SEO e outros assuntos avançados em NextJS"
+  },
+  "88e9a142-8bc4-4dbe-b5f2-f1f7872f6d53": {
+    "id": "88e9a142-8bc4-4dbe-b5f2-f1f7872f6d53",
+    "version": "760859e8-4477-4f05-a5ab-b8509c2fbb2c",
+    "image": "/courses/remixjs.jpg",
+    "title": "Dominando o Remix do zero",
+    "description": "Aprenda RemixJS passo a passo, criando projetos, aplicando hooks, tailwind, tratamento de erros e muito mais!"
   }
 }
