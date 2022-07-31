@@ -8,6 +8,7 @@ interface PropsValues {
   title: string
   image: string
   description: string
+  fullImage?: boolean
 }
 
 const CardCourses = ({
@@ -15,7 +16,8 @@ const CardCourses = ({
   version,
   image,
   title,
-  description
+  description,
+  fullImage = false
 }: PropsValues) => (
   <Link href={`/app/courses/${id}/version/${version}`}>
     <a>
@@ -26,13 +28,22 @@ const CardCourses = ({
             backgroundColor: '#000024'
           }}
         >
-          <Image
-            src={image}
-            height={80}
-            width={80}
-            alt={title}
-            layout='fixed'
-          />
+          {fullImage && (
+            <img
+              className='object-cover object-center rounded-md shadow'
+              src={image}
+              alt='Projeto'
+            />
+          )}
+          {!fullImage && (
+            <Image
+              src={image}
+              height={80}
+              width={80}
+              alt={title}
+              layout='fixed'
+            />
+          )}
         </div>
         <div className='md:w-4/5 md:py-3'>
           <CardBody>
