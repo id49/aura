@@ -82,6 +82,13 @@ const Dashboard = () => {
           <Title text='Lançamento:' />
           <div className='py-4 gap-4'>
             {Object.values(fullCourses)
+              .filter((_, id) => id === 25)
+              .map((each, i) => (
+                <CardCourses fullImage key={i} {...each} />
+              ))}
+          </div>
+          <div className='py-4 gap-4'>
+            {Object.values(fullCourses)
               .filter((_, id) => id === 24)
               .map((each, i) => (
                 <CardCourses fullImage key={i} {...each} />

@@ -176,5 +176,12 @@
     "image": "/courses/remixjs.jpg",
     "title": "Dominando o Remix do zero",
     "description": "Aprenda RemixJS passo a passo, criando projetos, aplicando hooks, tailwind, tratamento de erros e muito mais!"
+  },
+  "f107a3c3-c6dc-4e53-aed6-b806a75b3f2b": {
+    "id": "f107a3c3-c6dc-4e53-aed6-b806a75b3f2b",
+    "version": "f017732c-6fe3-4547-9640-12fa7094d27b",
+    "image": "/courses/prisma.png",
+    "title": "Prisma com PostgreSQL",
+    "description": "Prisma é um ORM de próxima geração de código aberto. Possui construtor de consulta gerado automaticamente para Node.js e TypeScript, sistema de migração e GUI para visualizar e editar dados em seu banco de dados. Neste curso vamos aprender a utilizá-lo com PostgreSQL, embora seja facilmente replicável em outros bancos."
   }
 }
