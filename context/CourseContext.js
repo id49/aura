@@ -152,7 +152,7 @@ export const CourseProvider = ({ children }) => {
       lessonId
     }
   })
-  const { data: currentLesson } = lessonsData
+  const { data: currentLesson, error } = lessonsData
 
   useEffect(() => {
     setLessons(currentLesson)
@@ -195,6 +195,7 @@ export const CourseProvider = ({ children }) => {
         ...course,
         ...modules,
         ...lessons,
+        error,
         parsedBody,
         handleMarkLesson,
         handleUpdateLastLessonAccess
