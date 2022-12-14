@@ -14,12 +14,30 @@ const videoPlugin = createVideoPlugin()
 const plugins = [imagePlugin, videoPlugin, embedPlugin]
 
 const EditorDraftJS = () => {
-  const { parsedBody } = useCourseData()
+  const { parsedBody, error } = useCourseData()
   let width = useCurrentWidth()
-
   const editorState = parsedBody
     ? EditorState.createWithContent(convertFromRaw(parsedBody))
     : EditorState.createEmpty()
+
+  if (error && error.message === '[GraphQL] Enrollment not found')
+    return (
+      <div
+        className='lg:container pt-2 text-gray-800 bg-gray-100 mb-4'
+        style={{
+          minHeight: width > 1024 && 580,
+          height: 350,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
+          flexDirection: 'column'
+        }}
+      >
+        <strong>Atenção: Matrícula não encontrada.</strong>
+        Entre em contato em contato@devpleno.com
+      </div>
+    )
 
   return (
     <div
@@ -28,7 +46,7 @@ const EditorDraftJS = () => {
         minHeight: width > 1024 && 580
       }}
     >
-      <Editor editorState={editorState} plugins={plugins} readOnly />
+      <Editor {...{ editorState, plugins }} readOnly />
     </div>
   )
 }

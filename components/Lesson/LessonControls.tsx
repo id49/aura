@@ -10,7 +10,8 @@ const LessonControls = () => {
   const {
     getCourseLessonByEnrollment,
     handleMarkLesson,
-    handleUpdateLastLessonAccess
+    handleUpdateLastLessonAccess,
+    error
   } = useCourseData()
   const { courseId, courseVersionId } = router.query
 
@@ -57,7 +58,8 @@ const LessonControls = () => {
     return <div className={linkStyles}>Fim da(s) Aula(s)</div>
   }
 
-  if (!getCourseLessonByEnrollment) {
+  if (error) return <></>
+  if (!getCourseLessonByEnrollment && !error) {
     return (
       <div className='h-12 animate-pulse bg-purple-100 rounded-md w-1/2'></div>
     )
