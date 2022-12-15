@@ -95,13 +95,11 @@ const MARK_LESSON_AS_SEEN = `
 
 const CREATE_OR_UPDATE_LAST_COURSE_LESSON_ACCESS = `
   mutation createOrUpdateLastCourseLessonAccess(
-    $accountId: String!
     $courseId: String!
     $courseVersionId: String!
     $lessonId: String!
   ) {
     createOrUpdateLastCourseLessonAccess(
-      accountId: $accountId
       courseId: $courseId
       courseVersionId: $courseVersionId
       lessonId: $lessonId
@@ -178,7 +176,6 @@ export const CourseProvider = ({ children }) => {
 
   const handleUpdateLastLessonAccess = async () => {
     await updateLastLessonAccess({
-      accountId,
       courseId,
       courseVersionId,
       lessonId
