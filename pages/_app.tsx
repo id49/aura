@@ -25,13 +25,7 @@ const nonAuthenticate = [
   '/terms'
 ]
 
-interface Props extends AppProps {
-  pageProps: {
-    account: string
-  }
-}
-
-const MyApp: React.FC<Props> = ({ Component, pageProps, router }) => {
+const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const { account } = pageProps
 
   const StudentsAuthenticatedLayout = ({ children }) => (
