@@ -76,13 +76,11 @@ const GET_COURSE_LESSON_BY_ENROLLMENT = `
 
 const MARK_LESSON_AS_SEEN = `
   mutation markLessonAsSeen(
-    $accountId: String!
     $courseId: String!
     $lessonId: String!
     $isCompleted: Boolean!
   ) {
     markLessonAsSeen(
-      accountId: $accountId
       courseId: $courseId
       lessonId: $lessonId
       isCompleted: $isCompleted
@@ -167,7 +165,6 @@ export const CourseProvider = ({ children }) => {
     })
 
     await markLesson({
-      accountId,
       courseId,
       lessonId,
       isCompleted: completed
