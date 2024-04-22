@@ -25,11 +25,9 @@ const nonAuthenticate = [
   '/terms'
 ]
 
-type Props = AppProps & {
-  account: object
-}
-
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const { account } = pageProps
 
   const StudentsAuthenticatedLayout = ({ children }) => (
