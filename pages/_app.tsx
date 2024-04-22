@@ -25,6 +25,10 @@ const nonAuthenticate = [
   '/terms'
 ]
 
+type Props = AppProps & {
+  account: object
+}
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const { account } = pageProps
 
